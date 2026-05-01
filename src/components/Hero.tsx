@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/data/site";
+import MagneticLink from "./MagneticLink";
+import SplitChars from "./SplitChars";
 
 /**
  * Hero — nanalike 톤의 인사 페이지.
@@ -37,18 +39,20 @@ export default function Hero() {
           Available Now
         </motion.p>
 
-        {/* Catch headline */}
-        <motion.h1
-          initial={reduce ? false : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.22, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        {/* Catch headline — 글자 단위 stagger + hover 웨이브 */}
+        <h1
           className="font-display font-medium leading-[1.05] tracking-tightest text-ink"
           style={{ fontSize: "clamp(2.6rem, 8vw, 6.5rem)" }}
         >
-          좋아하니까,
+          <SplitChars text="좋아하니까," delay={0.18} stagger={0.03} />
           <br />
-          <span className="font-serif-italic">{site.nickname}답게</span>
-        </motion.h1>
+          <SplitChars
+            text={`${site.nickname}답게`}
+            delay={0.42}
+            stagger={0.04}
+            charClassName="font-serif-italic"
+          />
+        </h1>
 
         {/* Body — 짧게 두 줄 */}
         <motion.div
@@ -68,14 +72,14 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3"
         >
-          <Link
+          <MagneticLink
             href="/work"
             data-cursor="label=VIEW"
             className="group inline-flex items-center gap-2 bg-ink text-bg pl-6 pr-5 py-3.5 text-[13px] rounded-full hover:opacity-90 transition"
           >
             작업물 보러가기
             <span aria-hidden className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
-          </Link>
+          </MagneticLink>
           <Link
             href="/contact"
             data-cursor="link"

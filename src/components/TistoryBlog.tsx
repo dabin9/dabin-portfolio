@@ -3,6 +3,7 @@ import { fetchTistoryPosts, type TistoryPost } from "@/lib/tistory";
 import { env } from "@/lib/env";
 import { site } from "@/data/site";
 import Reveal from "./Reveal";
+import SplitChars from "./SplitChars";
 
 /**
  * Tistory Blog — 베이지 배경 + 중앙 정렬 헤더, RSS 글 목록.
@@ -29,8 +30,13 @@ export default async function TistoryBlog() {
             className="mt-6 font-display font-medium leading-[1.2] tracking-tightest mx-auto max-w-[22ch]"
             style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
           >
-            차곡차곡 쌓아온{" "}
-            <span className="font-serif-italic">기록들.</span>
+            <SplitChars text="차곡차곡 쌓아온 " stagger={0.022} />
+            <SplitChars
+              text="기록들."
+              charClassName="font-serif-italic"
+              delay={0.32}
+              stagger={0.04}
+            />
           </h2>
           <div className="mt-6 mx-auto max-w-[58ch] space-y-1 text-[15px] md:text-[16px] leading-[1.85] text-inkMuted">
             {site.blogIntro.map((line, i) => (

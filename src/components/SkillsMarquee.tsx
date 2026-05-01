@@ -1,4 +1,5 @@
 import { marqueeSkills, skillGroups } from "@/data/skills";
+import SplitChars from "./SplitChars";
 
 export default function SkillsMarquee() {
   const loop = [...marqueeSkills, ...marqueeSkills];
@@ -16,9 +17,16 @@ export default function SkillsMarquee() {
           className="mt-6 font-display font-medium leading-[1.2] tracking-tightest mx-auto max-w-[22ch]"
           style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
         >
-          유행보다 <span className="font-serif-italic">문제</span>,
+          <SplitChars text="유행보다 " stagger={0.022} />
+          <SplitChars
+            text="문제"
+            charClassName="font-serif-italic"
+            delay={0.16}
+            stagger={0.05}
+          />
+          ,
           <br />
-          그 위에 시스템.
+          <SplitChars text="그 위에 시스템." delay={0.32} stagger={0.025} />
         </h2>
       </div>
 

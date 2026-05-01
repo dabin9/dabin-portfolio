@@ -1,12 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "./Reveal";
+import SplitChars from "./SplitChars";
+import TiltCard from "./TiltCard";
+import Spotlight from "./Spotlight";
+import CountUp from "./CountUp";
 import { site } from "@/data/site";
+import profileImg from "@/assets/IMG_7203.png";
 
 /**
- * About — 웜 베이지 배경 위에 중앙 정렬된 자기소개.
- * nanalike 의 "I do what i like" 섹션처럼 호흡이 큰 텍스트 블록으로 구성.
+ * About — 베이지 위에 프로필 이미지 + 자기소개 + 카운터.
+ * - 프로필: 3D 틸트 + 작은 라이브 닷
+ * - 섹션 위 커서 스포트라이트
+ * - 헤드라인은 글자별 stagger 등장
  */
 export default function About() {
   return (
@@ -15,47 +23,105 @@ export default function About() {
       className="relative border-b border-line"
       style={{ background: "rgb(var(--surface))" }}
     >
-      <div className="wrap py-28 md:py-40 text-center">
-        <p className="text-[12px] tracking-[0.4em] text-muted uppercase">
-          About
-        </p>
-        <p className="mt-3 font-serif-italic text-[20px] md:text-[24px] text-ink">
-          I do what i like
-        </p>
+      <Spotlight size={520} color="rgb(var(--ink) / 0.05)">
+        <div className="wrap py-28 md:py-36 grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+          {/* 좌: 프로필 이미지 */}
+          <div className="md:col-span-5 flex md:justify-end">
+            <TiltCard className="rounded-[28px]" maxTilt={9} lift={10}>
+              <div className="relative w-[260px] h-[320px] md:w-[300px] md:h-[380px] overflow-hidden rounded-[28px] bg-bg shadow-[0_20px_60px_-20px_rgb(0_0_0/0.18)]">
+                <Image
+                  src={profileImg}
+                  alt={`${site.name} 프로필`}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 300px, 260px"
+                  placeholder="blur"
+                  priority
+                />
+                {/* Available badge */}
+                <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 bg-bg/90 backdrop-blur-sm text-[12px] text-ink px-3 py-1.5 rounded-full border border-line">
+                  <span className="relative inline-flex">
+                    <span className="relative inline-block w-2 h-2 rounded-full bg-accent" />
+                    <span className="absolute inset-0 inline-block w-2 h-2 rounded-full bg-accent animate-ping opacity-70" />
+                  </span>
+                  Available
+                </span>
+              </div>
+            </TiltCard>
+          </div>
 
-        <h2
-          className="mt-6 font-display font-medium leading-[1.2] tracking-tightest mx-auto max-w-[24ch]"
-          style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
-        >
-          안녕하세요!
-          <br />
-          프론트엔드 개발자{" "}
-          <span className="font-serif-italic">{site.name}</span>입니다.
-        </h2>
+          {/* 우: 텍스트 */}
+          <div className="md:col-span-7">
+            <p className="text-[12px] tracking-[0.4em] text-muted uppercase">
+              About
+            </p>
 
-        <p className="mt-4 font-serif-italic text-[18px] text-muted">
-          a.k.a, {site.nickname}
-        </p>
+            <h2
+              className="mt-5 font-display font-medium leading-[1.2] tracking-tightest"
+              style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
+            >
+              <SplitChars text="안녕하세요!" delay={0.05} stagger={0.025} />
+              <br />
+              프론트엔드 개발자{" "}
+              <SplitChars
+                text={`${site.name}입니다.`}
+                delay={0.18}
+                stagger={0.03}
+              />
+            </h2>
 
-        <div className="mt-12 mx-auto max-w-[60ch] space-y-6 text-[16px] md:text-[17px] leading-[1.95] text-ink text-left">
-          {site.bio.slice(1).map((p, i) => (
-            <Reveal key={i} delay={i * 0.05}>
-              <p>{p}</p>
-            </Reveal>
-          ))}
+            <p className="mt-4 text-[16px] text-muted">a.k.a, {site.nickname}</p>
+
+            <div className="mt-8 max-w-[60ch] space-y-5 text-[15px] md:text-[16px] leading-[1.95] text-ink">
+              {site.bio.slice(1).map((p, i) => (
+                <Reveal key={i} delay={i * 0.05}>
+                  <p>{p}</p>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Counters */}
+            <div className="mt-10 grid grid-cols-3 gap-4 md:gap-6 max-w-[480px]">
+              <Stat value={3} suffix="+" label="Years coding" />
+              <Stat value={42} suffix="+" label="Projects shipped" />
+              <Stat value={110} suffix="K+" label="Blog readers" />
+            </div>
+
+            <div className="mt-10">
+              <Link
+                href="/contact"
+                data-cursor="link"
+                className="inline-flex items-center gap-2 text-[13px] text-ink border-b border-ink/30 hover:border-ink pb-1"
+              >
+                자기소개 더보기
+                <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
         </div>
-
-        <div className="mt-12">
-          <Link
-            href="/contact"
-            data-cursor="link"
-            className="inline-flex items-center gap-2 text-[13px] text-ink border-b border-ink/30 hover:border-ink pb-1"
-          >
-            자기소개 더보기
-            <span aria-hidden>→</span>
-          </Link>
-        </div>
-      </div>
+      </Spotlight>
     </section>
+  );
+}
+
+function Stat({
+  value,
+  suffix,
+  label
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+}) {
+  return (
+    <div>
+      <p
+        className="font-display font-medium leading-none tracking-tightest tabular-nums"
+        style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.4rem)" }}
+      >
+        <CountUp to={value} suffix={suffix} />
+      </p>
+      <p className="mt-2 text-[12px] text-muted">{label}</p>
+    </div>
   );
 }

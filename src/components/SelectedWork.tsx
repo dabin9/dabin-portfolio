@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { projects } from "@/data/projects";
 import { mockupMap } from "./mockups";
 import Reveal from "./Reveal";
+import TiltCard from "./TiltCard";
+import SplitChars from "./SplitChars";
 
 /**
  * Work Experience — 흰 배경 위 중앙 정렬 헤더 + 카드 그리드.
  * nanalike 스타일: 작업한 연도 / 관련 기술 / 근무처 메타 행.
  */
 export default function SelectedWork() {
-  const reduce = useReducedMotion();
   const featured = projects.filter((p) => p.featured);
 
   return (
@@ -28,8 +28,14 @@ export default function SelectedWork() {
             className="mt-6 font-display font-medium leading-[1.2] tracking-tightest"
             style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
           >
-            그동안 해온{" "}
-            <span className="font-serif-italic">즐거운</span> 작업들.
+            <SplitChars text="그동안 해온 " stagger={0.025} />
+            <SplitChars
+              text="즐거운"
+              charClassName="font-serif-italic"
+              delay={0.18}
+              stagger={0.03}
+            />
+            <SplitChars text=" 작업들." delay={0.35} stagger={0.025} />
           </h2>
         </div>
 
@@ -45,19 +51,16 @@ export default function SelectedWork() {
                     data-cursor="label=OPEN"
                     className="group block"
                   >
-                    <div className="relative overflow-hidden rounded-2xl border border-line bg-surface">
-                      <motion.div
-                        whileHover={reduce ? undefined : { scale: 1.02 }}
-                        transition={{ type: "spring", stiffness: 200, damping: 22 }}
-                      >
+                    <TiltCard className="rounded-2xl">
+                      <div className="relative overflow-hidden rounded-2xl border border-line bg-surface">
                         {Mock ? <Mock /> : null}
-                      </motion.div>
-                      {p.ongoing ? (
-                        <span className="absolute top-3 right-3 text-[11px] font-mono px-2.5 py-1 bg-ink text-bg rounded-full">
-                          Ongoing
-                        </span>
-                      ) : null}
-                    </div>
+                        {p.ongoing ? (
+                          <span className="absolute top-3 right-3 text-[11px] font-mono px-2.5 py-1 bg-ink text-bg rounded-full">
+                            Ongoing
+                          </span>
+                        ) : null}
+                      </div>
+                    </TiltCard>
 
                     <div className="mt-6">
                       <h3 className="font-display font-medium text-[22px] md:text-[26px] leading-[1.25] tracking-tight">
