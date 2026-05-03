@@ -46,6 +46,13 @@ export default async function AdminProjectsPage({
           >
             + 새 작업물
           </Link>
+          <Link
+            href="/admin/diag"
+            className="text-[13px] text-inkMuted hover:text-ink underline underline-offset-4 decoration-ink/30"
+            title="환경변수 진단"
+          >
+            진단
+          </Link>
           <form action="/api/admin/logout" method="POST">
             <button className="text-[13px] text-inkMuted hover:text-ink underline underline-offset-4 decoration-ink/30">
               로그아웃
