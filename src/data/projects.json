@@ -1,1 +1,71 @@
-[]
+[
+  {
+    "slug": "ai-0-대형-리조트-웹사이트-콘텐츠-관리-구조-및-ui-구현-벨포레리조트",
+    "title": "(AI 0%) 대형 리조트 웹사이트 콘텐츠 관리 구조 및 UI 구현 (벨포레리조트)",
+    "summary": ".",
+    "year": "2023.10",
+    "role": "UI",
+    "company": "개발",
+    "stack": [
+      "ㄴㅇㄹ"
+    ],
+    "highlights": [
+      "ㄴㄹㅇ"
+    ],
+    "links": [],
+    "featured": false,
+    "ongoing": false,
+    "bodyBlocks": [
+      {
+        "id": "c37b3924-eb72-4721-b11f-85414ec4eb97",
+        "type": "paragraph",
+        "props": {
+          "backgroundColor": "default",
+          "textColor": "default",
+          "textAlignment": "left"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ㄴㅇㄹ/",
+            "styles": {
+              "italic": true
+            }
+          }
+        ],
+        "children": []
+      },
+      {
+        "id": "d9701560-13bc-43e2-995e-ade5aa341670",
+        "type": "heading",
+        "props": {
+          "backgroundColor": "default",
+          "textColor": "default",
+          "textAlignment": "left",
+          "level": 1,
+          "isToggleable": false
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "데이터바인딩",
+            "styles": {}
+          }
+        ],
+        "children": []
+      },
+      {
+        "id": "768df1b6-6865-460c-bceb-1daf85c2886f",
+        "type": "paragraph",
+        "props": {
+          "backgroundColor": "default",
+          "textColor": "default",
+          "textAlignment": "left"
+        },
+        "content": [],
+        "children": []
+      }
+    ],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c37b3924-eb72-4721-b11f-85414ec4eb97\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c37b3924-eb72-4721-b11f-85414ec4eb97\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><em>ㄴㅇㄹ/</em></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d9701560-13bc-43e2-995e-ade5aa341670\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d9701560-13bc-43e2-995e-ade5aa341670\"><div class=\"bn-block-content\" data-content-type=\"heading\"><h1 class=\"bn-inline-content\">데이터바인딩</h1></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"768df1b6-6865-460c-bceb-1daf85c2886f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"768df1b6-6865-460c-bceb-1daf85c2886f\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+  }
+]
