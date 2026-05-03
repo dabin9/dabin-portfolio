@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, type ChangeEvent, type DragEvent } from "react";
+import { uploadImage } from "@/lib/clientUpload";
 
 type Props = {
   name: string;
@@ -31,14 +32,7 @@ export default function ImageUpload({
     setBusy(true);
     setError(null);
     try {
-      const fd = new FormData();
-      fd.append("file", file);
-      const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
-      if (!res.ok) {
-        const j = (await res.json().catch(() => ({}))) as { error?: string };
-        throw new Error(j.error || `업로드 실패 (${res.status})`);
-      }
-      const { url: next } = (await res.json()) as { url: string };
+      const next = await uploadImage(file);
       setUrl(next);
     } catch (e) {
       setError((e as Error).message);

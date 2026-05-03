@@ -22,6 +22,7 @@ export default function ProjectForm({ project, mode }: Props) {
 
   return (
     <form action={saveProjectAction} className="space-y-8">
+      <input type="hidden" name="mode" value={mode} />
       <div className="grid md:grid-cols-2 gap-5">
         <Field label="제목" name="title" defaultValue={project?.title} required />
         <Field

@@ -4,7 +4,7 @@ import { getAdminProjects, deleteProjectAction } from "../actions";
 export default async function AdminProjectsPage({
   searchParams
 }: {
-  searchParams: Promise<{ saved?: string; deleted?: string }>;
+  searchParams: Promise<{ saved?: string; deleted?: string; error?: string }>;
 }) {
   const sp = await searchParams;
   const projects = await getAdminProjects();
@@ -40,6 +40,11 @@ export default async function AdminProjectsPage({
       {sp.deleted ? (
         <p className="mt-6 text-[13px] text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-4 py-2.5">
           삭제됨.
+        </p>
+      ) : null}
+      {sp.error ? (
+        <p className="mt-6 text-[13px] text-red-700 bg-red-50 border border-red-200 rounded-md px-4 py-2.5 whitespace-pre-line">
+          {sp.error}
         </p>
       ) : null}
 
