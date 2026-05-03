@@ -17,7 +17,6 @@ const config: Config = {
         line: "rgb(var(--line) / <alpha-value>)",
         lineStrong: "rgb(var(--line-strong) / <alpha-value>)",
         brand: "rgb(var(--brand) / <alpha-value>)",
-        accent: "rgb(var(--brand) / <alpha-value>)", // 구파일 호환
         brandInk: "rgb(var(--brand-ink) / <alpha-value>)",
         accent: "rgb(var(--accent) / <alpha-value>)",
         cobalt: "rgb(var(--cobalt) / <alpha-value>)",
