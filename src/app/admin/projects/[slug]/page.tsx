@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { isLoggedIn } from "@/lib/auth";
 import { readProjectsFresh } from "@/lib/storage";
+import { allTags as collectTags } from "@/data/projects";
 import ProjectForm from "@/components/admin/ProjectForm";
 
 type Params = { slug: string };
@@ -40,7 +41,7 @@ export default async function EditProjectPage({
       ) : null}
 
       <div className="mt-10">
-        <ProjectForm mode="edit" project={project} />
+        <ProjectForm mode="edit" project={project} allTags={collectTags(projects)} />
       </div>
     </main>
   );

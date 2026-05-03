@@ -9,6 +9,8 @@ type Props = {
   label?: string;
   /** 표시 비율 (예: "16/10") */
   aspect?: string;
+  /** true 면 작은 사이즈로 (admin 폼에서 가로 3열에 어울리게) */
+  compact?: boolean;
 };
 
 /**
@@ -21,7 +23,8 @@ export default function ImageUpload({
   name,
   defaultValue = "",
   label = "썸네일",
-  aspect = "16/10"
+  aspect = "16/10",
+  compact = false
 }: Props) {
   const [url, setUrl] = useState(defaultValue);
   const [busy, setBusy] = useState(false);
@@ -71,14 +74,16 @@ export default function ImageUpload({
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 text-[13px] text-muted">
-            <span className="text-[26px] mb-1">⤴</span>
-            <span>이미지 드롭하거나 클릭해서 업로드</span>
-            <span className="text-[11px] mt-1">JPG · PNG · WEBP · GIF (max 8MB)</span>
+          <div className={"absolute inset-0 flex flex-col items-center justify-center text-center px-3 text-muted " + (compact ? "text-[11px]" : "text-[13px]")}>
+            <span className={compact ? "text-[18px] mb-0.5" : "text-[26px] mb-1"}>⤴</span>
+            <span>이미지 드롭 또는 클릭</span>
+            {!compact ? (
+              <span className="text-[11px] mt-1">JPG · PNG · WEBP · GIF (max 8MB)</span>
+            ) : null}
           </div>
         )}
         {busy ? (
-          <div className="absolute inset-0 bg-ink/30 backdrop-blur-sm flex items-center justify-center text-bg text-[13px]">
+          <div className="absolute inset-0 bg-ink/30 backdrop-blur-sm flex items-center justify-center text-bg text-[12px]">
             업로드 중…
           </div>
         ) : null}

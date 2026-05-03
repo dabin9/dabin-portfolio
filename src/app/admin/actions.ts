@@ -8,7 +8,7 @@ import {
   deleteProjectBySlug,
   readProjectsFresh
 } from "@/lib/storage";
-import type { Project, ProjectBlock } from "@/data/projects";
+import type { Project, ProjectBlock, ProjectStatus } from "@/data/projects";
 
 /* ---------- Project CRUD ---------- */
 
@@ -52,6 +52,16 @@ function projectFromForm(
   const title = String(formData.get("title") || "").trim();
   const slugInput = String(formData.get("slug") || "").trim();
   const slug = slugInput ? slugify(slugInput) : slugify(title);
+  const altText = String(formData.get("altText") || "").trim().slice(0, 6);
+  const contribRaw = String(formData.get("contribution") || "").trim();
+  const contribNum = contribRaw === "" ? undefined : Math.max(0, Math.min(100, Number(contribRaw)));
+  const orderRaw = String(formData.get("order") || "").trim();
+  const orderNum = orderRaw === "" ? undefined : Number(orderRaw);
+  const statusRaw = String(formData.get("status") || "published");
+  const status: ProjectStatus = ["published", "draft", "private"].includes(statusRaw)
+    ? (statusRaw as ProjectStatus)
+    : "published";
+
   return {
     slug,
     title,
@@ -60,11 +70,17 @@ function projectFromForm(
     role: String(formData.get("role") || "").trim(),
     company: String(formData.get("company") || "").trim() || undefined,
     thumbnail: String(formData.get("thumbnail") || "").trim() || undefined,
+    altText: altText || undefined,
+    hoverImage: String(formData.get("hoverImage") || "").trim() || undefined,
     stack: parseList(String(formData.get("stack") || "")),
+    tags: parseList(String(formData.get("tags") || "")),
+    contribution: Number.isFinite(contribNum) ? contribNum : undefined,
     highlights: parseList(String(formData.get("highlights") || "")),
     links: parseLinks(String(formData.get("links") || "")),
     featured: formData.get("featured") === "on",
     ongoing: formData.get("ongoing") === "on",
+    order: Number.isFinite(orderNum) ? orderNum : undefined,
+    status,
     bodyBlocks: blocks,
     bodyHtml: bodyHtml || undefined
   };

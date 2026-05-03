@@ -1,25 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { projects } from "@/data/projects";
+import { projects, publicProjects } from "@/data/projects";
 import { mockupMap } from "./mockups";
 import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
 import SplitChars from "./SplitChars";
+import WorkCardMedia from "./WorkCardMedia";
 
 /**
- * Work Experience — 흰 배경 위 중앙 정렬 헤더 + 카드 그리드.
- * nanalike 스타일: 작업한 연도 / 관련 기술 / 근무처 메타 행.
+ * 핵심 프로젝트 — 발행된 작업물 중 featured 만, order 큰 순서대로 노출.
  */
 export default function SelectedWork() {
-  const featured = projects.filter((p) => p.featured);
+  const featured = publicProjects(projects).filter((p) => p.featured);
 
   return (
     <section id="work" className="bg-bg border-b border-line">
       <div className="wrap py-28 md:py-36">
         <div className="text-center mb-16 md:mb-20">
           <p className="text-[12px] tracking-[0.4em] text-muted uppercase">
-            Work Experience
+            Work
           </p>
           <p className="mt-3 font-serif-italic text-[20px] md:text-[24px] text-ink">
             I like what i do
@@ -28,14 +28,7 @@ export default function SelectedWork() {
             className="mt-6 font-display font-medium leading-[1.2] tracking-tightest"
             style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
           >
-            <SplitChars text="그동안 해온 " stagger={0.025} />
-            <SplitChars
-              text="즐거운"
-              charClassName="font-serif-italic"
-              delay={0.18}
-              stagger={0.03}
-            />
-            <SplitChars text=" 작업들." delay={0.35} stagger={0.025} />
+            <SplitChars text="핵심 프로젝트." stagger={0.03} />
           </h2>
         </div>
 
@@ -52,27 +45,13 @@ export default function SelectedWork() {
                     className="group block"
                   >
                     <TiltCard className="rounded-2xl">
-                      <div
-                        className="relative overflow-hidden rounded-2xl border border-line bg-surface"
-                        style={p.thumbnail ? { aspectRatio: "16/10" } : undefined}
-                      >
-                        {p.thumbnail ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={p.thumbnail}
-                            alt=""
-                            className="absolute inset-0 w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        ) : Mock ? (
-                          <Mock />
-                        ) : null}
-                        {p.ongoing ? (
-                          <span className="absolute top-3 right-3 text-[11px] font-mono px-2.5 py-1 bg-ink text-bg rounded-full">
-                            Ongoing
-                          </span>
-                        ) : null}
-                      </div>
+                      <WorkCardMedia
+                        thumbnail={p.thumbnail}
+                        hoverImage={p.hoverImage}
+                        altText={p.altText}
+                        ongoing={p.ongoing}
+                        fallback={Mock ? <Mock /> : null}
+                      />
                     </TiltCard>
 
                     <div className="mt-6">

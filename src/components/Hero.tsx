@@ -44,13 +44,12 @@ export default function Hero() {
           className="font-display font-medium leading-[1.05] tracking-tightest text-ink"
           style={{ fontSize: "clamp(2.6rem, 8vw, 6.5rem)" }}
         >
-          <SplitChars text="좋아하니까," delay={0.18} stagger={0.03} />
+          <SplitChars text="누구든지" delay={0.18} stagger={0.04} />
           <br />
           <SplitChars
-            text={`${site.nickname}답게`}
+            text="어디서나 더 쉽게"
             delay={0.42}
-            stagger={0.04}
-            charClassName="font-serif-italic"
+            stagger={0.035}
           />
         </h1>
 

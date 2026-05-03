@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { isLoggedIn } from "@/lib/auth";
+import { readProjectsFresh } from "@/lib/storage";
+import { allTags as collectTags } from "@/data/projects";
 import ProjectForm from "@/components/admin/ProjectForm";
 
 export default async function NewProjectPage({
@@ -10,6 +12,8 @@ export default async function NewProjectPage({
 }) {
   if (!(await isLoggedIn())) redirect("/admin?next=/admin/projects/new");
   const sp = await searchParams;
+  const { projects } = await readProjectsFresh();
+  const tags = collectTags(projects);
 
   return (
     <main className="wrap py-12 max-w-[960px] mx-auto">
@@ -31,7 +35,7 @@ export default async function NewProjectPage({
       ) : null}
 
       <div className="mt-10">
-        <ProjectForm mode="new" />
+        <ProjectForm mode="new" allTags={tags} />
       </div>
     </main>
   );

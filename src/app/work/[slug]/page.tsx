@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProject, projects } from "@/data/projects";
+import { getProject, projects, publicProjects } from "@/data/projects";
 import { mockupMap } from "@/components/mockups";
 import BlockRenderer from "@/components/BlockRenderer";
 import BlockClientRenderer from "@/components/BlockClientRendererLazy";
@@ -8,7 +8,7 @@ import BlockClientRenderer from "@/components/BlockClientRendererLazy";
 type Params = { slug: string };
 
 export function generateStaticParams(): Params[] {
-  return projects.map((p) => ({ slug: p.slug }));
+  return publicProjects(projects).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -30,10 +30,13 @@ export default async function ProjectPage({
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
+  // 비공개/임시저장은 공개 페이지에서 404
+  if ((project.status ?? "published") !== "published") notFound();
 
-  const i = projects.findIndex((p) => p.slug === project.slug);
-  const prev = projects[(i - 1 + projects.length) % projects.length];
-  const next = projects[(i + 1) % projects.length];
+  const visible = publicProjects(projects);
+  const i = visible.findIndex((p) => p.slug === project.slug);
+  const prev = visible[(i - 1 + visible.length) % visible.length];
+  const next = visible[(i + 1) % visible.length];
   const Mock = mockupMap[project.slug];
 
   return (
@@ -96,6 +99,34 @@ export default async function ProjectPage({
                 <span key={s}>{s}</span>
               ))}
             </div>
+            {project.tags && project.tags.length > 0 ? (
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {project.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="text-[11px] px-2 py-0.5 border border-line rounded-full text-inkMuted"
+                  >
+                    #{t}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+            {typeof project.contribution === "number" ? (
+              <div className="mt-5">
+                <div className="flex items-baseline justify-between text-[12px]">
+                  <span className="text-muted">기여도</span>
+                  <span className="text-ink font-mono tabular-nums">
+                    {project.contribution}%
+                  </span>
+                </div>
+                <div className="mt-2 h-1 w-full bg-surface rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-ink transition-[width] duration-700"
+                    style={{ width: `${project.contribution}%` }}
+                  />
+                </div>
+              </div>
+            ) : null}
           </div>
         </header>
 

@@ -70,8 +70,6 @@ export default function About() {
               />
             </h2>
 
-            <p className="mt-4 text-[16px] text-muted">a.k.a, {site.nickname}</p>
-
             <div className="mt-8 max-w-[60ch] space-y-5 text-[15px] md:text-[16px] leading-[1.95] text-ink">
               {site.bio.slice(1).map((p, i) => (
                 <Reveal key={i} delay={i * 0.05}>
@@ -80,22 +78,10 @@ export default function About() {
               ))}
             </div>
 
-            {/* Counters */}
-            <div className="mt-10 grid grid-cols-3 gap-4 md:gap-6 max-w-[480px]">
+            {/* Counters — 2개 또는 다른 지표로 대체 가능 */}
+            <div className="mt-10 grid grid-cols-2 gap-4 md:gap-6 max-w-[420px]">
               <Stat value={3} suffix="+" label="Years coding" />
               <Stat value={42} suffix="+" label="Projects shipped" />
-              <Stat value={110} suffix="K+" label="Blog readers" />
-            </div>
-
-            <div className="mt-10">
-              <Link
-                href="/contact"
-                data-cursor="link"
-                className="inline-flex items-center gap-2 text-[13px] text-ink border-b border-ink/30 hover:border-ink pb-1"
-              >
-                자기소개 더보기
-                <span aria-hidden>→</span>
-              </Link>
             </div>
           </div>
         </div>
