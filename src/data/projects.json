@@ -1,32 +1,5 @@
 [
   {
-    "slug": "commerce-frontend",
-    "title": "커머스 프론트엔드 리플랫폼",
-    "summary": "레거시 커머스를 Next.js App Router 기반으로 리라이트. 데이터 패칭과 렌더링 전략을 재설계해 체감 속도를 개선.",
-    "year": "24",
-    "role": "Frontend Engineer",
-    "company": "리테일 커머스 본부",
-    "stack": [
-      "Next.js",
-      "RSC",
-      "TanStack Query",
-      "Edge Runtime"
-    ],
-    "highlights": [
-      "LCP 3.4s → 1.2s, CLS 0.21 → 0.03 까지 개선",
-      "상품 상세 페이지를 RSC + partial prerendering 구조로 재구성",
-      "구매 전환 퍼널의 A/B 테스트 기반을 구축"
-    ],
-    "links": [
-      {
-        "label": "Live",
-        "href": "#"
-      }
-    ],
-    "featured": true,
-    "bodyBlocks": []
-  },
-  {
     "slug": "interactive-editor",
     "title": "협업용 인터랙티브 에디터",
     "summary": "CRDT 기반 실시간 협업 에디터의 인터페이스를 설계. 커서/선택 영역 싱크와 대용량 문서 렌더 최적화를 담당.",
