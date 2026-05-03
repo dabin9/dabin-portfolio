@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getProject, projects } from "@/data/projects";
 import { mockupMap } from "@/components/mockups";
+import BlockRenderer from "@/components/BlockRenderer";
 
 type Params = { slug: string };
 
@@ -101,6 +102,17 @@ export default async function ProjectPage({
             ))}
           </ul>
         </section>
+
+        {project.bodyHtml ? (
+          <section className="mt-16 grid md:grid-cols-12 gap-8">
+            <div className="md:col-span-3">
+              <p className="text-[13px] text-muted">Notes</p>
+            </div>
+            <div className="md:col-span-9 max-w-[760px]">
+              <BlockRenderer html={project.bodyHtml} />
+            </div>
+          </section>
+        ) : null}
       </div>
 
       <nav className="border-t border-line">
