@@ -1,0 +1,60 @@
+/* Notion 같은 호흡으로 BlockNote 외관 보정.
+   - 기본 보더/그림자 제거 → 화면에 푹 잠긴 느낌
+   - 헤딩 사이즈 키움 (Notion 비슷한 위계)
+   - 본문 폭 760px 정도, 패딩 넉넉히
+   - 슬래시 메뉴 카드는 그대로 둠 (이미 깔끔함)
+*/
+
+.dabin-blocknote {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 36px;
+  border: 1px solid rgb(var(--line));
+  min-height: 520px;
+}
+
+.dabin-blocknote .bn-editor {
+  padding: 0 !important;
+  font-family: var(--font-display), "Pretendard Variable", Pretendard,
+    Inter, system-ui, sans-serif;
+  font-size: 16px;
+  color: rgb(var(--ink));
+}
+
+/* Notion-ish heading sizes */
+.dabin-blocknote h1.bn-block-content {
+  font-size: 2.05em !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin-top: 1.4em !important;
+}
+.dabin-blocknote h2.bn-block-content {
+  font-size: 1.55em !important;
+  font-weight: 600 !important;
+  line-height: 1.25 !important;
+  margin-top: 1.3em !important;
+}
+.dabin-blocknote h3.bn-block-content {
+  font-size: 1.22em !important;
+  font-weight: 600 !important;
+  margin-top: 1.15em !important;
+}
+
+/* Paragraph spacing */
+.dabin-blocknote p.bn-block-content {
+  line-height: 1.7 !important;
+}
+
+/* Inline code */
+.dabin-blocknote code {
+  background: rgb(var(--surface));
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Image blocks: roomy + radius */
+.dabin-blocknote .bn-file-block-content-wrapper img,
+.dabin-blocknote .bn-image {
+  border-radius: 10px;
+}

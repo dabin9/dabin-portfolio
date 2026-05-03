@@ -52,8 +52,21 @@ export default function SelectedWork() {
                     className="group block"
                   >
                     <TiltCard className="rounded-2xl">
-                      <div className="relative overflow-hidden rounded-2xl border border-line bg-surface">
-                        {Mock ? <Mock /> : null}
+                      <div
+                        className="relative overflow-hidden rounded-2xl border border-line bg-surface"
+                        style={p.thumbnail ? { aspectRatio: "16/10" } : undefined}
+                      >
+                        {p.thumbnail ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={p.thumbnail}
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : Mock ? (
+                          <Mock />
+                        ) : null}
                         {p.ongoing ? (
                           <span className="absolute top-3 right-3 text-[11px] font-mono px-2.5 py-1 bg-ink text-bg rounded-full">
                             Ongoing

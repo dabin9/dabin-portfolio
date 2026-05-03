@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import BlockEditor from "./BlockEditorLazy";
+import ImageUpload from "./ImageUpload";
 import type { Project } from "@/data/projects";
 import { saveProjectAction } from "@/app/admin/actions";
 
@@ -35,6 +36,8 @@ export default function ProjectForm({ project, mode }: Props) {
       </div>
 
       <Textarea label="요약" name="summary" rows={3} defaultValue={project?.summary} />
+
+      <ImageUpload name="thumbnail" defaultValue={project?.thumbnail} />
 
       <div className="grid md:grid-cols-3 gap-5">
         <Field label="연도" name="year" defaultValue={project?.year} />

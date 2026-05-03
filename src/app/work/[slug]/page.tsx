@@ -75,7 +75,21 @@ export default async function ProjectPage({
             ) : null}
           </div>
           <div className="md:col-span-5">
-            {Mock ? <Mock /> : null}
+            {project.thumbnail ? (
+              <div
+                className="relative w-full overflow-hidden rounded-2xl border border-line bg-surface"
+                style={{ aspectRatio: "16/10" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.thumbnail}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ) : Mock ? (
+              <Mock />
+            ) : null}
             <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-[12px] text-muted">
               {project.stack.map((s) => (
                 <span key={s}>{s}</span>

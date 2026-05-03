@@ -32,6 +32,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# 로컬 업로드 (dev 전용 — prod 는 Vercel Blob)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
 # vercel
 .vercel
 

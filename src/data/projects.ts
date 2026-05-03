@@ -13,6 +13,8 @@ export type Project = {
   role: string;
   /** 근무처/소속 */
   company?: string;
+  /** 썸네일 이미지 URL (업로드된 blob 또는 외부 URL) */
+  thumbnail?: string;
   stack: string[];
   highlights: string[];
   links?: ProjectLink[];

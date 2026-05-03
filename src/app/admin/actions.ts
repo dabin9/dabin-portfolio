@@ -59,6 +59,7 @@ function projectFromForm(
     year: String(formData.get("year") || "").trim(),
     role: String(formData.get("role") || "").trim(),
     company: String(formData.get("company") || "").trim() || undefined,
+    thumbnail: String(formData.get("thumbnail") || "").trim() || undefined,
     stack: parseList(String(formData.get("stack") || "")),
     highlights: parseList(String(formData.get("highlights") || "")),
     links: parseLinks(String(formData.get("links") || "")),
