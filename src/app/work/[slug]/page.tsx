@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getProject, projects } from "@/data/projects";
 import { mockupMap } from "@/components/mockups";
 import BlockRenderer from "@/components/BlockRenderer";
+import BlockClientRenderer from "@/components/BlockClientRendererLazy";
 
 type Params = { slug: string };
 
@@ -117,13 +118,17 @@ export default async function ProjectPage({
           </ul>
         </section>
 
-        {project.bodyHtml ? (
+        {project.bodyHtml || (project.bodyBlocks && project.bodyBlocks.length > 0) ? (
           <section className="mt-16 grid md:grid-cols-12 gap-8">
             <div className="md:col-span-3">
               <p className="text-[13px] text-muted">Notes</p>
             </div>
             <div className="md:col-span-9 max-w-[760px]">
-              <BlockRenderer html={project.bodyHtml} />
+              {project.bodyHtml ? (
+                <BlockRenderer html={project.bodyHtml} />
+              ) : (
+                <BlockClientRenderer blocks={project.bodyBlocks ?? []} />
+              )}
             </div>
           </section>
         ) : null}

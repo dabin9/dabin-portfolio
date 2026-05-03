@@ -1,12 +1,14 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { forwardRef } from "react";
+import type { BlockEditorHandle } from "./BlockEditor";
 
 /**
- * BlockNote 는 useCreateBlockNote 안에서 window 에 접근하므로
- * SSR 을 끄고 클라이언트에서만 마운트한다.
+ * BlockNote 는 useCreateBlockNote 안에서 window 에 접근 → SSR 에서 실패.
+ * dynamic 으로 ssr:false 마운트하되 ref 도 forward 한다.
  */
-const BlockEditor = dynamic(() => import("./BlockEditor"), {
+const Inner = dynamic(() => import("./BlockEditor"), {
   ssr: false,
   loading: () => (
     <div className="border border-line rounded-xl bg-white px-6 py-12 text-[13px] text-muted">
@@ -15,4 +17,14 @@ const BlockEditor = dynamic(() => import("./BlockEditor"), {
   )
 });
 
-export default BlockEditor;
+type Props = {
+  initialBlocks?: unknown[];
+  blocksFieldName?: string;
+  htmlFieldName?: string;
+};
+
+const BlockEditorLazy = forwardRef<BlockEditorHandle, Props>(function BlockEditorLazy(props, ref) {
+  return <Inner {...props} ref={ref} />;
+});
+
+export default BlockEditorLazy;

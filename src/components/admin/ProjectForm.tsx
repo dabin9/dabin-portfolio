@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useRef, useState, type FormEvent } from "react";
 import BlockEditor from "./BlockEditorLazy";
+import type { BlockEditorHandle } from "./BlockEditor";
 import ImageUpload from "./ImageUpload";
 import type { Project } from "@/data/projects";
 import { saveProjectAction } from "@/app/admin/actions";
@@ -13,16 +15,45 @@ type Props = {
 
 /**
  * ProjectForm — 작업물 메타 + 본문(BlockNote) 편집 폼.
- * server action 으로 직접 제출.
+ *
+ * BlockNote 의 HTML 직렬화는 async — onChange 만 의존하면
+ * 빠른 submit 에서 race 가 난다. 그래서 submit 직전에 명시적으로
+ * editorRef.flushToInputs() 를 await 해서 최신 HTML 을 보장한다.
  */
 export default function ProjectForm({ project, mode }: Props) {
+  const editorRef = useRef<BlockEditorHandle>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [submitting, setSubmitting] = useState(false);
+
   const linksValue = (project?.links ?? [])
     .map((l) => `${l.label} | ${l.href}`)
     .join("\n");
 
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      // 1) 에디터의 최신 상태를 hidden 인풋에 동기화
+      await editorRef.current?.flushToInputs();
+      // 2) 갱신된 인풋 값으로 FormData 수집 후 server action 호출
+      const fd = new FormData(formRef.current!);
+      await saveProjectAction(fd);
+      // server action 이 redirect 하므로 여기 도달하지 않음
+    } catch (err) {
+      // server action 의 redirect 는 NEXT_REDIRECT throw — 정상 흐름이라 무시
+      const msg = (err as Error)?.message || "";
+      if (!msg.includes("NEXT_REDIRECT")) {
+        alert("저장 실패: " + msg);
+        setSubmitting(false);
+      }
+    }
+  }
+
   return (
-    <form action={saveProjectAction} className="space-y-8">
+    <form ref={formRef} onSubmit={onSubmit} className="space-y-8">
       <input type="hidden" name="mode" value={mode} />
+
       <div className="grid md:grid-cols-2 gap-5">
         <Field label="제목" name="title" defaultValue={project?.title} required />
         <Field
@@ -73,15 +104,16 @@ export default function ProjectForm({ project, mode }: Props) {
 
       <div>
         <p className="text-[13px] text-ink mb-2">본문</p>
-        <BlockEditor initialBlocks={project?.bodyBlocks} />
+        <BlockEditor ref={editorRef} initialBlocks={project?.bodyBlocks} />
       </div>
 
       <div className="flex items-center gap-4 pt-4 border-t border-line">
         <button
           type="submit"
-          className="bg-ink text-bg px-5 py-2.5 rounded-md text-[13px] hover:opacity-90 transition"
+          disabled={submitting}
+          className="bg-ink text-bg px-5 py-2.5 rounded-md text-[13px] hover:opacity-90 transition disabled:opacity-50"
         >
-          {mode === "new" ? "추가" : "저장"}
+          {submitting ? "저장 중…" : mode === "new" ? "추가" : "저장"}
         </button>
         <Link
           href="/admin/projects"
