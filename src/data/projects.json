@@ -13,7 +13,7 @@
       "하이라이트 Test"
     ],
     "links": [],
-    "featured": false,
+    "featured": true,
     "ongoing": false,
     "bodyBlocks": [
       {
@@ -63,7 +63,6 @@
         "content": [],
         "children": []
       }
-    ],
-    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5b5f090d-172d-495b-8fc6-688990114eeb\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5b5f090d-172d-495b-8fc6-688990114eeb\"><div class=\"bn-block-content\" data-content-type=\"heading\"><h1 class=\"bn-inline-content\">데이터 바인딩</h1></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b9f98f7d-b8b4-42a8-ae91-46699b53a1e8\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b9f98f7d-b8b4-42a8-ae91-46699b53a1e8\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">test</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"792afc66-63a4-4499-983e-7d4e31f6743e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"792afc66-63a4-4499-983e-7d4e31f6743e\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+    ]
   }
 ]
