@@ -7,19 +7,16 @@ function fallback(value: string | undefined, fb = ""): string {
   return value && value.trim().length > 0 ? value.trim() : fb;
 }
 
-const tistoryName = fallback(process.env.NEXT_PUBLIC_TISTORY_NAME);
-const tistoryUrl = tistoryName
-  ? `https://${tistoryName}.tistory.com`
-  : fallback(process.env.NEXT_PUBLIC_TISTORY_URL);
-
 export const env = {
-  email: fallback(process.env.NEXT_PUBLIC_CONTACT_EMAIL, "ekqls940919@gmail.com"),
-  github: fallback(process.env.NEXT_PUBLIC_GITHUB_URL, "https://github.com/didrod205"),
+  github: fallback(process.env.NEXT_PUBLIC_GITHUB_URL, "https://github.com/dabin9"),
+  email: fallback(
+    process.env.NEXT_PUBLIC_EMAIL,
+    fallback(process.env.NEXT_PUBLIC_CONTACT_EMAIL)
+  ),
   linkedin: fallback(process.env.NEXT_PUBLIC_LINKEDIN_URL),
-  blog: fallback(process.env.NEXT_PUBLIC_BLOG_URL, tistoryUrl),
+  blog: fallback(process.env.NEXT_PUBLIC_BLOG_URL),
   resume: fallback(process.env.NEXT_PUBLIC_RESUME_URL),
-  /** Tistory 블로그 베이스 URL (예: https://yourname.tistory.com). 비어있으면 블로그 섹션이 안내 상태로 표시됩니다. */
-  tistory: tistoryUrl
+  notion: fallback(process.env.NEXT_PUBLIC_NOTION_URL, "https://davins.notion.site/2026-3557f37f13f4806ea50fd66de428dd5b?pvs=74)")
 } as const;
 
 export type SiteEnv = typeof env;

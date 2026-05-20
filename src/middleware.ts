@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { isLocalDevAdminBypassHost } from "@/lib/adminAccess";
 
 /**
  * /admin 하위 경로 진입 전 쿠키만 가볍게 검사 (1차 게이트).
@@ -10,6 +11,9 @@ import { NextResponse, type NextRequest } from "next/server";
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (pathname === "/admin" || !pathname.startsWith("/admin")) {
+    return NextResponse.next();
+  }
+  if (isLocalDevAdminBypassHost(req.headers.get("host"))) {
     return NextResponse.next();
   }
   const cookie = req.cookies.get("dabin_admin");

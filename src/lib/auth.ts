@@ -9,7 +9,8 @@
  */
 
 import crypto from "node:crypto";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
+import { isLocalDevAdminBypassHost } from "./adminAccess";
 
 const COOKIE = "dabin_admin";
 const MAX_AGE = 60 * 60 * 24 * 14; // 14일
@@ -19,7 +20,18 @@ function tokenFor(password: string) {
   return crypto.createHmac("sha256", secret).update(password).digest("hex");
 }
 
+async function isLocalDevAdminBypass() {
+  try {
+    const h = await headers();
+    return isLocalDevAdminBypassHost(h.get("host") || h.get("x-forwarded-host"));
+  } catch {
+    return false;
+  }
+}
+
 export async function isLoggedIn(): Promise<boolean> {
+  if (await isLocalDevAdminBypass()) return true;
+
   const expected = process.env.ADMIN_PASSWORD;
   if (!expected) return false;
   const c = (await cookies()).get(COOKIE)?.value;
@@ -35,6 +47,8 @@ export async function isLoggedIn(): Promise<boolean> {
 }
 
 export async function login(password: string): Promise<boolean> {
+  if (await isLocalDevAdminBypass()) return true;
+
   const expected = process.env.ADMIN_PASSWORD;
   if (!expected || password !== expected) return false;
   (await cookies()).set(COOKIE, tokenFor(expected), {

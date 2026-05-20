@@ -1,154 +1,122 @@
-"use client";
-
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import type { ReactNode } from "react";
+import CountUp from "@/components/CountUp";
 import { site } from "@/data/site";
-import MagneticLink from "./MagneticLink";
-import SplitChars from "./SplitChars";
+import { env } from "@/lib/env";
 
-/**
- * Hero — nanalike 톤의 인사 페이지.
- * 흰 배경 + 중앙 정렬 + 큰 캐치 카피 + 부드러운 페이드 인.
- * 화려한 그라디언트 대신 타이포의 호흡으로 분위기를 만든다.
- */
+const archiveLinks = [
+  { label: "Selected Works", href: "#work" },
+  env.resume ? { label: "Resume", href: env.resume, external: true } : null,
+  { label: "Notion Archive", href: env.notion || "/blog", external: Boolean(env.notion) },
+  { label: "GitHub", href: env.github, external: true }
+].filter(Boolean) as { label: string; href: string; external?: boolean }[];
+
 export default function Hero() {
-  const reduce = useReducedMotion();
+  const years = parseStat(site.year);
+  const projects = parseStat(site.projects);
 
   return (
-    <section
-      className="relative bg-bg border-b border-line overflow-hidden"
-      style={{ minHeight: "calc(100svh - 56px)" }}
-    >
-      <DriftingText />
+    <section className="bg-bg border-b border-line">
+      <div className="wrap pt-20 md:pt-28 pb-16 md:pb-24">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-14">
+          <div className="md:col-span-3">
+            <p className="font-mono text-[12px] uppercase text-muted">
+              Frontend Archive
+            </p>
+            <dl className="mt-8 space-y-4 text-[13px]">
+              <Meta label="Name" value={site.name} />
+              <Meta label="year" value={<AnimatedStat stat={years} />} />
+              <Meta label="projects" value={<AnimatedStat stat={projects} />} />
+              <Meta label="Base" value={site.location} />
+              <Meta label="Focus" value="Web UI / CMS" />
+            </dl>
+          </div>
 
-      <div
-        className="relative wrap text-center flex flex-col items-center justify-center gap-7 md:gap-9 py-24"
-        style={{ minHeight: "calc(100svh - 56px)" }}
-      >
-        {/* Available Now */}
-        <motion.p
-          initial={reduce ? false : { opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="inline-flex items-center gap-2 text-[12px] text-inkMuted"
-        >
-          <span className="relative inline-flex">
-            <span className="relative inline-block w-2 h-2 rounded-full bg-accent" />
-            <span className="absolute inset-0 inline-block w-2 h-2 rounded-full bg-accent animate-ping opacity-70" />
-          </span>
-          Available Now
-        </motion.p>
+          <div className="md:col-span-9">
+            <p className=" text-2xl md:text-3xl text-brand">
+              <AnimatedStat stat={years} /> years of experience,{" "}
+              <AnimatedStat stat={projects} /> projects and counting.
+            </p>
+            <h1 className="mt-4 max-w-[10ch] font-display text-5xl md:text-7xl lg:text-8xl leading-none text-ink">
+              Frontend Work Archive
+            </h1>
 
-        {/* Catch headline — 글자 단위 stagger + hover 웨이브 */}
-        <h1
-          className="font-display font-medium leading-[1.05] tracking-tightest text-ink"
-          style={{ fontSize: "clamp(2.6rem, 8vw, 6.5rem)" }}
-        >
-          <SplitChars text="누구든지" delay={0.18} stagger={0.04} />
-          <br />
-          <SplitChars
-            text="어디서나 더 쉽게"
-            delay={0.42}
-            stagger={0.035}
-          />
-        </h1>
+            <div className="mt-8 max-w-[58ch] space-y-3 text-[16px] md:text-[17px] leading-8 text-inkMuted">
+              <p>운영되는 웹사이트를 만드는 프론트엔드 개발자 박다빈입니다.<br />반응형 UI, CMS 연동, 관리자 데이터 흐름까지 고려해 서비스 구조를 구현합니다.<br />보기 좋은 화면을 넘어, 관리되고 유지되는 웹사이트를 만듭니다.</p>
 
-        {/* Body — 짧게 두 줄 */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.36 }}
-          className="max-w-[44ch] mx-auto text-[15px] md:text-[16px] leading-[1.85] text-inkMuted"
-        >
-          <p>탄탄한 코드 위에 감각적인 인터페이스를 그리는 다빈입니다.</p>
-          <p>{site.intro}</p>
-        </motion.div>
+            </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3"
-        >
-          <MagneticLink
-            href="/work"
-            data-cursor="label=VIEW"
-            className="group inline-flex items-center gap-2 bg-ink text-bg pl-6 pr-5 py-3.5 text-[13px] rounded-full hover:opacity-90 transition"
-          >
-            작업물 보러가기
-            <span aria-hidden className="inline-block transition-transform group-hover:translate-x-0.5">→</span>
-          </MagneticLink>
-          <Link
-            href="/contact"
-            data-cursor="link"
-            className="text-[13px] text-inkMuted hover:text-ink underline underline-offset-[6px] decoration-ink/20 hover:decoration-ink"
-          >
-            메일 보내기
-          </Link>
-        </motion.div>
-
+            <nav
+              aria-label="주요 링크"
+              className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-3 text-[13px] md:text-[14px]"
+            >
+              {archiveLinks.map((item, index) => (
+                <span key={item.label} className="inline-flex items-center gap-4">
+                  {index > 0 ? (
+                    <span aria-hidden className="text-lineStrong">
+                      /
+                    </span>
+                  ) : null}
+                  {item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="font-mono uppercase text-ink underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      data-cursor="link"
+                      className="font-mono uppercase text-ink underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </span>
+              ))}
+            </nav>
+          </div>
+        </div>
       </div>
-
-      {/* Scroll hint — 섹션 바닥에 고정해서 첫 화면 안에 항상 보이게 */}
-      <motion.div
-        initial={reduce ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.9 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-6 md:bottom-8 inline-flex flex-col items-center gap-2 text-muted z-10"
-        aria-hidden
-      >
-        <span className="font-serif-italic text-[13px]">Let's Scroll Down!</span>
-        <span className="block w-px h-8 bg-line overflow-hidden">
-          <span className="block w-px h-3 bg-ink animate-[float_1.6s_ease-in-out_infinite]" />
-        </span>
-      </motion.div>
     </section>
   );
 }
 
-/**
- * Hero 뒤로 천천히 흐르는 흐릿한 워드 레이어.
- * - 4줄을 서로 다른 방향/속도/크기/투명도로 배치
- * - blur 와 낮은 opacity 로 본문 가독성을 해치지 않음
- */
-/**
- * 한 줄짜리 거대한 워드마크가 아주 천천히 흘러간다.
- * 강한 blur + 낮은 opacity 로 분위기만 깔고, 본문 뒤로 사라진다.
- */
-function DriftingText() {
-  const phrase = "dabin  ·  ";
+type Stat = {
+  value: number;
+  suffix: string;
+};
+
+function parseStat(value: string): Stat {
+  const match = value.match(/^(\d+)(.*)$/);
+
+  if (!match) return { value: Number(value) || 0, suffix: "" };
+
+  return {
+    value: Number(match[1]),
+    suffix: match[2]
+  };
+}
+
+function AnimatedStat({ stat }: { stat: Stat }) {
+  const minWidth = `${String(stat.value).length + stat.suffix.length}ch`;
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
-      <div
-        className="absolute left-0 right-0 top-1/2 -translate-y-1/2 whitespace-nowrap"
-        style={{ filter: "blur(3px)" }}
-      >
-        <div className="flex w-[200%] drift-l drift-slow">
-          <span
-            className="font-display font-semibold tracking-tightest text-ink opacity-[0.04]"
-            style={{ fontSize: "clamp(7rem, 18vw, 18rem)", paddingRight: "3rem" }}
-          >
-            {phrase.repeat(12)}
-          </span>
-          <span
-            className="font-display font-semibold tracking-tightest text-ink opacity-[0.04]"
-            style={{ fontSize: "clamp(7rem, 18vw, 18rem)", paddingRight: "3rem" }}
-          >
-            {phrase.repeat(12)}
-          </span>
-        </div>
-      </div>
+    <span className="inline-block tabular-nums text-right" style={{ minWidth }}>
+      <CountUp from={1} to={stat.value} suffix={stat.suffix} />
+    </span>
+  );
+}
 
-      {/* 중앙을 살짝 밝혀 본문 가독성 확보 */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgb(var(--bg) / 0.5) 0%, transparent 70%)"
-        }}
-      />
+function Meta({ label, value }: { label: string; value: ReactNode }) {
+  return (
+    <div className="border-t border-line pt-3">
+      <dt className="font-mono text-[11px] uppercase text-muted">{label}</dt>
+      <dd className="mt-1 text-ink">{value}</dd>
     </div>
   );
 }

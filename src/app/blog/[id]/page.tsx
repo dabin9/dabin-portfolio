@@ -1,20 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import {
-  fetchTistoryArticle,
-  fetchTistoryPosts
-} from "@/lib/tistory";
-import { env } from "@/lib/env";
+import { getNote, notes } from "@/data/notes";
 
 type Params = { id: string };
 
-export const revalidate = 1800; // 30분
-
-export async function generateStaticParams() {
-  if (!env.tistory) return [];
-  const posts = await fetchTistoryPosts(env.tistory, 30);
-  return posts.map((p) => ({ id: p.id }));
+export function generateStaticParams(): Params[] {
+  return notes.map((post) => ({ id: post.slug }));
 }
 
 export async function generateMetadata({
@@ -23,16 +15,17 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { id } = await params;
-  if (!env.tistory) return { title: "Blog" };
-  const article = await fetchTistoryArticle(env.tistory, id);
-  if (!article) return { title: "Blog" };
+  const post = getNote(id);
+  if (!post) return { title: "Notes" };
+
   return {
-    title: article.title,
+    title: post.title,
+    description: post.excerpt,
     openGraph: {
-      title: article.title,
-      images: article.image ? [article.image] : undefined,
+      title: post.title,
+      description: post.excerpt,
       type: "article",
-      publishedTime: article.date || undefined
+      publishedTime: post.date
     }
   };
 }
@@ -43,10 +36,8 @@ export default async function BlogPostPage({
   params: Promise<Params>;
 }) {
   const { id } = await params;
-  if (!env.tistory) notFound();
-
-  const article = await fetchTistoryArticle(env.tistory, id);
-  if (!article) notFound();
+  const post = getNote(id);
+  if (!post) notFound();
 
   return (
     <article className="bg-bg">
@@ -55,46 +46,40 @@ export default async function BlogPostPage({
           <Link
             href="/blog"
             data-cursor="link"
-            className="inline-flex items-center gap-1 text-[13px] text-inkMuted hover:text-ink"
+            className="font-mono text-[12px] uppercase text-muted hover:text-ink"
           >
-            <span aria-hidden>←</span> Blog
+            Back to Notes
           </Link>
         </div>
 
         <header className="mb-12">
-          <p className="text-[12px] tracking-[0.3em] text-muted uppercase">
-            {formatDate(article.date)}
+          <p className="font-mono text-[12px] uppercase text-muted">
+            {formatDate(post.date)} / {post.readTime}
           </p>
-          <h1
-            className="mt-4 font-display font-medium leading-[1.25] tracking-tightest"
-            style={{ fontSize: "clamp(1.8rem, 3.6vw, 2.8rem)" }}
-          >
-            {article.title}
+          <h1 className="mt-4 font-display text-3xl md:text-5xl leading-tight text-ink">
+            {post.title}
           </h1>
+          <div className="mt-5 flex flex-wrap gap-3 font-mono text-[11px] uppercase text-muted">
+            {post.tags.map((tag) => (
+              <span key={tag}>#{tag}</span>
+            ))}
+          </div>
         </header>
 
-        <div
-          className="tistory-content text-[16px] md:text-[17px] leading-[1.85] text-ink"
-          dangerouslySetInnerHTML={{ __html: article.contentHtml }}
-        />
+        <div className="rich-content text-[16px] md:text-[17px] leading-[1.85] text-ink">
+          {post.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
 
-        <footer className="mt-16 pt-8 border-t border-line flex flex-wrap items-center justify-between gap-4 text-[13px]">
+        <footer className="mt-16 pt-8 border-t border-line text-[13px]">
           <Link
             href="/blog"
             data-cursor="link"
-            className="text-inkMuted hover:text-ink inline-flex items-center gap-1"
+            className="font-mono text-[12px] uppercase text-inkMuted hover:text-ink"
           >
-            <span aria-hidden>←</span> 다른 글 보기
+            Other Notes
           </Link>
-          <a
-            href={article.url}
-            target="_blank"
-            rel="noreferrer"
-            data-cursor="link"
-            className="text-inkMuted hover:text-ink inline-flex items-center gap-1"
-          >
-            티스토리 원문 <span aria-hidden>↗</span>
-          </a>
         </footer>
       </div>
     </article>
@@ -102,7 +87,6 @@ export default async function BlogPostPage({
 }
 
 function formatDate(iso: string) {
-  if (!iso) return "";
   return new Intl.DateTimeFormat("en", {
     year: "numeric",
     month: "short",

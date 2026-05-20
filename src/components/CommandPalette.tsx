@@ -3,16 +3,23 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { projects } from "@/data/projects";
-import { insights } from "@/data/insights";
 import { env } from "@/lib/env";
+
+export type CommandPaletteProject = {
+  slug: string;
+  title: string;
+  year: string;
+  role: string;
+  stack: string[];
+  status?: "published" | "draft" | "private";
+};
 
 type Item = {
   id: string;
   title: string;
   subtitle?: string;
   keywords?: string;
-  group: "Navigate" | "Work" | "Insights" | "Actions" | "Elsewhere";
+  group: "Navigate" | "Work" | "Actions" | "Elsewhere";
   run: () => void;
 };
 
@@ -20,7 +27,11 @@ type Item = {
  * ⌘K / Ctrl+K 로 여는 커맨드 팔레트.
  * ↑↓ 네비, Enter 실행, Esc 닫기.
  */
-export default function CommandPalette() {
+export default function CommandPalette({
+  projects
+}: {
+  projects: CommandPaletteProject[];
+}) {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
@@ -46,6 +57,13 @@ export default function CommandPalette() {
   }, []);
 
   useEffect(() => {
+    const onOpen = () => setOpen(true);
+
+    window.addEventListener("command-palette:open", onOpen);
+    return () => window.removeEventListener("command-palette:open", onOpen);
+  }, []);
+
+  useEffect(() => {
     if (open) {
       setTimeout(() => inputRef.current?.focus(), 20);
       setQ("");
@@ -68,14 +86,9 @@ export default function CommandPalette() {
     return [
       { id: "home", title: "홈", subtitle: "/", group: "Navigate", run: () => router.push("/") },
       { id: "work", title: "Work — 전체 프로젝트", subtitle: "/work", group: "Navigate", run: () => router.push("/work") },
-      { id: "insights", title: "Insights — 모든 글", subtitle: "/insights", group: "Navigate", run: () => router.push("/insights") },
-      { id: "contact", title: "Contact — 채용 문의", subtitle: "/contact", group: "Navigate", run: () => router.push("/contact") },
       { id: "theme", title: "테마 토글 (라이트/다크)", group: "Actions", run: toggleTheme },
       { id: "top", title: "맨 위로", group: "Actions", run: () => window.scrollTo({ top: 0, behavior: "smooth" }) },
       { id: "bottom", title: "맨 아래로", group: "Actions", run: () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }) },
-      { id: "copy-email", title: "이메일 주소 복사", subtitle: env.email, group: "Actions", run: async () => {
-        try { await navigator.clipboard.writeText(env.email); } catch { /* no-op */ }
-      } },
       ...projects.map((p) => ({
         id: `work-${p.slug}`,
         title: p.title,
@@ -83,14 +96,6 @@ export default function CommandPalette() {
         keywords: p.stack.join(" "),
         group: "Work" as const,
         run: () => router.push(`/work/${p.slug}`)
-      })),
-      ...insights.map((p) => ({
-        id: `insight-${p.slug}`,
-        title: p.title,
-        subtitle: p.tags.join(" · "),
-        keywords: p.excerpt,
-        group: "Insights" as const,
-        run: () => router.push(`/insights/${p.slug}`)
       })),
       env.github
         ? { id: "gh", title: "GitHub", subtitle: env.github, group: "Elsewhere" as const, run: () => window.open(env.github, "_blank") }
@@ -102,7 +107,7 @@ export default function CommandPalette() {
         ? { id: "blog", title: "Blog", subtitle: env.blog, group: "Elsewhere" as const, run: () => window.open(env.blog, "_blank") }
         : null
     ].filter(Boolean) as Item[];
-  }, [router]);
+  }, [projects, router]);
 
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();
@@ -117,7 +122,7 @@ export default function CommandPalette() {
 
   // 그룹별 정렬
   const grouped = useMemo(() => {
-    const order: Item["group"][] = ["Navigate", "Work", "Insights", "Actions", "Elsewhere"];
+    const order: Item["group"][] = ["Navigate", "Work", "Actions", "Elsewhere"];
     const map = new Map<Item["group"], Item[]>();
     for (const g of order) map.set(g, []);
     for (const it of filtered) map.get(it.group)?.push(it);

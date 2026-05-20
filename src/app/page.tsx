@@ -1,19 +1,37 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
+import AgentIntro from "@/components/agent/AgentIntro";
 import SelectedWork from "@/components/SelectedWork";
-import SkillsMarquee from "@/components/SkillsMarquee";
-import TistoryBlog from "@/components/TistoryBlog";
-import ContactCta from "@/components/ContactCta";
+import { projects, publicProjects } from "@/data/projects";
 
 export default function HomePage() {
+  const agentProjects = publicProjects(projects).map((project) => ({
+    slug: project.slug,
+    title: project.title,
+    summary: project.summary,
+    year: project.year,
+    role: project.role,
+    company: project.company,
+    stack: project.stack,
+    tags: project.tags,
+    highlights: project.highlights,
+    resultItems: project.resultItems,
+    featured: project.featured,
+    order: project.order,
+    description: [
+      ...(project.caseNotes ?? []).flatMap((note) => [
+        note.issueTitle ?? "",
+        note.problem ?? "",
+        note.approach,
+        note.result ?? ""
+      ]),
+      ...(project.resultItems ?? []),
+      ...project.highlights
+    ].join(" ")
+  }));
+
   return (
     <>
-      <Hero />
-      <About />
+      <AgentIntro projects={agentProjects} />
       <SelectedWork />
-      <SkillsMarquee />
-      <TistoryBlog />
-      <ContactCta />
     </>
   );
 }

@@ -9,6 +9,7 @@ type Props = {
   suggestions?: string[];
   label?: string;
   placeholder?: string;
+  onChange?: (tags: string[]) => void;
 };
 
 /**
@@ -22,20 +23,26 @@ export default function TagInput({
   defaultValue = [],
   suggestions = [],
   label = "태그",
-  placeholder = "Enter 또는 , 로 추가"
+  placeholder = "Enter 또는 , 로 추가",
+  onChange
 }: Props) {
   const [tags, setTags] = useState<string[]>(defaultValue);
   const [draft, setDraft] = useState("");
+
+  function updateTags(next: string[]) {
+    setTags(next);
+    onChange?.(next);
+  }
 
   function add(t: string) {
     const v = t.trim().replace(/,$/, "");
     if (!v) return;
     if (tags.includes(v)) return;
-    setTags([...tags, v]);
+    updateTags([...tags, v]);
   }
 
   function remove(t: string) {
-    setTags(tags.filter((x) => x !== t));
+    updateTags(tags.filter((x) => x !== t));
   }
 
   function onKey(e: KeyboardEvent<HTMLInputElement>) {
@@ -44,7 +51,7 @@ export default function TagInput({
       add(draft);
       setDraft("");
     } else if (e.key === "Backspace" && draft === "" && tags.length > 0) {
-      setTags(tags.slice(0, -1));
+      updateTags(tags.slice(0, -1));
     }
   }
 

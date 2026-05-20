@@ -1,0 +1,163 @@
+import { agentSkillGroups, agentStrengths, type AgentInfoIntent } from "@/data/agentDictionary";
+import { site } from "@/data/site";
+import { env } from "@/lib/env";
+
+type InfoResultCardProps = {
+  intent: AgentInfoIntent;
+  projectCount: number;
+};
+
+export default function InfoResultCard({ intent, projectCount }: InfoResultCardProps) {
+  if (intent === "skills") return <SkillsCard />;
+  if (intent === "contact") return <ContactCard />;
+  if (intent === "strengths") return <StrengthsCard />;
+  return <ProfileCard projectCount={projectCount} />;
+}
+
+function ProfileCard({ projectCount }: { projectCount: number }) {
+  return (
+    <article className="rounded-lg border border-line bg-bg p-5 shadow-[0_10px_24px_rgb(var(--ink)/0.05)] md:p-6">
+      <p className="font-mono text-[11px] uppercase text-muted">Info Result</p>
+      <h3 className="mt-2 text-2xl font-medium leading-tight text-ink md:text-3xl">
+        박다빈 소개
+      </h3>
+      <dl className="mt-5 divide-y divide-line text-[14px] leading-7 md:text-[15px]">
+        <InfoRow label="Name" value={`${site.name} / ${site.nameEn}`} />
+        <InfoRow label="Role" value={site.role} />
+        <InfoRow label="Experience" value={`${site.year} years`} />
+        <InfoRow label="Work" value={`공개 프로젝트 ${projectCount}개 / 누적 작업 ${site.projects}`} />
+        <InfoRow label="Base" value={site.location} />
+        <InfoRow label="Focus" value="Responsive UI / CMS / Admin Data Flow" />
+      </dl>
+      <ul className="mt-5 space-y-2 border-t border-line pt-5 text-[14px] leading-7 text-inkMuted md:text-[15px]">
+        {agentStrengths.slice(0, 3).map((strength) => (
+          <li key={strength}>{strength}</li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
+function SkillsCard() {
+  return (
+    <article className="rounded-lg border border-line bg-bg p-5 shadow-[0_10px_24px_rgb(var(--ink)/0.05)] md:p-6">
+      <p className="font-mono text-[11px] uppercase text-muted">Info Result</p>
+      <h3 className="mt-2 text-2xl font-medium leading-tight text-ink md:text-3xl">
+        기술 스택
+      </h3>
+      <div className="mt-5 divide-y divide-line">
+        {agentSkillGroups.map((group) => (
+          <section key={group.title} className="py-4 first:pt-0 last:pb-0">
+            <h4 className="font-mono text-[12px] uppercase text-muted">{group.title}</h4>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <span
+                  key={item}
+                  className="inline-flex min-h-8 items-center rounded-full border border-line bg-surface px-3 text-[13px] text-inkMuted"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function StrengthsCard() {
+  return (
+    <article className="rounded-lg border border-line bg-bg p-5 shadow-[0_10px_24px_rgb(var(--ink)/0.05)] md:p-6">
+      <p className="font-mono text-[11px] uppercase text-muted">Info Result</p>
+      <h3 className="mt-2 text-2xl font-medium leading-tight text-ink md:text-3xl">
+        주요 강점
+      </h3>
+      <ul className="mt-5 divide-y divide-line text-[14px] leading-7 text-inkMuted md:text-[15px]">
+        {agentStrengths.map((strength) => (
+          <li key={strength} className="py-3 first:pt-0 last:pb-0">
+            {strength}
+          </li>
+        ))}
+      </ul>
+    </article>
+  );
+}
+
+function ContactCard() {
+  const links = [
+    env.email
+      ? {
+          label: "Email",
+          value: env.email,
+          href: `mailto:${env.email}`,
+          external: false
+        }
+      : null,
+    env.github
+      ? {
+          label: "GitHub",
+          value: env.github,
+          href: env.github,
+          external: true
+        }
+      : null,
+    env.notion
+      ? {
+          label: "Notion",
+          value: env.notion,
+          href: env.notion,
+          external: true
+        }
+      : null,
+    env.resume
+      ? {
+          label: "Resume",
+          value: env.resume,
+          href: env.resume,
+          external: true
+        }
+      : null
+  ].filter(Boolean) as {
+    label: string;
+    value: string;
+    href: string;
+    external: boolean;
+  }[];
+
+  return (
+    <article className="rounded-lg border border-line bg-bg p-5 shadow-[0_10px_24px_rgb(var(--ink)/0.05)] md:p-6">
+      <p className="font-mono text-[11px] uppercase text-muted">Info Result</p>
+      <h3 className="mt-2 text-2xl font-medium leading-tight text-ink md:text-3xl">
+        연락처
+      </h3>
+      <p className="mt-3 text-[14px] leading-7 text-inkMuted md:text-[15px]">
+        확인 가능한 연락 채널입니다. 별도 Contact 페이지로 이동하지 않고 이 화면에서 바로 열 수 있어요.
+      </p>
+      <div className="mt-5 divide-y divide-line">
+        {links.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noreferrer" : undefined}
+            data-cursor="link"
+            className="grid gap-1 py-3 text-[14px] transition first:pt-0 last:pb-0 hover:text-brand md:grid-cols-[120px_1fr] md:text-[15px]"
+          >
+            <span className="font-mono text-[12px] uppercase text-muted">{link.label}</span>
+            <span className="truncate text-ink">{link.value}</span>
+          </a>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function InfoRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="grid gap-1 py-3 first:pt-0 last:pb-0 md:grid-cols-[120px_1fr]">
+      <dt className="font-mono text-[12px] uppercase text-muted">{label}</dt>
+      <dd className="text-inkMuted">{value}</dd>
+    </div>
+  );
+}

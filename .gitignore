@@ -42,3 +42,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dependencies
+node_modules/
+
+# next.js
+.next/
+.next.corrupt-*/
+out/
+
+# build
+dist/
+build/
+
+# env
+.env
+.env.local
+.env.*.local
+
+# mac
+.DS_Store

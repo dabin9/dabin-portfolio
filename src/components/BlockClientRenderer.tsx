@@ -39,7 +39,7 @@ export default function BlockClientRenderer({ blocks }: Props) {
   if (!html) return null;
   return (
     <div
-      className="tistory-content"
+      className="rich-content blocknote-content"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

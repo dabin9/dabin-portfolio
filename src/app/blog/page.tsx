@@ -1,118 +1,73 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { fetchTistoryPosts } from "@/lib/tistory";
-import { env } from "@/lib/env";
+import { notes } from "@/data/notes";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: `${site.name} 의 블로그 글 모음`
+  title: "Notes",
+  description: `${site.name} 의 작업 기록 모음`
 };
 
-export const revalidate = 1800; // 30분
-
-export default async function BlogIndexPage() {
-  const posts = env.tistory ? await fetchTistoryPosts(env.tistory, 60) : [];
-
+export default function BlogIndexPage() {
   return (
     <section className="bg-bg">
-      <div className="wrap py-24 md:py-32">
-        <div className="text-center mb-14 md:mb-20">
-          <p className="text-[12px] tracking-[0.4em] text-muted uppercase">Blog</p>
-          <h1
-            className="mt-6 font-display font-medium leading-[1.2] tracking-tightest mx-auto max-w-[24ch]"
-            style={{ fontSize: "clamp(2rem, 4.6vw, 3.2rem)" }}
-          >
-            차곡차곡 쌓아온 <span className="font-serif-italic">기록들.</span>
-          </h1>
-          <div className="mt-6 mx-auto max-w-[58ch] space-y-1 text-[15px] text-inkMuted leading-[1.85]">
-            {site.blogIntro.map((line, i) => (
-              <p key={i}>{line}</p>
-            ))}
+      <div className="wrap pt-16 md:pt-24 pb-24">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-14 border-b border-line pb-8">
+          <div className="md:col-span-3">
+            <p className="font-mono text-[12px] uppercase text-muted">
+              Notes / All
+            </p>
+          </div>
+          <div className="md:col-span-9">
+            <h1 className="font-display text-4xl md:text-6xl leading-tight text-ink">
+              Notes Archive
+            </h1>
+            <div className="mt-4 max-w-[58ch] space-y-2 text-[15px] md:text-[16px] leading-8 text-inkMuted">
+              {site.blogIntro.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
         </div>
 
-        {posts.length === 0 ? (
-          <NotConnected />
-        ) : (
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
-            {posts.map((p) => (
-              <li key={p.id}>
-                <Link
-                  href={`/blog/${p.id}`}
-                  data-cursor="label=READ"
-                  className="group flex flex-col h-full bg-bg border border-line rounded-2xl overflow-hidden hover:-translate-y-0.5 hover:shadow-sm transition"
+        <ol className="divide-y divide-line">
+          {notes.map((post, index) => (
+            <li key={post.slug}>
+              <Link
+                href={`/blog/${post.slug}`}
+                data-cursor="label=READ"
+                className="group grid md:grid-cols-12 gap-5 md:gap-8 py-8"
+              >
+                <span className="md:col-span-2 font-mono text-[13px] text-muted tabular-nums">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="md:col-span-7">
+                  <p className="font-mono text-[12px] uppercase text-muted">
+                    {formatDate(post.date)} / {post.readTime}
+                  </p>
+                  <h2 className="mt-2 font-display text-2xl md:text-3xl leading-tight text-ink group-hover:text-brand">
+                    {post.title}
+                  </h2>
+                  <p className="mt-3 text-[14px] md:text-[15px] leading-7 text-inkMuted">
+                    {post.excerpt}
+                  </p>
+                </div>
+                <span
+                  aria-hidden
+                  className="md:col-span-3 md:justify-self-end font-mono text-[13px] text-muted group-hover:text-ink"
                 >
-                  <div className="aspect-[16/10] bg-surface relative overflow-hidden">
-                    {p.thumbnail ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={p.thumbnail}
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-serif-italic text-ink/30 text-[clamp(2rem,4vw,3rem)]">
-                          {p.title.slice(0, 1)}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <p className="text-[12px] text-muted">{formatDate(p.pubDate)}</p>
-                    <h2 className="mt-2 font-display font-medium text-[17px] leading-[1.35] tracking-tight line-clamp-2">
-                      {p.title}
-                    </h2>
-                    {p.excerpt ? (
-                      <p className="mt-2 text-[13px] text-inkMuted leading-relaxed line-clamp-3">
-                        {p.excerpt}
-                      </p>
-                    ) : null}
-                    <span className="mt-auto pt-4 inline-flex items-center gap-1 text-[12px] text-inkMuted group-hover:text-ink">
-                      읽기 <span aria-hidden className="group-hover:translate-x-0.5 transition-transform">→</span>
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {env.tistory ? (
-          <div className="mt-16 text-center">
-            <a
-              href={env.tistory}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="link"
-              className="inline-flex items-center gap-2 text-[13px] text-inkMuted hover:text-ink"
-            >
-              티스토리 원문에서 보기 <span aria-hidden>↗</span>
-            </a>
-          </div>
-        ) : null}
+                  Read
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
 }
 
-function NotConnected() {
-  return (
-    <div className="mx-auto max-w-[60ch] border border-dashed border-line rounded-2xl bg-bg p-8 md:p-10 text-left">
-      <p className="text-[12px] tracking-[0.3em] text-muted uppercase">
-        Tistory 연동 대기 중
-      </p>
-      <h3 className="mt-3 font-display font-medium text-[20px] md:text-[22px] leading-snug">
-        블로그 RSS 를 연결하면 글 목록이 자동으로 보여요.
-      </h3>
-    </div>
-  );
-}
-
 function formatDate(iso: string) {
-  if (!iso) return "";
   return new Intl.DateTimeFormat("en", {
     year: "numeric",
     month: "short",

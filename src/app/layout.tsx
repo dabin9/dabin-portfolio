@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import "swiper/css";
+import "swiper/css/pagination";
 import "./globals.css";
 import { site } from "@/data/site";
+import { projects, publicProjects } from "@/data/projects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientShell from "@/components/ClientShell";
@@ -47,6 +50,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const commandProjects = publicProjects(projects).map(
+    ({ slug, title, year, role, stack }) => ({
+      slug,
+      title,
+      year,
+      role,
+      stack
+    })
+  );
+
   return (
     <html lang="ko" className={`${display.variable} ${serif.variable} ${mono.variable}`} suppressHydrationWarning>
       {/* FOUC 방지: 테마 선호 즉시 적용 */}
@@ -67,7 +80,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
-        <ClientShell>
+        <ClientShell commandProjects={commandProjects}>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

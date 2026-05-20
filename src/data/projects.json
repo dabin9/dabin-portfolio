@@ -1,77 +1,483 @@
 [
   {
-    "slug": "1",
-    "title": "(AI 0%) 대형 리조트 웹사이트 콘텐츠 관리 구조 및 UI 구현 (벨포레리조트)",
-    "summary": "요약 test",
-    "year": "2023.10",
-    "role": "UI",
-    "company": "개발",
-    "altText": "UI",
+    "slug": "5",
+    "title": "바노바기 성형외과의원 가슴센터 맞춤형 웹 및 CMS 구축",
+    "summary": "",
+    "year": "2025.12 - 2026.02 / 약 3개월",
+    "role": "",
+    "company": "바노바기 성형외과의원 가슴센터",
+    "thumbnail": "/media/banobagi-thumb.jpg",
+    "hoverImage": "/media/banobagi-img1.gif",
+    "mediaUrl": "/media/banobagi-img1.gif",
+    "mediaType": "gif",
+    "mediaAlt": "banobagi img1",
+    "mediaItems": [
+      {
+        "url": "/media/banobagi-img1.gif",
+        "type": "gif",
+        "alt": "banobagi img1"
+      }
+    ],
     "stack": [
-      "기술 스택 test"
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "GnuBoard",
+      "Vanilla JS",
+      "Intersection Observer API",
+      "Gemini"
     ],
     "tags": [
-      "바닐라 JS",
-      "모듈화"
+      "CMS",
+      "Frontend",
+      "Responsive",
+      "Admin"
     ],
     "contribution": 100,
+    "caseNotes": [
+      {
+        "issueTitle": "비회원 상담 폼 프로세스 구현",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1e270534-eb19-4312-8cfd-f7f4d6b73221\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1e270534-eb19-4312-8cfd-f7f4d6b73221\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">비회원 상담 폼 프로세스 구현</p></div></div></div></div>",
+        "problem": "비회원이 메인에서 캡챠 없이 즉시 상담을 작성해야 했습니다.\n그누보드 기본 비회원 글쓰기 정책과 충돌이 발생했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7696f8c5-584d-4fd3-8f0f-c1fb7d5633be\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7696f8c5-584d-4fd3-8f0f-c1fb7d5633be\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">비회원이 메인에서 캡챠 없이 즉시 상담을 작성해야 했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e767664e-00dc-4ac7-826c-14d4b0c312eb\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e767664e-00dc-4ac7-826c-14d4b0c312eb\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">그누보드 기본 비회원 글쓰기 정책과 충돌이 발생했습니다.</p></div></div></div></div>",
+        "approach": "보안 코어를 직접 훼손하지 않는 우회 로직을 설계했습니다.\n필수 입력값과 비밀글 처리 조건을 상담 폼에 맞게 조정했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ac7588cb-2a00-4a16-aa28-152031e01334\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ac7588cb-2a00-4a16-aa28-152031e01334\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"blue\" data-editable=\"\">보안 코어를 직접 훼손하지 않는 우회 로직을 설계</span></strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"03257297-6aea-40c7-a593-83cab469ff5b\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"03257297-6aea-40c7-a593-83cab469ff5b\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">필수 입력값과 비밀글 처리 조건을 상담 폼에 맞게 조정했습니다.</p></div></div></div></div>",
+        "result": "관리자 페이지와 연동되는 무인증 상담 폼을 구현했습니다.\n사용자의 상담 진입 장벽을 낮췄습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"debd6d8c-f935-46cf-a867-5e5c1a063b98\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"debd6d8c-f935-46cf-a867-5e5c1a063b98\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">관리자 페이지와 연동되는 무인증 상담 폼을 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a88ca822-ae34-4b83-928c-ea17b784ebb0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a88ca822-ae34-4b83-928c-ea17b784ebb0\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">사용자의 상담 진입 장벽을 낮췄습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "다중 슬라이드 성능 최적화",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b782dc29-3f63-4b8e-a847-f4b9308b8405\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b782dc29-3f63-4b8e-a847-f4b9308b8405\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">다중 슬라이드 성능 최적화</p></div></div></div></div>",
+        "problem": "다중 Swiper 사용으로 렌더링 리소스 낭비와 커스텀 오류가 발생할 수 있었습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"645e7afb-383b-4b7b-82d3-d3443315f440\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"645e7afb-383b-4b7b-82d3-d3443315f440\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">다중 Swiper 사용으로 렌더링 리소스 낭비와 커스텀 오류가 발생할 수 있었습니다.</p></div></div></div></div>",
+        "approach": "최소 아이템 기준을 정해 슬라이드 동작 조건을 분기했습니다.\nIntersection Observer API로 뷰포트 진입 시에만 자동 재생되도록 제어했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c295e7d2-b962-4681-a9c3-fa0741c142f3\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c295e7d2-b962-4681-a9c3-fa0741c142f3\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">최소 아이템 기준을 정해 슬라이드 동작 조건을 분기했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"66fd8471-04bd-40eb-8176-3f42a54e6755\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"66fd8471-04bd-40eb-8176-3f42a54e6755\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Intersection <strong><span data-style-type=\"textColor\" data-value=\"blue\" data-editable=\"\">Observer</span></strong> API로 뷰포트 진입 시에만 자동 재생되도록 제어했습니다.</p></div></div></div></div>",
+        "result": "불필요한 백그라운드 연산을 줄였습니다.\n메인 페이지의 렌더링 부하를 완화했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"774d3641-9595-41fa-947a-6b5913bc39cf\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"774d3641-9595-41fa-947a-6b5913bc39cf\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">불필요한 백그라운드 연산을 줄였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5b36e479-6733-4879-9917-b104fe20b2aa\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5b36e479-6733-4879-9917-b104fe20b2aa\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">메인 페이지의 렌더링 부하를 완화했습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "의료 사이트 접근성 개선",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b7b3d787-f202-4cc7-bdc5-3792b979be99\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b7b3d787-f202-4cc7-bdc5-3792b979be99\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">의료 사이트 접근성 개선</p></div></div></div></div>",
+        "problem": "병원 사이트 특성상 다양한 연령층과 환경의 사용자를 고려해야 했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c21e1ecb-215a-49b8-8914-ad6b0e8ad3de\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c21e1ecb-215a-49b8-8914-ad6b0e8ad3de\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">병원 사이트 특성상 <strong><span data-style-type=\"textColor\" data-value=\"blue\" data-editable=\"\">다양한 연령층과 환경의 사용자를 고려</span></strong>해야 했습니다.</p></div></div></div></div>",
+        "approach": "Tab 키 기반 주요 네비게이션 이동을 고려했습니다.\n이미지와 텍스트 정보를 분리해 마크업 구조를 정리했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"9c5baee9-371a-4de2-9587-3339300b7486\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"9c5baee9-371a-4de2-9587-3339300b7486\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Tab 키 기반 주요 네비게이션 이동을 고려했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"cff7bbdc-38e2-4db6-b496-be96efc247cf\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"cff7bbdc-38e2-4db6-b496-be96efc247cf\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">이미지와 텍스트 정보를 분리해 마크업 구조를 정리했습니다.</p></div></div></div></div>",
+        "result": "명시 요구 외에도 사용 편의성을 높이는 구조를 적용했습니다.\n의료 도메인에 맞는 정보 접근성을 개선했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"2ce6c4bc-2cb3-4639-9d86-a19a95c9321d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"2ce6c4bc-2cb3-4639-9d86-a19a95c9321d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">명시 요구 외에도 사용 편의성을 높이는 구조를 적용했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"af8d3607-f558-48e9-909b-6528daf6a898\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"af8d3607-f558-48e9-909b-6528daf6a898\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">의료 도메인에 맞는 정보 접근성을 개선했습니다.</p></div></div></div></div>"
+      }
+    ],
+    "resultItems": [
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a76a18fa-2a25-48e6-8093-7fb711a157ee\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a76a18fa-2a25-48e6-8093-7fb711a157ee\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">리드 없이 맞춤형 웹사이트와 CMS 구축을 완료</span></strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"444bf6be-a847-492a-b4ea-ea4afc1fbab2\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"444bf6be-a847-492a-b4ea-ea4afc1fbab2\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">상담 폼 진입 장벽을 낮춰 사용자 전환 흐름을 개선했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b5543228-675e-4345-aea9-7499d9cb1d5a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b5543228-675e-4345-aea9-7499d9cb1d5a\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">다중 슬라이드 제어로 렌더링 리소스 낭비를 줄였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"936e697b-effe-415f-87d1-b902014a713a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"936e697b-effe-415f-87d1-b902014a713a\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">반응형 UI와 접근성을 고려한 의료 웹사이트를 구현했습니다.</p></div></div></div></div>"
+    ],
     "highlights": [
-      "하이라이트 Test"
+      "보안 코어를 직접 훼손하지 않는 우회 로직을 설계했습니다.\n필수 입력값과 비밀글 처리 조건을 상담 폼에 맞게 조정했습니다.",
+      "최소 아이템 기준을 정해 슬라이드 동작 조건을 분기했습니다.\nIntersection Observer API로 뷰포트 진입 시에만 자동 재생되도록 제어했습니다.",
+      "Tab 키 기반 주요 네비게이션 이동을 고려했습니다.\n이미지와 텍스트 정보를 분리해 마크업 구조를 정리했습니다.",
+      "리드 없이 맞춤형 웹사이트와 CMS 구축을 완료했습니다.\n상담 폼 진입 장벽을 낮춰 사용자 전환 흐름을 개선했습니다.\n다중 슬라이드 제어로 렌더링 리소스 낭비를 줄였습니다.\n반응형 UI와 접근성을 고려한 의료 웹사이트를 구현했습니다."
+    ],
+    "links": [
+      {
+        "label": "Company 사이트 보러가기",
+        "href": "https://breast.banobagiprs.com/"
+      }
+    ],
+    "featured": true,
+    "ongoing": false,
+    "order": 5,
+    "status": "published",
+    "bodyBlocks": [],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e2294206-55d0-49d6-b24d-4b42ccb7fe7c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e2294206-55d0-49d6-b24d-4b42ccb7fe7c\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[배경]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0ec7fb3c-954c-44d5-a8cb-31cc46fc6479\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0ec7fb3c-954c-44d5-a8cb-31cc46fc6479\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">대형 성형외과 웹사이트 및 <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">맞춤형 CMS를 독립적으로 구축한 프로젝트</span></strong>였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"31a0ed64-0f50-42f2-b5b5-baa5bdb93349\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"31a0ed64-0f50-42f2-b5b5-baa5bdb93349\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[문제점]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"df7cd542-c709-4c75-b83d-8671af2241c9\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"df7cd542-c709-4c75-b83d-8671af2241c9\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">그누보드 기본 로직과 클라이언트 맞춤 <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">요구사항이 충돌</span></strong>하는 지점이 있었습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"890ef959-9a03-4da9-8d53-bda7f6d01aed\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"890ef959-9a03-4da9-8d53-bda7f6d01aed\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[주요업무]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"86f219f1-df0c-4b3c-ad1c-6b3c953e1166\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"86f219f1-df0c-4b3c-ad1c-6b3c953e1166\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">디자인 시안 기반 반응형 웹 UI를 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f9248aad-4d4a-420b-8910-af8b2fae6bc5\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f9248aad-4d4a-420b-8910-af8b2fae6bc5\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">그누보드 기반 맞춤형 CMS를 커스터마이징했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7b08bbed-aa33-45c0-8421-4d6f4bc324a7\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7b08bbed-aa33-45c0-8421-4d6f4bc324a7\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">게시판 및 상담 예약 시스템을 연동했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c27b3835-b2fd-404b-84e1-c06f3fa00532\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c27b3835-b2fd-404b-84e1-c06f3fa00532\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">메인 슬라이드 및 주요 인터랙션을 최적화했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0c304574-a6fb-47d9-a08c-e300d01255d5\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0c304574-a6fb-47d9-a08c-e300d01255d5\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">의료 도메인 특성을 고려한 접근성을 개선했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"148c2181-c99c-4f6c-9e68-ebb3e07fe977\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"148c2181-c99c-4f6c-9e68-ebb3e07fe977\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+  },
+  {
+    "slug": "4",
+    "title": "벨포레 리조트 CMS 및 동적 UI 구축",
+    "summary": "",
+    "year": "2023.10 - 2026 / 유지보수 포함",
+    "role": "",
+    "company": "벨포레 리조트",
+    "thumbnail": "/media/belleforet-thumb.webp",
+    "hoverImage": "/media/belleforet-img1.gif",
+    "mediaUrl": "/media/belleforet-img1.gif",
+    "mediaType": "gif",
+    "mediaAlt": "belleforet img1",
+    "mediaItems": [
+      {
+        "url": "/media/belleforet-img1.gif",
+        "type": "gif",
+        "alt": "belleforet img1"
+      },
+      {
+        "url": "/media/belleforet-img2.gif",
+        "type": "gif",
+        "alt": "belleforet img2"
+      }
+    ],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "GnuBoard",
+      "Swiper.js",
+      "GSAP",
+      "Vanilla JS"
+    ],
+    "tags": [
+      "CMS",
+      "Frontend",
+      "Responsive",
+      "Admin"
+    ],
+    "contribution": 100,
+    "caseNotes": [
+      {
+        "issueTitle": "대규모 콘텐츠 관리 구조 설계",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"dab5f9ed-a726-4e0a-96f5-e952e13bbc7b\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"dab5f9ed-a726-4e0a-96f5-e952e13bbc7b\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">대규모 콘텐츠 관리 구조 설계</p></div></div></div></div>",
+        "problem": "시설별 정보 구조가 달라 통합 관리가 어려웠습니다.\n문구 수정이나 이미지 교체에도 개발자가 직접 개입해야 했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"9f8c9aa0-93f8-4282-aa6a-d23f601681ba\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"9f8c9aa0-93f8-4282-aa6a-d23f601681ba\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">시설별 정보 구조가 달라 통합 관리가 어려웠습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"82d4e8b3-9dcb-4f1f-998e-25f439e2fc8e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"82d4e8b3-9dcb-4f1f-998e-25f439e2fc8e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">문구 수정이나 이미지 교체에도 개발자가 직접 개입해야 했습니다.</p></div></div></div></div>",
+        "approach": "시설별 특성을 반영한 CMS 구조를 설계했습니다.\n반복 UI는 PHP 인클루드와 모듈 형태로 규격화했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c7ae5a29-62eb-49b3-9652-bf756964a967\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c7ae5a29-62eb-49b3-9652-bf756964a967\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">시설별 특성을 반영한 CMS 구조를 설계했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"cc64770c-7566-43a0-a707-e0af9fc5b03e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"cc64770c-7566-43a0-a707-e0af9fc5b03e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"blue\" data-editable=\"\">반복 UI는 PHP 인클루드와 모듈 형태로 규격화</span></strong>했습니다.</p></div></div></div></div>",
+        "result": "운영자가 주요 콘텐츠를 직접 수정할 수 있게 했습니다.\n신규 콘텐츠 추가와 유지보수 리소스를 줄였습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"db9d8fe8-b901-4875-835e-9caf71aab399\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"db9d8fe8-b901-4875-835e-9caf71aab399\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">운영자가 주요 콘텐츠를 직접 수정할 수 있게 했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ba2c8339-5101-47f7-a624-4f38e3d53d09\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ba2c8339-5101-47f7-a624-4f38e3d53d09\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">신규 콘텐츠 추가와 유지보수 리소스를 줄였습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "하이브리드 환경의 UI 일관성 확보",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"28dcca99-ebbd-4c20-993e-8ed17a2eba15\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"28dcca99-ebbd-4c20-993e-8ed17a2eba15\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">하이브리드 환경의 UI 일관성 확보</p></div></div></div></div>",
+        "problem": "웹과 앱이 함께 사용되는 환경에서 UI 깨짐과 로딩 지연이 발생할 수 있었습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"af2ee873-ef6b-4b93-9123-e6dac2ea0b30\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"af2ee873-ef6b-4b93-9123-e6dac2ea0b30\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">웹과 앱이 함께 사용되는 환경에서 UI 깨짐과 로딩 지연이 발생할 수 있었습니다.</p></div></div></div></div>",
+        "approach": "Vanilla JS 중심의 경량 스크립트로 구현했습니다.\n공통 UI 패턴을 기준화해 화면 일관성을 유지했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"04007add-910e-424d-aa23-a26a8ee7549f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"04007add-910e-424d-aa23-a26a8ee7549f\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Vanilla JS 중심의 경량 스크립트로 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4956795c-9c6c-487d-af53-b02fc370cc29\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4956795c-9c6c-487d-af53-b02fc370cc29\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 UI 패턴을 기준화해 화면 일관성을 유지했습니다.</p></div></div></div></div>",
+        "result": "웹·앱 환경에서 안정적인 사용자 경험을 제공했습니다.\n페이지 전환과 탐색 흐름의 완성도를 높였습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4eba7895-2cf4-4729-8f25-e29ed2aed702\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4eba7895-2cf4-4729-8f25-e29ed2aed702\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">웹·앱 환경에서 안정적인 사용자 경험을 제공했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"52f49ce9-4a43-4cb7-a3f2-9a1234feae08\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"52f49ce9-4a43-4cb7-a3f2-9a1234feae08\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">페이지 전환과 탐색 흐름의 완성도를 높였습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "방대한 정보 탐색 피로도 개선",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e6093092-3186-4633-9d77-911cc21825b9\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e6093092-3186-4633-9d77-911cc21825b9\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">방대한 정보 탐색 피로도 개선</p></div></div></div></div>",
+        "problem": "시설과 콘텐츠가 많아 사용자가 원하는 정보를 찾기 어려웠습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"02d20c24-4c93-46a2-9d64-f47090b9305e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"02d20c24-4c93-46a2-9d64-f47090b9305e\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">시설과 콘텐츠가 많아 사용자가 원하는 정보를 찾기 어려웠습니다.</p></div></div></div></div>",
+        "approach": "카테고리별 시각적 위계를 정리했습니다.\nSwiper와 인터랙션을 활용해 탐색 흐름을 개선했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f5ab3596-4879-4b75-a895-48cb3badba45\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f5ab3596-4879-4b75-a895-48cb3badba45\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">카테고리별 시각적 위계를 정리했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4ac350a8-5b72-44ef-b4e3-7b57c7f41f5d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4ac350a8-5b72-44ef-b4e3-7b57c7f41f5d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Swiper와 인터랙션을 활용해 탐색 흐름을 개선했습니다.</p></div></div></div></div>",
+        "result": "정보 전달력을 높이고 사용자 탐색 피로를 줄였습니다.\n대규모 사이트에 맞는 운영형 UI 구조를 구축했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"2b6e3189-ea21-4aab-8fad-e638358eb68c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"2b6e3189-ea21-4aab-8fad-e638358eb68c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">정보 전달력을 높이고 사용자 탐색 피로를 줄였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"363f637f-e4e9-44cd-8cf4-63060fab1799\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"363f637f-e4e9-44cd-8cf4-63060fab1799\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">대규모 사이트에 맞는 운영형 UI 구조를 구축했습니다.</p></div></div></div></div>"
+      }
+    ],
+    "resultItems": [
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"75ba53c4-7d0c-4d95-9b04-50d75586c9c2\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"75ba53c4-7d0c-4d95-9b04-50d75586c9c2\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">2년 이상 안정적으로 운영 가능한 CMS 구조를 구축</span></strong>했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"6cb1d6ad-a512-4c87-9de4-80a921cbbbf0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"6cb1d6ad-a512-4c87-9de4-80a921cbbbf0\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">운영자가 직접 관리 가능한 콘텐츠 관리 체계를 구현했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b60f1b18-f6cf-4ebd-b822-c6ed4e7015a1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b60f1b18-f6cf-4ebd-b822-c6ed4e7015a1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">대규모 서비스의 유지보수성과 확장성을 확보했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5ad8a116-eaad-4bc2-a066-480be92b9353\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5ad8a116-eaad-4bc2-a066-480be92b9353\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">목적형 폼과 콘텐츠 화면을 운영 구조에 맞게 설계했습니다.</p></div></div></div></div>"
+    ],
+    "highlights": [
+      "시설별 특성을 반영한 CMS 구조를 설계했습니다.\n반복 UI는 PHP 인클루드와 모듈 형태로 규격화했습니다.",
+      "Vanilla JS 중심의 경량 스크립트로 구현했습니다.\n공통 UI 패턴을 기준화해 화면 일관성을 유지했습니다.",
+      "카테고리별 시각적 위계를 정리했습니다.\nSwiper와 인터랙션을 활용해 탐색 흐름을 개선했습니다.",
+      "2년 이상 안정적으로 운영 가능한 CMS 구조를 구축했습니다.",
+      "운영자가 직접 관리 가능한 콘텐츠 관리 체계를 구현했습니다.",
+      "대규모 서비스의 유지보수성과 확장성을 확보했습니다.",
+      "목적형 폼과 콘텐츠 화면을 운영 구조에 맞게 설계했습니다."
+    ],
+    "links": [
+      {
+        "label": "Company 사이트 보러가기",
+        "href": "https://belleforetresort.com/"
+      }
+    ],
+    "featured": false,
+    "ongoing": false,
+    "order": 4,
+    "status": "private",
+    "bodyBlocks": [],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ee278349-ce51-4db2-af11-c5e7b1f728f4\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ee278349-ce51-4db2-af11-c5e7b1f728f4\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[배경]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"2327de07-46b5-4b81-be13-b09694505c2b\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"2327de07-46b5-4b81-be13-b09694505c2b\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">골프, 숙박, 레저 시설을 포함한 <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">대규모</span></strong> 리조트 웹사이트 구축 및 운영 프로젝트였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b8253f76-1db2-42f5-8de1-54851b043213\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b8253f76-1db2-42f5-8de1-54851b043213\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[문제점]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4108c104-2533-4ee5-ac3e-4a9ebe07f93e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4108c104-2533-4ee5-ac3e-4a9ebe07f93e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">콘텐츠 유형이 다양해 단순 수정에도 개발 리소스가 반복 투입되는 구조</span></strong>였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"6e357fce-3c24-4633-b474-c0281a58ea0d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"6e357fce-3c24-4633-b474-c0281a58ea0d\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[주요업무]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"6a717e8a-25fa-4ab9-99ac-29d8e7006098\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"6a717e8a-25fa-4ab9-99ac-29d8e7006098\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">회원가입 및 예약 기능을 제외한 주요 프론트 UI를 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a68e3410-1805-444b-8837-7b3a3f585e61\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a68e3410-1805-444b-8837-7b3a3f585e61\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">그누보드 기반 콘텐츠 페이지 및 게시판 구조를 설계했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"dab03475-6078-4ca1-b66b-f6ef9f157ad6\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"dab03475-6078-4ca1-b66b-f6ef9f157ad6\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">관리자 연동 콘텐츠 출력 구조를 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"643e12ca-0a82-4177-bbf0-c901b74aa4ac\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"643e12ca-0a82-4177-bbf0-c901b74aa4ac\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">시설, 이벤트, 미디어 등 주요 화면을 구축했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c41902bf-7df6-4163-81fa-e3ce02db816a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c41902bf-7df6-4163-81fa-e3ce02db816a\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">목적형 폼 UI 및 데이터 구조를 설계했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e43eb1b0-4b6e-4898-8c4f-4df19d296a9f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e43eb1b0-4b6e-4898-8c4f-4df19d296a9f\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+  },
+  {
+    "slug": "3",
+    "title": "하이패스허브 React 기반 운영 대시보드 주문 관리 UI 구축",
+    "summary": "",
+    "year": "2023.05 / 7일",
+    "role": "",
+    "company": "하이패스허브",
+    "thumbnail": "/media/hipasshub-thumb.webp",
+    "hoverImage": "/media/hipasshub-img1.jpg",
+    "mediaUrl": "/media/hipasshub-img1.jpg",
+    "mediaType": "image",
+    "mediaAlt": "hipasshub img1",
+    "mediaItems": [
+      {
+        "url": "/media/hipasshub-img1.jpg",
+        "type": "image",
+        "alt": "hipasshub img1"
+      }
+    ],
+    "stack": [
+      "React",
+      "JavaScript",
+      "React Router",
+      "Tailwind CSS",
+      "styled-components"
+    ],
+    "tags": [
+      "Frontend",
+      "Admin"
+    ],
+    "contribution": 10,
+    "caseNotes": [
+      {
+        "issueTitle": "주문 상태와 기간 조건의 다중 필터링",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c414924f-89d3-4937-b7f6-c4a88b8f1678\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c414924f-89d3-4937-b7f6-c4a88b8f1678\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">주문 상태와 기간 조건의 다중 필터링</p></div></div></div></div>",
+        "problem": "주문 상태와 기간 조건이 교차 적용되어 복잡한 정렬 처리가 필요했습니다.\n조건 조합에 따라 데이터 출력 결과가 달라져야 했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0f7149e8-b847-4ceb-8a64-9292858dfcc1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0f7149e8-b847-4ceb-8a64-9292858dfcc1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">주문 상태와 기간 조건이 교차 적용되어 복잡한 정렬 처리가 필요했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"46ab7cbb-b1cc-4aa8-99dc-db3eea0f20ca\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"46ab7cbb-b1cc-4aa8-99dc-db3eea0f20ca\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">조건 조합에 따라 데이터 출력 결과가 달라져야 했습니다.</p></div></div></div></div>",
+        "approach": "필터 상태를 객체 형태로 관리했습니다.\n원본 배열을 가공하는 독립 필터링 함수를 설계했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5acb6d0b-5731-4322-a44a-df1c4eeb4d20\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5acb6d0b-5731-4322-a44a-df1c4eeb4d20\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">필터 상태를 객체 형태로 관리했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"548571cb-a48d-4ba2-b882-25e39d21e9d1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"548571cb-a48d-4ba2-b882-25e39d21e9d1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">원본 배열을 가공하는 독립 필터링 함수를 설계했습니다.</p></div></div></div></div>",
+        "result": "다양한 검색 조건 조합에도 정확한 데이터 출력이 가능해졌습니다.\n운영자가 주문 현황을 빠르게 확인할 수 있는 구조를 구현했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"463035f3-828c-4a38-88a3-4aa8a3b598ac\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"463035f3-828c-4a38-88a3-4aa8a3b598ac\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">다양한 검색 조건 조합에도 정확한 데이터 출력이 가능해졌습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e05e4a85-7cc5-4e37-bd79-c38e0fd48206\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e05e4a85-7cc5-4e37-bd79-c38e0fd48206\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">운영자가 주문 현황을 빠르게 확인할 수 있는 구조를 구현했습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "빠른 UI 구현과 동적 스타일 제어",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"61c30dd2-96f0-4c6a-96d8-1dedcc5668bb\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"61c30dd2-96f0-4c6a-96d8-1dedcc5668bb\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">빠른 UI 구현과 동적 스타일 제어</p></div></div></div></div>",
+        "problem": "빠른 화면 배치와 상태별 스타일 제어를 동시에 만족해야 했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c8998477-d132-42ca-9570-0d13906c63de\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c8998477-d132-42ca-9570-0d13906c63de\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">빠른 화면 배치와 상태별 스타일 제어를 동시에 만족해야 했습니다.</p></div></div></div></div>",
+        "approach": "기본 레이아웃은 Tailwind CSS로 구성했습니다.\n상태 기반 스타일은 styled-components로 분리했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ae73fec6-b599-401a-a8ff-f482fbc595d0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ae73fec6-b599-401a-a8ff-f482fbc595d0\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">기본 레이아웃은 Tailwind CSS로 구성했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7e3de920-5b0f-449f-9d43-947cb7d1fb50\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7e3de920-5b0f-449f-9d43-947cb7d1fb50\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">상태 기반 스타일은 styled-components로 분리했습니다.</p></div></div></div></div>",
+        "result": "스타일 코드의 가독성과 유지보수성을 높였습니다.\n컴포넌트 단위 재사용이 쉬운 구조를 구축했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"9b83fb65-dae4-4693-ac51-b6c8b16acddb\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"9b83fb65-dae4-4693-ac51-b6c8b16acddb\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">스타일 코드의 가독성과 유지보수성을 높였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"40f7c13b-dd48-4d05-a49b-593ce82fb5c1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"40f7c13b-dd48-4d05-a49b-593ce82fb5c1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">컴포넌트 단위 재사용이 쉬운 구조를 구축했습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "복잡한 메뉴 구조의 라우팅 설계",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"3c8899f9-e562-4224-b604-6dbdc98cd33a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"3c8899f9-e562-4224-b604-6dbdc98cd33a\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">복잡한 메뉴 구조의 라우팅 설계</p></div></div></div></div>",
+        "problem": "2차 하위 메뉴까지 포함되어 페이지 접근 구조가 복잡했습니다.\n사용자가 현재 위치를 파악하기 쉬운 화면 흐름이 필요했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"085834c3-6a18-435b-936b-ea8a6310705f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"085834c3-6a18-435b-936b-ea8a6310705f\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">2차 하위 메뉴까지 포함되어 페이지 접근 구조가 복잡했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"2dd93c7e-6cca-4945-a14f-03db04e0d460\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"2dd93c7e-6cca-4945-a14f-03db04e0d460\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">사용자가 현재 위치를 파악하기 쉬운 화면 흐름이 필요했습니다.</p></div></div></div></div>",
+        "approach": "GNB 구조와 React Router를 연동했습니다.\n페이지 단위로 모듈을 분리해 라우팅 구조를 정리했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0e801dc5-9cbb-449f-b40c-7d9a614e2d76\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0e801dc5-9cbb-449f-b40c-7d9a614e2d76\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">GNB 구조와 React Router를 연동했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"72bad701-4e5a-4119-b03c-fa4d0bde6858\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"72bad701-4e5a-4119-b03c-fa4d0bde6858\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">페이지 단위로 모듈을 분리해 라우팅 구조를 정리했습니다.</p></div></div></div></div>",
+        "result": "사용자 동선을 단축하고 화면 접근성을 개선했습니다.\n서비스 확장에 대응 가능한 프론트엔드 구조를 수립했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"8c9a0a3e-5daa-472c-8539-c05c8aa79f2d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"8c9a0a3e-5daa-472c-8539-c05c8aa79f2d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">사용자 동선을 단축하고 화면 접근성을 개선했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"149d0e84-6daa-4bd7-bfb2-ce56a31a048e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"149d0e84-6daa-4bd7-bfb2-ce56a31a048e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">서비스 확장에 대응 가능한 프론트엔드 구조를 수립했습니다.</p></div></div></div></div>"
+      }
+    ],
+    "resultItems": [
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"8f5d456d-2461-449d-a48c-17e3fb4168be\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"8f5d456d-2461-449d-a48c-17e3fb4168be\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong>React 기반 운영 관리 화면의 핵심 UI를 구현</strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"510344f2-a841-42bc-833e-5cf8bac80672\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"510344f2-a841-42bc-833e-5cf8bac80672\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d200f7f7-07f1-4ede-a796-e544a8747260\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d200f7f7-07f1-4ede-a796-e544a8747260\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">주문 상태와 기간 조건을 조합한 다중 필터링 구조를 구축했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ba31b83e-2565-4598-babe-bd8d23a1ca41\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ba31b83e-2565-4598-babe-bd8d23a1ca41\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"adfd1b80-b27c-4c62-bc23-3d47548c124d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"adfd1b80-b27c-4c62-bc23-3d47548c124d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">라우팅, 상태 관리, 스타일 구조를 분리해 유지보수성을 확보했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c64a03d2-cf0f-4b82-b35b-b18cb7a6aa3a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c64a03d2-cf0f-4b82-b35b-b18cb7a6aa3a\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong>복잡한 운영 화면의 접근 흐름과 사용성을 개선</strong>했습니다.</p></div></div></div></div>"
+    ],
+    "highlights": [
+      "필터 상태를 객체 형태로 관리했습니다.\n원본 배열을 가공하는 독립 필터링 함수를 설계했습니다.",
+      "기본 레이아웃은 Tailwind CSS로 구성했습니다.\n상태 기반 스타일은 styled-components로 분리했습니다.",
+      "GNB 구조와 React Router를 연동했습니다.\n페이지 단위로 모듈을 분리해 라우팅 구조를 정리했습니다.",
+      "React 기반 운영 관리 화면의 핵심 UI를 구현했습니다.",
+      "주문 상태와 기간 조건을 조합한 다중 필터링 구조를 구축했습니다.",
+      "라우팅, 상태 관리, 스타일 구조를 분리해 유지보수성을 확보했습니다.",
+      "복잡한 운영 화면의 접근 흐름과 사용성을 개선했습니다."
+    ],
+    "links": [
+      {
+        "label": "Company 사이트 보러가기",
+        "href": "https://hipasshub.com/"
+      }
+    ],
+    "featured": true,
+    "ongoing": false,
+    "order": 3,
+    "status": "published",
+    "bodyBlocks": [],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"2fd78fa7-2e9b-4c44-bd11-6492a2b3eb8e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"2fd78fa7-2e9b-4c44-bd11-6492a2b3eb8e\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[배경]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b152922e-0703-41b0-b67d-3db284b74425\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b152922e-0703-41b0-b67d-3db284b74425\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">꽃집 화원 도매업체 관리자가 직접 배달 관리를 하는 전용 사이트입니다.<br>그 중 메인페이지에 보이는 관제용 대쉬보드를 구축했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b05e4004-9616-43fc-8c16-12e17f869945\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b05e4004-9616-43fc-8c16-12e17f869945\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[문제점]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"55a76ab3-7518-4936-9de5-cd0f8af564fc\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"55a76ab3-7518-4936-9de5-cd0f8af564fc\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">주문 상태, 기간, 메뉴 구조가 복합적으로 연결되어 명확한 상태 관리가 필요했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4efa404d-5e1a-458e-9ea3-21c8a9f422e7\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4efa404d-5e1a-458e-9ea3-21c8a9f422e7\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[주요업무]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a26407e8-6720-4421-a24d-37d2cc78d2dc\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a26407e8-6720-4421-a24d-37d2cc78d2dc\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Order 페이지 UI 컴포넌트를 개발했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"de3dc474-2825-480b-866d-85301baa34fc\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"de3dc474-2825-480b-866d-85301baa34fc\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">주문 상태별 다중 필터링 모듈을 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"9d543dec-deba-45fa-8553-db915dac2441\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"9d543dec-deba-45fa-8553-db915dac2441\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">React Router 기반 페이지 라우팅 구조를 구축했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"93946ae4-fb0f-4f5b-a052-808de1da2dfa\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"93946ae4-fb0f-4f5b-a052-808de1da2dfa\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Tailwind와 styled-components 기반으로 스타일 구조를 분리했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"cd0c75a3-2e3d-4b13-975e-5026eca51101\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"cd0c75a3-2e3d-4b13-975e-5026eca51101\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">2차 하위 메뉴를 포함한 네비게이션 구조를 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ac479024-d1b1-430f-bf04-283df8b12d11\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ac479024-d1b1-430f-bf04-283df8b12d11\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+  },
+  {
+    "slug": "2",
+    "title": "AI 활용 아이에스캐스트 구축 및 제품 데이터 연동 구조 개선",
+    "summary": "",
+    "year": "2026.04 / 약 1주",
+    "role": "",
+    "company": "아이에스캐스트",
+    "thumbnail": "/media/iskest-thumb.webp",
+    "hoverImage": "/media/iskest-img1.gif",
+    "mediaUrl": "/media/iskest-img1.gif",
+    "mediaType": "gif",
+    "mediaAlt": "iskest img1",
+    "mediaItems": [
+      {
+        "url": "/media/iskest-img1.gif",
+        "type": "gif",
+        "alt": "iskest img1"
+      },
+      {
+        "url": "/media/iskest-img2.gif",
+        "type": "gif",
+        "alt": "iskest img2"
+      }
+    ],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "PHP",
+      "GnuBoard",
+      "Swiper.js",
+      "GSAP",
+      "Codex",
+      "Gemini"
+    ],
+    "tags": [
+      "CMS",
+      "Frontend",
+      "Responsive",
+      "Automation",
+      "Admin"
+    ],
+    "contribution": 100,
+    "caseNotes": [
+      {
+        "issueTitle": "하드코딩 의존 구조 개선",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"3b170d94-8802-418c-a724-128133bad055\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"3b170d94-8802-418c-a724-128133bad055\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">하드코딩 의존 구조 개선</p></div></div></div></div>",
+        "problem": "제품 등록 시 1~3차 카테고리 변수를 반복 수정해야 했습니다.\n오타로 인한 데이터 저장 오류 가능성이 높았습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"21336903-f3d7-4409-ad23-792d3933c364\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"21336903-f3d7-4409-ad23-792d3933c364\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">제품 등록 시 1~3차 카테고리 변수를 반복 수정해야 했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f9f9ce5d-1f93-48c9-9a1a-5678307e6341\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f9f9ce5d-1f93-48c9-9a1a-5678307e6341\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">오타로 인한 데이터 저장 오류 가능성이 높았습니다.</p></div></div></div></div>",
+        "approach": "product_application_master 를 기준 변수로 설정했습니다.\n공통 헤더에서 자동 호출되도록 로직을 개선했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4e97d666-bff6-414d-9480-1edf363d6628\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4e97d666-bff6-414d-9480-1edf363d6628\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">product_application_master 를 기준 변수로 설정했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e895a4b4-be1a-4289-a6eb-22fb0bf3c7f9\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e895a4b4-be1a-4289-a6eb-22fb0bf3c7f9\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 헤더에서 자동 호출되도록 로직을 개선했습니다.</p></div></div></div></div>",
+        "result": "중복 입력과 휴먼 에러 가능성을 줄였습니다.\n유지보수 가능한 데이터 관리 구조를 구축했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1587f363-0ad1-47be-ba4f-a5d1898ab083\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1587f363-0ad1-47be-ba4f-a5d1898ab083\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">중복 입력과 휴먼 에러 가능성을 줄였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5d3f5d9f-43b0-4a2b-a096-dd9d0580bf1c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5d3f5d9f-43b0-4a2b-a096-dd9d0580bf1c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">유지보수 가능한 데이터 관리 구조를 구축했습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "제품 상세 모달 및 리스트 모듈화",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b4761b71-80e3-4f35-8ac9-ba4e7a946d5c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b4761b71-80e3-4f35-8ac9-ba4e7a946d5c\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">제품 상세 모달 및 리스트 모듈화</p></div></div></div></div>",
+        "problem": "모달과 리스트 로직이 외부 파일에 강하게 결합되어 있었습니다.\n메인, 게시판 등 다른 페이지에서 재사용하기 어려웠습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"975b5903-03d2-490d-9570-ae3bbffc8d39\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"975b5903-03d2-490d-9570-ae3bbffc8d39\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">모달과 리스트 로직이 외부 파일에 강하게 결합되어 있었습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"45446388-0746-4893-a6f1-55693bb24a33\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"45446388-0746-4893-a6f1-55693bb24a33\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">메인, 게시판 등 다른 페이지에서 재사용하기 어려웠습니다.</p></div></div></div></div>",
+        "approach": "모달 UI와 리스트 렌더링 로직을 분리했습니다.\n공통 호출 로직을 테마 내부 모듈로 재구성했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"296c258d-8a16-4d10-84d0-871041292a99\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"296c258d-8a16-4d10-84d0-871041292a99\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">모달 UI와 리스트 렌더링 로직을 분리했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4d95678c-9527-411a-8b95-b2a2e065b2c1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4d95678c-9527-411a-8b95-b2a2e065b2c1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"blue\" data-editable=\"\">공통 호출 로직을 테마 내부 모듈로 재구성</span></strong>했습니다.</p></div></div></div></div>",
+        "result": "여러 페이지에서 동일한 제품 리스트와 상세 모달을 재사용할 수 있게 했습니다.\n확장 가능한 컴포넌트 구조를 구축했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f545bbc3-3456-4292-ad68-91229cf084d9\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f545bbc3-3456-4292-ad68-91229cf084d9\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">여러 페이지에서 동일한 제품 리스트와 상세 모달을 재사용할 수 있게 했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e80d88f8-cf96-405f-bd85-debdce1176d1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e80d88f8-cf96-405f-bd85-debdce1176d1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">확장 가능한 컴포넌트 구조를 구축했습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "AI 활용 기반 개발 속도 최적화",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d48533d7-df87-42ac-9ba3-d2ee177be51e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d48533d7-df87-42ac-9ba3-d2ee177be51e\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">AI 활용 기반 개발 속도 최적화</p></div></div></div></div>",
+        "problem": "짧은 일정 안에서 반응형, GSAP, 폼 충돌 이슈를 동시에 해결해야 했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ebcd2d74-30e1-421f-bd3a-914ec5684055\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ebcd2d74-30e1-421f-bd3a-914ec5684055\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">짧은 일정 안에서 반응형, GSAP, 폼 충돌 이슈를 동시에 해결해야 했습니다.</p></div></div></div></div>",
+        "approach": "AI를 로직 검증, 디버깅, 반응형 테스트 보조에 활용했습니다.\n폼 세션 충돌 방지를 위해 캐시 제어 코드를 적용했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e33fa387-56ac-4444-81e8-1d63b0bd2221\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e33fa387-56ac-4444-81e8-1d63b0bd2221\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"blue\" data-editable=\"\">AI를 로직 검증, 디버깅, 반응형 테스트 보조에 활용</span></strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"6c549183-3ea9-48d6-9f17-b96a5b251f88\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"6c549183-3ea9-48d6-9f17-b96a5b251f88\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">폼 세션 충돌 방지를 위해 캐시 제어 코드를 적용했습니다.</p></div></div></div></div>",
+        "result": "폼 데이터 누락과 충돌 이슈를 해결했습니다.\n수정 반복 시간을 줄이고 개발 속도를 개선했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"09f4b15d-9df1-41a9-a1a0-945307c3e6dd\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"09f4b15d-9df1-41a9-a1a0-945307c3e6dd\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">폼 데이터 누락과 충돌 이슈를 해결했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"add2950a-5a77-44d1-a69e-cd1d289e070c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"add2950a-5a77-44d1-a69e-cd1d289e070c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">수정 반복 시간을 줄이고 개발 속도를 개선했습니다.</p></div></div></div></div>"
+      }
+    ],
+    "resultItems": [
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"12579abd-c905-4567-beee-dc2a6d499d01\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"12579abd-c905-4567-beee-dc2a6d499d01\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">단순 퍼블리싱 업무를 데이터 연동형 구조 개선 프로젝트로 확장했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"3029ee80-9115-4397-9222-2425c8401e0e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"3029ee80-9115-4397-9222-2425c8401e0e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"69fafff4-9f4a-4647-a9a4-3598330ef19e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"69fafff4-9f4a-4647-a9a4-3598330ef19e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">제품 리스트, 상세 모달, 슬라이더를 <strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">재사용 가능한 구조로 구축</span></strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1cfb3e0b-3cc2-4276-b0a4-de478a6a7c2c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1cfb3e0b-3cc2-4276-b0a4-de478a6a7c2c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5cdfe45c-c500-4352-a216-20cd03b5a63f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5cdfe45c-c500-4352-a216-20cd03b5a63f\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">AI 활용으로 단기 구축 프로젝트의 작업 속도를 약 70% 단축</span></strong>했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ee33add9-507b-4637-9f28-fbedd303e581\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ee33add9-507b-4637-9f28-fbedd303e581\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">하드코딩 의존도를 낮춰 유지보수성과 확장성을 개선했습니다.</p></div></div></div></div>"
+    ],
+    "highlights": [
+      "product_application_master 를 기준 변수로 설정했습니다.\n공통 헤더에서 자동 호출되도록 로직을 개선했습니다.",
+      "모달 UI와 리스트 렌더링 로직을 분리했습니다.\n공통 호출 로직을 테마 내부 모듈로 재구성했습니다.",
+      "AI를 로직 검증, 디버깅, 반응형 테스트 보조에 활용했습니다.\n폼 세션 충돌 방지를 위해 캐시 제어 코드를 적용했습니다.",
+      "단순 퍼블리싱 업무를 데이터 연동형 구조 개선 프로젝트로 확장했습니다.",
+      "제품 리스트, 상세 모달, 슬라이더를 재사용 가능한 구조로 구축했습니다.",
+      "AI 활용으로 단기 구축 프로젝트의 작업 속도를 약 70% 단축했습니다.",
+      "하드코딩 의존도를 낮춰 유지보수성과 확장성을 개선했습니다."
     ],
     "links": [],
     "featured": true,
     "ongoing": false,
-    "order": 1,
+    "order": 2,
     "status": "published",
-    "bodyBlocks": [
+    "bodyBlocks": [],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"288ac8a2-370b-45ec-b265-f52446ecbaf3\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"288ac8a2-370b-45ec-b265-f52446ecbaf3\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[배경]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"3847dd10-26d3-4260-b503-c3366cde204c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"3847dd10-26d3-4260-b503-c3366cde204c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">단순 퍼블리싱 업무로 시작했으나, <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">핵심 DB 및 로직 누락이 다수 발견</span></strong>되었습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"6d00b27f-5920-4b69-a204-af3a817d919c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"6d00b27f-5920-4b69-a204-af3a817d919c\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[문제점]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"830f8593-12f3-4d12-bb87-25583a2208ba\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"830f8593-12f3-4d12-bb87-25583a2208ba\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">제품 카테고리, 게시판, 모달 UI가 데이터와 연결되지 않은 불완전한 구조였습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1a1d1f0d-b87e-4fe0-abf8-fe96e31864ee\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1a1d1f0d-b87e-4fe0-abf8-fe96e31864ee\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[주요업무]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"345e1227-10bf-4991-b4da-3e0eac84496b\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"345e1227-10bf-4991-b4da-3e0eac84496b\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">제품 카테고리 데이터 구조를 분석하고 개선했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"243313cf-a244-4244-a5f2-acfa80635510\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"243313cf-a244-4244-a5f2-acfa80635510\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">제품 리스트, 상세 모달, 슬라이더를 모듈화했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"06de4664-c97c-4362-93dc-dcd786d25df0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"06de4664-c97c-4362-93dc-dcd786d25df0\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 변수 기반 제품 데이터 자동 호출 구조를 구현했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"055008f2-53d5-4592-9d7c-521368a72f4a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"055008f2-53d5-4592-9d7c-521368a72f4a\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">AI 기반으로 반응형 UI 검증 및 디버깅을 진행했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d84d25f5-5ca2-4f6a-83eb-67b878cc6184\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d84d25f5-5ca2-4f6a-83eb-67b878cc6184\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">예약/견적 폼 다중 호출 시 발생하는 충돌 이슈를 해결했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"35f2e755-8348-4138-92bc-4d780e1018e6\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"35f2e755-8348-4138-92bc-4d780e1018e6\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+  },
+  {
+    "slug": "1",
+    "title": "숙박 특화 멀티 사이트 프론트엔드 자동화 구조 설계",
+    "summary": "test",
+    "year": "2024.06 - 2024.12 / 약 6개월",
+    "role": "Frontend UI / CMS",
+    "company": "Codiworks",
+    "thumbnail": "/media/rs-thumb.webp",
+    "altText": "자동화",
+    "hoverImage": "/media/rs-thumb.webp",
+    "mediaUrl": "/media/rs-thumb.webp",
+    "mediaType": "image",
+    "mediaAlt": "rs thumb",
+    "mediaItems": [
       {
-        "id": "5b5f090d-172d-495b-8fc6-688990114eeb",
-        "type": "heading",
-        "props": {
-          "backgroundColor": "default",
-          "textColor": "default",
-          "textAlignment": "left",
-          "level": 1,
-          "isToggleable": false
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "데이터 바인딩",
-            "styles": {}
-          }
-        ],
-        "children": []
-      },
-      {
-        "id": "b9f98f7d-b8b4-42a8-ae91-46699b53a1e8",
-        "type": "paragraph",
-        "props": {
-          "backgroundColor": "default",
-          "textColor": "default",
-          "textAlignment": "left"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "test",
-            "styles": {}
-          }
-        ],
-        "children": []
-      },
-      {
-        "id": "792afc66-63a4-4499-983e-7d4e31f6743e",
-        "type": "paragraph",
-        "props": {
-          "backgroundColor": "default",
-          "textColor": "default",
-          "textAlignment": "left"
-        },
-        "content": [],
-        "children": []
+        "url": "/media/rs-thumb.webp",
+        "type": "image",
+        "alt": "rs thumb"
       }
     ],
-    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5b5f090d-172d-495b-8fc6-688990114eeb\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5b5f090d-172d-495b-8fc6-688990114eeb\"><div class=\"bn-block-content\" data-content-type=\"heading\"><h1 class=\"bn-inline-content\">데이터 바인딩</h1></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b9f98f7d-b8b4-42a8-ae91-46699b53a1e8\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b9f98f7d-b8b4-42a8-ae91-46699b53a1e8\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">test</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"52743a73-373b-481b-b17f-d3970e9f9e06\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"52743a73-373b-481b-b17f-d3970e9f9e06\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">오예 </p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"792afc66-63a4-4499-983e-7d4e31f6743e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"792afc66-63a4-4499-983e-7d4e31f6743e\"><div class=\"bn-block-content\" data-content-type=\"image\" data-name=\"g2.gif\" data-file-block=\"\"><div class=\"bn-file-block-content-wrapper\" style=\"position: relative;\"><div class=\"bn-add-file-button\"><div class=\"bn-add-file-button-icon\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M5 11.1005L7 9.1005L12.5 14.6005L16 11.1005L19 14.1005V5H5V11.1005ZM4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM15.5 10C14.6716 10 14 9.32843 14 8.5C14 7.67157 14.6716 7 15.5 7C16.3284 7 17 7.67157 17 8.5C17 9.32843 16.3284 10 15.5 10Z\"></path></svg></div><p class=\"bn-add-file-button-text\">Add image</p></div></div></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"daf337f1-71f7-4908-9e5e-3dca1e701c66\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"daf337f1-71f7-4908-9e5e-3dca1e701c66\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "GnuBoard",
+      "Swiper.js",
+      "GSAP",
+      "Symbolic Link",
+      "Theme/Skin 구조"
+    ],
+    "tags": [
+      "CMS",
+      "Frontend",
+      "Responsive",
+      "Automation",
+      "MultiSite"
+    ],
+    "contribution": 100,
+    "caseNotes": [
+      {
+        "issueTitle": "공통화와 사이트별 커스터마이징의 균형",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"3e518e56-9d21-4f8d-a34c-fb7cbae81f86\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"3e518e56-9d21-4f8d-a34c-fb7cbae81f86\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>공통화와 사이트별 커스터마이징의 균형</strong></p></div></div></div></div>",
+        "problem": "여러 사이트를 같은 구조로 운영해야 했지만, 각 사이트의 브랜드와 콘텐츠 차이는 유지해야 했습니다.\n공통화 범위를 과하게 잡으면 개별 사이트 대응이 어려워질 수 있었습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ec3ef40c-4cd3-412d-bdc8-496c24771086\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ec3ef40c-4cd3-412d-bdc8-496c24771086\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">여러 사이트를 같은 구조로 운영해야 했지만, 각 사이트의 브랜드와 콘텐츠 차이는 유지해야 했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"900219b0-32ae-4a4d-a048-a2bf52db023e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"900219b0-32ae-4a4d-a048-a2bf52db023e\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통화 범위를 과하게 잡으면 개별 사이트 대응이 어려워질 수 있었습니다.</p></div></div></div></div>",
+        "approach": "공통 레이아웃, 간격, 버튼, 필터 등 반복 UI는 테마 레벨에서 재사용합니다.\n컬러, 헤더 구성, 배너 등 사이트별 요소는 오버라이드 방식으로 분리합니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"12389658-ee88-4e4f-b911-bd876c057602\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"12389658-ee88-4e4f-b911-bd876c057602\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 레이아웃, 간격, 버튼, 필터 등 반복 UI는 테마 레벨에서 재사용합니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"48ca7e89-c5c4-4ecb-9f3e-d4fb6cf44d18\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"48ca7e89-c5c4-4ecb-9f3e-d4fb6cf44d18\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">컬러, 헤더 구성, 배너 등 사이트별 요소는 오버라이드 방식으로 분리합니다.</p></div></div></div></div>",
+        "result": "공통 UX 패턴은 유지하면서 사이트별 브랜드 차이를 반영할 수 있게 합니다.\n전체는 통일하고 디테일은 차별화하는 구조를 구축합니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b9bf690a-ba27-4141-81cd-63f47c7fa75c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b9bf690a-ba27-4141-81cd-63f47c7fa75c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 UX 패턴은 유지하면서 사이트별 브랜드 차이를 반영할 수 있게 합니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7ef6c5f9-7b3d-41a4-853d-c9b8f894a6a6\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7ef6c5f9-7b3d-41a4-853d-c9b8f894a6a6\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">전체는 통일하고 디테일은 차별화하는 구조를 구축합니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "테마와 스킨 역할 분리",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"927aa69a-545a-4126-aa2a-dcf7894a4479\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"927aa69a-545a-4126-aa2a-dcf7894a4479\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>테마와 스킨 역할 분리</strong></p></div></div></div></div>",
+        "problem": "전역 UI와 기능별 UI가 섞이면 수정 영향 범위를 예측하기 어려웠습니다.\n공통 수정 시 여러 화면에서 의도치 않은 회귀 이슈가 발생할 수 있었습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a0604b60-a989-4b66-889b-d93a485b9131\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a0604b60-a989-4b66-889b-d93a485b9131\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">전역 UI와 기능별 UI가 섞이면 수정 영향 범위를 예측하기 어려웠습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ce64a8fb-b699-4521-9cad-58ceccc61925\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ce64a8fb-b699-4521-9cad-58ceccc61925\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 수정 시 여러 화면에서 의도치 않은 회귀 이슈가 발생할 수 있었습니다.</p></div></div></div></div>",
+        "approach": "테마는 전역 레이아웃, 톤앤매너, 공통 스타일 정책을 담당하도록 정리합니다.\n스킨은 디자인, 게시판, 상품, 폼 등 기능 단위 UI 템플릿으로 분리합니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"25c0c1f3-1ba4-4249-9571-02f305b7d585\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"25c0c1f3-1ba4-4249-9571-02f305b7d585\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">테마는 전역 레이아웃, 톤앤매너, 공통 스타일 정책을 담당하도록 정리합니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e2397387-fe96-4dba-9c60-501f53c884e5\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e2397387-fe96-4dba-9c60-501f53c884e5\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">스킨은 디자인, 게시판, 상품, 폼 등 기능 단위 UI 템플릿으로 분리합니다.</p></div></div></div></div>",
+        "result": "전역 변경은 테마에서 처리하고, 기능 변경은 해당 스킨에서 처리 가능해졌습니다.\n수정 영향 범위가 명확해져 유지보수 안정성이 높아졌습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b789e079-3ddc-4747-839a-e04ca8692f39\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b789e079-3ddc-4747-839a-e04ca8692f39\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">전역 변경은 테마에서 처리하고, 기능 변경은 해당 스킨에서 처리 가능해졌습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4e5d07b6-ddb8-4889-9d06-ebe23900be86\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4e5d07b6-ddb8-4889-9d06-ebe23900be86\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">수정 영향 범위가 명확해져 유지보수 안정성이 높아졌습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "반복 구축 업무의 자동화 구조 전환",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"785e3c36-9760-4512-b39f-13584bbfab39\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"785e3c36-9760-4512-b39f-13584bbfab39\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>반복 구축 업무의 자동화 구조 전환</strong></p></div></div></div></div>",
+        "problem": "신규 사이트 구축 시 기존 소스를 복사하고 개별 수정하는 과정이 반복되었습니다.\n동일한 UI 이슈를 여러 사이트에서 따로 수정해야 하는 비효율이 있었습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"cfbd8415-0c0b-472e-b8c4-dcc158fae68b\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"cfbd8415-0c0b-472e-b8c4-dcc158fae68b\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">신규 사이트 구축 시 기존 소스를 복사하고 개별 수정하는 과정이 반복되었습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"192423b2-c75b-4442-b2a1-c83ef735fba2\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"192423b2-c75b-4442-b2a1-c83ef735fba2\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">동일한 <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">UI 이슈를 여러 사이트에서 따로 수정해야 하는 비효율</span></strong>이 있었습니다.</p></div></div></div></div>",
+        "approach": "공통 스킨과 UI 모듈을 재사용 가능한 구조로 정리했습니다.\n관리자 여분 필드와 설정값을 활용해 화면 구성을 동적으로 제어했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d9878255-eacc-4bdc-aa15-99f337872082\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d9878255-eacc-4bdc-aa15-99f337872082\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"purple\" data-editable=\"\">공통 스킨과 UI 모듈을 재사용 가능한 구조로 정리</span></strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"052d32b5-5087-4a14-9301-ee9886d167b3\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"052d32b5-5087-4a14-9301-ee9886d167b3\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"purple\" data-editable=\"\">관리자 여분 필드와 설정값을 활용</span></strong>해 화면 구성을 동적으로 제어했습니다.</p></div></div></div></div>",
+        "result": "데이터와 이미지 세팅만으로 빠르게 신규 사이트를 구성할 수 있게 되었습니다.\n반복 수정 비용을 줄이고 신규 사이트 확장 속도를 개선했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"572ec6b8-dc6b-462b-b5b4-8f174994a729\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"572ec6b8-dc6b-462b-b5b4-8f174994a729\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">데이터와 이미지 세팅만으로 빠르게 신규 사이트를 구성할 수 있게 되었습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"51bd7233-e449-4453-9b4b-8142d92b0c14\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"51bd7233-e449-4453-9b4b-8142d92b0c14\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">반복 수정 비용을 줄이고 신규 사이트 확장 속도를 개선했습니다.</p></div></div></div></div>"
+      }
+    ],
+    "resultItems": [
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d1bf1949-c2c0-45b3-8589-f22008a75942\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d1bf1949-c2c0-45b3-8589-f22008a75942\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">숙박 멀티 사이트에 적용 가능한 <strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">공통 프론트엔드 운영 구조 구축</span></strong></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c4d2b740-5f7d-4ca5-bde8-3aadc3ed3fb5\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c4d2b740-5f7d-4ca5-bde8-3aadc3ed3fb5\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">기존 수동 구축 방식 대비 <strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">사이트 구축 시간 약 90% 단축</span></strong></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"8515ea61-d808-4acd-8fb7-7583a6617960\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"8515ea61-d808-4acd-8fb7-7583a6617960\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">데이터 및 이미지 세팅만으로 최소 1시간 내외 런칭 가능한 구조 마련</span></strong></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e6bb90b5-5923-46b9-a428-e6637401c09c\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e6bb90b5-5923-46b9-a428-e6637401c09c\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><strong><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">1년 이상 11개 숙박 사이트 오픈 및 안정 운영</span></strong></p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4cbe3a3d-c685-4d15-8f89-f177bc848308\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4cbe3a3d-c685-4d15-8f89-f177bc848308\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">테마/스킨 분리로 유지보수 범위와 변경 리스크 감소</p></div></div></div></div>"
+    ],
+    "highlights": [
+      "공통 레이아웃, 간격, 버튼, 필터 등 반복 UI는 테마 레벨에서 재사용합니다.\n컬러, 헤더 구성, 배너 등 사이트별 요소는 오버라이드 방식으로 분리합니다.",
+      "테마는 전역 레이아웃, 톤앤매너, 공통 스타일 정책을 담당하도록 정리합니다.\n스킨은 디자인, 게시판, 상품, 폼 등 기능 단위 UI 템플릿으로 분리합니다.",
+      "공통 스킨과 UI 모듈을 재사용 가능한 구조로 정리했습니다.\n관리자 여분 필드와 설정값을 활용해 화면 구성을 동적으로 제어했습니다.",
+      "숙박 멀티 사이트에 적용 가능한 공통 프론트엔드 운영 구조 구축",
+      "기존 수동 구축 방식 대비 사이트 구축 시간 약 90% 단축",
+      "데이터 및 이미지 세팅만으로 최소 1시간 내외 런칭 가능한 구조 마련",
+      "1년 이상 11개 숙박 사이트 오픈 및 안정 운영",
+      "테마/스킨 분리로 유지보수 범위와 변경 리스크 감소"
+    ],
+    "links": [
+      {
+        "label": "Company 사이트 보러가기",
+        "href": "https://www.blueoceanhotel.co.kr/"
+      }
+    ],
+    "featured": true,
+    "ongoing": false,
+    "order": 1,
+    "status": "published",
+    "bodyBlocks": [],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"31077024-6ddd-4931-8ca8-899582681762\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"31077024-6ddd-4931-8ca8-899582681762\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>프로젝트 요약</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"9b435141-1724-4f10-aedb-bee779cbcbc1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"9b435141-1724-4f10-aedb-bee779cbcbc1\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[배경]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b6d7c149-adcf-4e44-a791-1ffc753005e1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b6d7c149-adcf-4e44-a791-1ffc753005e1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">여러 숙박 서비스 <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">사이트를 반복 구축해야 하는 환경에서 공통 관리 구조가 필요</span></strong>했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f3efca78-5657-495e-9570-fb211cf76ea0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f3efca78-5657-495e-9570-fb211cf76ea0\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[문제점]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"8ed18eeb-c9dc-45e0-a5fd-82fc5536cd5d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"8ed18eeb-c9dc-45e0-a5fd-82fc5536cd5d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">사이트마다 <strong><span data-style-type=\"textColor\" data-value=\"red\" data-editable=\"\">소스 복사와 개별 수정이 반복</span></strong>되어 구축 속도와 유지보수 효율이 낮았습니다.&nbsp;</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"687fc040-610c-499d-aec9-8cd0cc14590e\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"687fc040-610c-499d-aec9-8cd0cc14590e\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>[주요업무]</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1407e95f-e341-43d7-b129-da9055677234\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1407e95f-e341-43d7-b129-da9055677234\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">숙박 사이트 공통 템플릿 구조 설계 및 구현</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"d54745c6-25dd-4f0e-acd5-7471f4a6a514\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"d54745c6-25dd-4f0e-acd5-7471f4a6a514\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">테마와 스킨 역할 분리 기반 프론트엔드 구조화</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"3ce25cb3-0348-40f2-92d1-e2b110dfc1a5\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"3ce25cb3-0348-40f2-92d1-e2b110dfc1a5\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">관리자 설정값 기반 동적 UI 렌더링 구현</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"43d49af6-1333-4232-a239-1b38ee7a200d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"43d49af6-1333-4232-a239-1b38ee7a200d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">사이트별 브랜딩 대응을 위한 오버라이드 구조 적용</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b2827fc1-15a7-4c75-b4ee-ab790bb07c35\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b2827fc1-15a7-4c75-b4ee-ab790bb07c35\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">공통 헤더, 필터, 폼, 슬라이드 UI 재사용 구조 구현</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e4496e2d-c5c5-4ad2-add7-11996dd6fdc1\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e4496e2d-c5c5-4ad2-add7-11996dd6fdc1\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">다국어 사이트 구축 및 운영 대응</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"34708347-60da-4fa3-bb46-8fdbf6313b50\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"34708347-60da-4fa3-bb46-8fdbf6313b50\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
   }
 ]

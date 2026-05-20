@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getAdminProjects, deleteProjectAction } from "../actions";
+import { deleteProjectAction } from "../actions";
+import { getAdminProjects } from "@/lib/adminProjects";
 
 const STATUS_LABEL: Record<string, { label: string; cls: string }> = {
   published: { label: "발행", cls: "bg-emerald-50 text-emerald-700 border-emerald-200" },
@@ -21,7 +22,7 @@ export default async function AdminProjectsPage({
   const all = await getAdminProjects();
 
   // 정렬: order 큰 순서, 그 다음 입력 순
-  const sorted = [...all].sort((a, b) => (b.order ?? 0) - (a.order ?? 0));
+  const sorted = [...all].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
   // 모든 태그 (중복 제거)
   const tagSet = new Set<string>();

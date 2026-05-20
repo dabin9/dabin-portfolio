@@ -6,6 +6,7 @@ import "./blocknote-overrides.css";
 
 import {
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef
 } from "react";
@@ -16,8 +17,11 @@ import { uploadImage } from "@/lib/clientUpload";
 
 type Props = {
   initialBlocks?: unknown[];
+  initialHtml?: string;
   blocksFieldName?: string;
   htmlFieldName?: string;
+  compact?: boolean;
+  hideHelp?: boolean;
 };
 
 /**
@@ -38,8 +42,11 @@ export type BlockEditorHandle = {
 const BlockEditor = forwardRef<BlockEditorHandle, Props>(function BlockEditor(
   {
     initialBlocks,
+    initialHtml,
     blocksFieldName = "blocks",
-    htmlFieldName = "blocksHtml"
+    htmlFieldName = "blocksHtml",
+    compact = false,
+    hideHelp = false
   },
   ref
 ) {
@@ -53,6 +60,7 @@ const BlockEditor = forwardRef<BlockEditorHandle, Props>(function BlockEditor(
 
   const blocksRef = useRef<HTMLInputElement>(null);
   const htmlRef = useRef<HTMLInputElement>(null);
+  const restoredHtmlRef = useRef(false);
 
   const flush = async () => {
     const doc = editor.document;
@@ -67,8 +75,26 @@ const BlockEditor = forwardRef<BlockEditorHandle, Props>(function BlockEditor(
 
   useImperativeHandle(ref, () => ({ flushToInputs: flush }), [editor]);
 
+  useEffect(() => {
+    if (restoredHtmlRef.current) return;
+    if (initialBlocks && initialBlocks.length > 0) return;
+    if (!initialHtml?.trim()) return;
+
+    restoredHtmlRef.current = true;
+    try {
+      const parsed = editor.tryParseHTMLToBlocks(initialHtml);
+      if (parsed.length > 0) {
+        editor.replaceBlocks(editor.document, parsed);
+        if (blocksRef.current) blocksRef.current.value = JSON.stringify(parsed);
+        if (htmlRef.current) htmlRef.current.value = initialHtml;
+      }
+    } catch {
+      if (htmlRef.current) htmlRef.current.value = initialHtml;
+    }
+  }, [editor, initialBlocks, initialHtml]);
+
   return (
-    <div className="dabin-blocknote">
+    <div className={"dabin-blocknote" + (compact ? " dabin-blocknote-compact" : "")}>
       <BlockNoteView editor={editor} theme="light" onChange={flush} />
       <input
         ref={blocksRef}
@@ -76,11 +102,13 @@ const BlockEditor = forwardRef<BlockEditorHandle, Props>(function BlockEditor(
         name={blocksFieldName}
         defaultValue={JSON.stringify(initialBlocks ?? [])}
       />
-      <input ref={htmlRef} type="hidden" name={htmlFieldName} defaultValue="" />
-      <p className="mt-3 text-[12px] text-muted">
-        ⌨︎ <code className="font-mono">/</code> 입력 → 블록 메뉴 (헤딩·리스트·이미지·코드·표) ·
-        왼쪽 핸들 드래그로 블록 이동 · 이미지 블록은 파일 드롭으로 업로드
-      </p>
+      <input ref={htmlRef} type="hidden" name={htmlFieldName} defaultValue={initialHtml ?? ""} />
+      {hideHelp ? null : (
+        <p className="mt-3 text-[12px] text-muted">
+          ⌨︎ <code className="font-mono">/</code> 입력 → 블록 메뉴 (헤딩·리스트·이미지·코드·표) ·
+          왼쪽 핸들 드래그로 블록 이동 · 이미지 블록은 파일 드롭으로 업로드
+        </p>
+      )}
     </div>
   );
 });

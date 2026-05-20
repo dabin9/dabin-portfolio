@@ -13,12 +13,23 @@
   min-height: 520px;
 }
 
+.dabin-blocknote-compact {
+  border-radius: 8px;
+  padding: 12px 14px;
+  min-height: 118px;
+}
+
 .dabin-blocknote .bn-editor {
   padding: 0 !important;
   font-family: var(--font-display), "Pretendard Variable", Pretendard,
     Inter, system-ui, sans-serif;
   font-size: 16px;
   color: rgb(var(--ink));
+}
+
+.dabin-blocknote-compact .bn-editor {
+  min-height: 84px;
+  font-size: 15px;
 }
 
 /* Notion-ish heading sizes */

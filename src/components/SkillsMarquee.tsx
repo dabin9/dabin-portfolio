@@ -1,62 +1,35 @@
-import { marqueeSkills, skillGroups } from "@/data/skills";
-import SplitChars from "./SplitChars";
+import { skillGroups } from "@/data/skills";
 
 export default function SkillsMarquee() {
-  const loop = [...marqueeSkills, ...marqueeSkills];
-
   return (
     <section id="stack" className="bg-bg border-b border-line">
-      <div className="wrap pt-28 md:pt-32 pb-14 text-center">
-        <p className="text-[12px] tracking-[0.4em] text-muted uppercase">
-          Craft &amp; System
-        </p>
-        <p className="mt-3 font-serif-italic text-[20px] md:text-[24px] text-ink">
-          tools i love working with
-        </p>
-        <h2
-          className="mt-6 font-display font-medium leading-[1.2] tracking-tightest mx-auto max-w-[22ch]"
-          style={{ fontSize: "clamp(1.8rem, 4.4vw, 3rem)" }}
-        >
-          <SplitChars text="유행보다 " stagger={0.022} />
-          <SplitChars
-            text="문제"
-            charClassName="font-serif-italic"
-            delay={0.16}
-            stagger={0.05}
-          />
-          ,
-          <br />
-          <SplitChars text="그 위에 시스템." delay={0.32} stagger={0.025} />
-        </h2>
-      </div>
-
-      <div className="mask-fade-x overflow-hidden border-y border-line">
-        <div
-          className="flex gap-12 whitespace-nowrap animate-marquee py-5 will-change-transform text-[15px] text-inkMuted"
-          style={{ width: "max-content" }}
-          aria-hidden
-        >
-          {loop.map((s, i) => (
-            <span key={i} className="inline-flex items-center gap-12">
-              {s}
-              <span className="text-lineStrong">·</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="wrap py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-14 max-w-[1000px] mx-auto">
-          {skillGroups.map((g) => (
-            <div key={g.title}>
-              <p className="text-[13px] text-ink mb-3 font-serif-italic">{g.title}</p>
-              <ul className="space-y-1.5 text-[14px] text-inkMuted">
-                {g.items.map((item) => (
-                  <li key={item}>— {item}</li>
-                ))}
-              </ul>
+      <div className="wrap py-20 md:py-28">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-14">
+          <div className="md:col-span-3">
+            <p className="font-mono text-[12px] uppercase text-muted">
+              Skills
+            </p>
+          </div>
+          <div className="md:col-span-9">
+            <h2 className="font-display text-3xl md:text-5xl leading-tight text-ink">
+              Working Stack
+            </h2>
+            <div className="mt-8 border-t border-line">
+              {skillGroups.map((group) => (
+                <div
+                  key={group.title}
+                  className="grid md:grid-cols-[180px_1fr] gap-3 md:gap-8 border-b border-line py-5"
+                >
+                  <p className="font-mono text-[12px] uppercase text-muted">
+                    {group.title}
+                  </p>
+                  <p className="text-[15px] md:text-[16px] leading-8 text-ink">
+                    {group.items.join(" / ")}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

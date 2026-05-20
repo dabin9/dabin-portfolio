@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { isLoggedIn } from "@/lib/auth";
 import { readProjectsFresh } from "@/lib/storage";
 import { allTags as collectTags } from "@/data/projects";
+import { getMediaOptions } from "@/lib/mediaOptions";
 import ProjectForm from "@/components/admin/ProjectForm";
 
 type Params = { slug: string };
@@ -22,6 +23,7 @@ export default async function EditProjectPage({
   const { projects } = await readProjectsFresh();
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
+  const mediaOptions = await getMediaOptions();
 
   return (
     <main className="wrap py-12 max-w-[960px] mx-auto">
@@ -41,7 +43,12 @@ export default async function EditProjectPage({
       ) : null}
 
       <div className="mt-10">
-        <ProjectForm mode="edit" project={project} allTags={collectTags(projects)} />
+        <ProjectForm
+          mode="edit"
+          project={project}
+          allTags={collectTags(projects)}
+          mediaOptions={mediaOptions}
+        />
       </div>
     </main>
   );

@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { projects, publicProjects, allTags } from "@/data/projects";
-import { mockupMap } from "@/components/mockups";
-import Reveal from "@/components/Reveal";
 import WorkCardMedia from "@/components/WorkCardMedia";
 
 export const metadata = { title: "Work" };
@@ -19,108 +17,106 @@ export default async function WorkIndex({
     : visible;
 
   return (
-    <section>
+    <section className="bg-bg">
       <div className="wrap pt-16 md:pt-24 pb-24">
-        <p className="text-[12px] tracking-[0.4em] text-muted uppercase">Work — All</p>
-        <h1
-          className="mt-4 font-display font-semibold leading-[1.08] tracking-tightest max-w-[20ch]"
-          style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)" }}
-        >
-          모든 <span className="font-serif-italic">프로젝트.</span>
-        </h1>
-        <p className="mt-5 text-[15px] text-inkMuted max-w-[54ch] leading-relaxed">
-          실서비스 레벨로 다룬 프로젝트를 정리했습니다.
-        </p>
+        <div className="grid md:grid-cols-12 gap-8 md:gap-14 border-b border-line pb-8">
+          <div className="md:col-span-3">
+            <p className="font-mono text-[12px] uppercase text-muted">
+              Work / All
+            </p>
+          </div>
+          <div className="md:col-span-9">
+            <h1 className="font-display text-4xl md:text-6xl leading-tight text-ink">
+              Works Index
+            </h1>
+            <p className="mt-4 max-w-[58ch] text-[15px] md:text-[16px] leading-8 text-inkMuted">
+              실서비스 레벨로 다룬 프로젝트를 작업 기록 형태로 정리했습니다.
+            </p>
+          </div>
+        </div>
 
         {tags.length > 0 ? (
-          <div className="mt-8 flex flex-wrap gap-1.5 items-center">
+          <nav
+            aria-label="작업 필터"
+            className="flex flex-wrap gap-x-5 gap-y-3 border-b border-line py-5 text-[12px]"
+          >
             <Link
               href="/work"
               className={
-                "text-[12px] px-2.5 py-1 border rounded-full " +
+                "font-mono uppercase underline-offset-[6px] " +
                 (!sp.tag
-                  ? "bg-ink text-bg border-ink"
-                  : "border-line text-inkMuted hover:border-ink hover:text-ink")
+                  ? "text-ink underline decoration-ink"
+                  : "text-muted hover:text-ink")
               }
             >
-              전체 ({visible.length})
+              All ({visible.length})
             </Link>
-            {tags.map((t) => {
-              const count = visible.filter((p) => (p.tags ?? []).includes(t)).length;
-              const active = sp.tag === t;
+            {tags.map((tag) => {
+              const count = visible.filter((p) => (p.tags ?? []).includes(tag)).length;
+              const active = sp.tag === tag;
               return (
                 <Link
-                  key={t}
-                  href={`/work?tag=${encodeURIComponent(t)}`}
+                  key={tag}
+                  href={`/work?tag=${encodeURIComponent(tag)}`}
                   className={
-                    "text-[12px] px-2.5 py-1 border rounded-full " +
+                    "font-mono uppercase underline-offset-[6px] " +
                     (active
-                      ? "bg-ink text-bg border-ink"
-                      : "border-line text-inkMuted hover:border-ink hover:text-ink")
+                      ? "text-ink underline decoration-ink"
+                      : "text-muted hover:text-ink")
                   }
                 >
-                  {t} ({count})
+                  {tag} ({count})
                 </Link>
               );
             })}
-          </div>
+          </nav>
         ) : null}
 
-        <ul className="mt-14 md:mt-20 grid md:grid-cols-2 gap-6 md:gap-10">
-          {filtered.map((p, i) => {
-            const Mock = mockupMap[p.slug];
-            return (
-              <li key={p.slug} className={i % 2 === 1 ? "md:mt-14" : ""}>
-                <Reveal delay={i * 0.05}>
-                  <Link
-                    href={`/work/${p.slug}`}
-                    data-cursor="label=OPEN"
-                    className="group block"
-                  >
-                    <WorkCardMedia
-                      thumbnail={p.thumbnail}
-                      hoverImage={p.hoverImage}
-                      altText={p.altText}
-                      ongoing={p.ongoing}
-                      fallback={Mock ? <Mock /> : null}
-                    />
-                    <div className="mt-5 flex items-start justify-between gap-4">
-                      <div className="min-w-0">
-                        <p className="text-[12px] text-muted">
-                          {String(i + 1).padStart(2, "0")} · {p.year || "—"}
-                        </p>
-                        <h3 className="mt-1 font-display font-semibold text-[22px] md:text-[26px] leading-[1.2] tracking-tighter">
-                          {p.title}
-                        </h3>
-                        <p className="mt-2 text-[14px] text-inkMuted leading-relaxed">
-                          {p.summary}
-                        </p>
-                        {p.tags && p.tags.length > 0 ? (
-                          <div className="mt-3 flex flex-wrap gap-1">
-                            {p.tags.map((t) => (
-                              <span
-                                key={t}
-                                className="text-[10px] px-1.5 py-0.5 border border-line rounded text-inkMuted"
-                              >
-                                {t}
-                              </span>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                      <span
-                        aria-hidden
-                        className="inline-flex shrink-0 w-9 h-9 border border-line items-center justify-center text-inkMuted group-hover:bg-ink group-hover:text-bg group-hover:border-ink group-hover:rotate-[-45deg] transition"
-                      >
-                        →
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              </li>
-            );
-          })}
-        </ul>
+        <ol className="divide-y divide-line">
+          {filtered.map((project, index) => (
+            <li key={project.slug}>
+              <Link
+                href={`/work/${project.slug}`}
+                data-cursor="label=OPEN"
+                className="group grid md:grid-cols-12 gap-5 md:gap-8 py-8 md:py-10 items-start"
+              >
+                <span className="md:col-span-1 font-mono text-[13px] text-muted tabular-nums">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className="md:col-span-3">
+                  <WorkCardMedia
+                    thumbnail={project.thumbnail}
+                    altText={project.altText}
+                    ongoing={project.ongoing}
+                  />
+                </div>
+                <div className="md:col-span-4">
+                  <h2 className="font-display text-2xl md:text-3xl leading-tight text-ink group-hover:text-brand">
+                    {project.title}
+                  </h2>
+
+                </div>
+                <div className="md:col-span-3 text-[13px] md:text-[14px] leading-7 text-inkMuted">
+                  <p>{project.stack.join(" · ")}</p>
+                  <p className="mt-2 font-mono text-[12px] uppercase text-muted">
+                    {project.year} / {project.role}
+                  </p>
+                  {project.tags && project.tags.length > 0 ? (
+                    <p className="mt-2 text-[12px] text-muted">
+                      {project.tags.join(" / ")}
+                    </p>
+                  ) : null}
+                </div>
+                <span
+                  aria-hidden
+                  className="md:col-span-1 md:justify-self-end font-mono text-[13px] text-muted group-hover:text-ink"
+                >
+                  Open
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
 
         {filtered.length === 0 ? (
           <p className="mt-16 text-center text-[14px] text-muted">

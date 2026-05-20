@@ -49,8 +49,8 @@ const config: Config = {
         ]
       },
       letterSpacing: {
-        tightest: "-0.045em",
-        tighter: "-0.028em"
+        tightest: "0em",
+        tighter: "0em"
       },
       keyframes: {
         marquee: {

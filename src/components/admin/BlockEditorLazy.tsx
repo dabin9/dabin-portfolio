@@ -19,8 +19,11 @@ const Inner = dynamic(() => import("./BlockEditor"), {
 
 type Props = {
   initialBlocks?: unknown[];
+  initialHtml?: string;
   blocksFieldName?: string;
   htmlFieldName?: string;
+  compact?: boolean;
+  hideHelp?: boolean;
 };
 
 const BlockEditorLazy = forwardRef<BlockEditorHandle, Props>(function BlockEditorLazy(props, ref) {

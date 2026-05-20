@@ -3,10 +3,7 @@
 import { useEffect } from "react";
 import { env } from "@/lib/env";
 
-/**
- * 개발자도구 열면 뜨는 ASCII 시그니처 + 채용 문의 안내.
- * 한 번만 출력되게 플래그.
- */
+
 export default function ConsoleSignature() {
   useEffect(() => {
     // @ts-expect-error global flag
@@ -37,7 +34,7 @@ export default function ConsoleSignature() {
       "color:#7A7266;"
     );
     console.log(
-      `%cContact · ${env.email}  ·  ${env.github}`,
+      `%cGitHub · ${env.github}`,
       "color:#2438D8;"
     );
     /* eslint-enable no-console */

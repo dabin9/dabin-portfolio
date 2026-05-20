@@ -1,35 +1,23 @@
 /**
  * 보유 기술 스택.
- * 카테고리별로 묶어 두었고, Marquee / Grid 양쪽에서 모두 사용됩니다.
+ * 아카이브형 홈에서는 아이콘 대신 텍스트 테이블로 보여줍니다.
  */
 export const skillGroups = [
   {
-    title: "Language",
-    items: ["TypeScript", "JavaScript (ES2023)", "HTML5", "CSS3"]
+    title: "Core",
+    items: ["HTML", "CSS", "JavaScript", "TypeScript"]
   },
   {
-    title: "Framework",
-    items: ["React", "Next.js", "Remix", "Vue (기초)"]
+    title: "Frontend",
+    items: ["React", "Responsive UI", "Interaction"]
   },
   {
-    title: "Styling",
-    items: ["Tailwind CSS", "CSS Modules", "styled-components", "SCSS", "Radix UI"]
+    title: "CMS Integration",
+    items: ["PHP", "GnuBoard", "Admin Data Binding"]
   },
   {
-    title: "State & Data",
-    items: ["Zustand", "TanStack Query", "SWR", "Redux Toolkit"]
-  },
-  {
-    title: "Tooling",
-    items: ["Vite", "Turborepo", "pnpm", "ESLint", "Prettier"]
-  },
-  {
-    title: "Testing",
-    items: ["Vitest", "Jest", "React Testing Library", "Playwright"]
-  },
-  {
-    title: "Design & Ops",
-    items: ["Figma", "Storybook", "Vercel", "GitHub Actions", "Sentry"]
+    title: "Tools",
+    items: ["Git", "Figma", "Notion", "Vercel"]
   }
 ] as const;
 
