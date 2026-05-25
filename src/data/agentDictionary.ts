@@ -145,9 +145,12 @@ export const agentDictionary: AgentDictionaryEntry[] = [
     type: "project",
     intent: "featured",
     keywords: [
+      "대표",
       "대표 프로젝트",
       "대표 작업",
+      "주요",
       "주요 프로젝트",
+      "추천",
       "추천 프로젝트",
       "프로젝트 추천",
       "featured",
@@ -208,16 +211,16 @@ export const agentSkillGroups = [
     items: ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"]
   },
   {
-    title: "Frontend & UI",
-    items: ["React", "Responsive Web", "Dynamic UI Rendering", "Component-based UI"]
+    title: "Frameworks",
+    items: ["React", "Swiper.js", "GSAP", "three.js"]
   },
   {
-    title: "CMS & Integration",
-    items: ["GnuBoard", "PHP Template", "Board Skin Customizing", "Admin Data Integration"]
+    title: "Styling",
+    items: ["SCSS", "Tailwind CSS", "styled-components", "CSS Modules"]
   },
   {
-    title: "Tools & Workflow",
-    items: ["Git", "Figma", "Notion", "Vercel", "AI-assisted Debugging"]
+    title: "Tools",
+    items: ["Git / GitHub", "Figma", "Photoshop", "Codex", "Gemini"]
   }
 ] as const;
 

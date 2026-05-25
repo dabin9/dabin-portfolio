@@ -5,6 +5,7 @@ import {
   type AgentActionIntent,
   type AgentInfoIntent
 } from "@/data/agentDictionary";
+import { plainText } from "@/lib/plainText";
 
 export type AgentProject = {
   slug: string;
@@ -18,6 +19,7 @@ export type AgentProject = {
   highlights: string[];
   resultItems?: string[];
   description?: string;
+  searchText?: string;
   featured?: boolean;
   order?: number;
 };
@@ -144,7 +146,8 @@ export function rankAgentProjects(
           (project.tags ?? []).join(" "),
           project.highlights.join(" "),
           project.resultItems?.join(" ") ?? "",
-          project.description ?? ""
+          project.description ?? "",
+          project.searchText ?? ""
         ].join(" ")
       );
       const haystackTokens = haystack.split(" ").filter(Boolean);
@@ -222,7 +225,7 @@ function getFeaturedProjects(projects: AgentProject[]): RankedAgentProject[] {
 
 function getInfoMessage(intent: AgentInfoIntent): string {
   if (intent === "skills") return "박다빈의 주요 기술 스택입니다.";
-  if (intent === "contact") return "별도 Contact 페이지 없이, 확인 가능한 연락 채널을 이 화면에서 보여드릴게요.";
+  if (intent === "contact") return "확인 가능한 연락 채널입니다.";
   if (intent === "strengths") return "포트폴리오 데이터에서 반복적으로 드러나는 주요 강점입니다.";
   return "박다빈의 포트폴리오 기본 정보입니다.";
 }
@@ -244,10 +247,11 @@ function getProjectDisplaySummary(project: AgentProject): string {
   const fallback =
     project.resultItems?.[0] ||
     project.highlights[0] ||
+    project.searchText ||
     project.description ||
     "작업 구조와 구현 맥락을 상세 페이지에서 확인할 수 있습니다.";
 
-  return stripLineBreaks(project.summary || fallback).slice(0, 118);
+  return stripLineBreaks(plainText(project.summary || fallback)).slice(0, 118);
 }
 
 function expandAgentText(value: string): string {

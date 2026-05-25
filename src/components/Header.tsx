@@ -15,43 +15,43 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <header className="sticky top-0 z-50 bg-bg/90 backdrop-blur-sm border-b border-line">
-      <div className="wrap min-h-14 py-3 grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center gap-x-4 gap-y-3">
+      <div className="wrap flex min-h-14 items-center justify-between gap-3 py-3">
         <Link
           href="/"
           aria-label={site.name}
+          onClick={() => window.dispatchEvent(new Event("agent:reset"))}
           data-cursor="link"
-          className="justify-self-start font-mono text-[12px] md:text-[13px] uppercase text-ink"
+          className="shrink-0 font-mono text-[12px] uppercase text-ink md:text-[13px]"
         >
           {site.nameEn}
         </Link>
 
-        <nav className="col-span-2 row-start-2 flex items-center justify-center gap-5 overflow-x-auto text-[12px] md:col-span-1 md:row-start-auto md:gap-6 md:text-[13px]">
-          {nav.map((n) => {
-            const active =
-              n.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(n.href);
-            const className = clsx(
-              "whitespace-nowrap font-mono uppercase transition-colors",
-              active ? "text-ink" : "text-muted hover:text-ink"
-            );
+        <div className="flex min-w-0 flex-nowrap items-center justify-end gap-2 sm:gap-3">
+          <nav className="flex items-center gap-3 text-[12px] md:text-[13px]">
+            {nav.map((n) => {
+              const active =
+                n.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(n.href);
+              const className = clsx(
+                "whitespace-nowrap font-mono uppercase transition-colors",
+                active ? "text-ink" : "text-muted hover:text-ink"
+              );
 
-            return (
-              <Link
-                key={n.label}
-                href={n.href}
-                data-cursor="link"
-                className={className}
-              >
-                {n.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="justify-self-end flex items-center gap-3">
+              return (
+                <Link
+                  key={n.label}
+                  href={n.href}
+                  data-cursor="link"
+                  className={className}
+                >
+                  {n.label}
+                </Link>
+              );
+            })}
+          </nav>
           <SearchTrigger />
-          <span className="hidden sm:inline-flex">
+          <span className="inline-flex">
             <ThemeToggle />
           </span>
           <span className="hidden lg:inline-flex">
@@ -70,10 +70,10 @@ function SearchTrigger() {
       aria-label="검색 열기"
       onClick={() => window.dispatchEvent(new Event("command-palette:open"))}
       data-cursor="link"
-      className="group inline-flex items-center gap-2 border border-line hover:border-ink px-2.5 py-1.5 transition-colors"
+      className="group inline-flex items-center gap-1.5 border border-line px-2 py-1.5 transition-colors hover:border-ink sm:gap-2 sm:px-2.5"
     >
       <span className="font-mono text-[11px] text-muted">⌘K</span>
-      <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-inkMuted group-hover:text-ink">
+      <span className="hidden font-mono text-[11px] uppercase tracking-[0.15em] text-inkMuted group-hover:text-ink sm:inline">
         Search
       </span>
     </button>

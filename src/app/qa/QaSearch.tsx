@@ -44,7 +44,9 @@ export default function QaSearch({ projects }: { projects: QaSearchProject[] }) 
           project.slug,
           project.summary,
           project.stack.join(" "),
-          (project.tags ?? []).join(" ")
+          (project.tags ?? []).join(" "),
+          project.highlights.join(" "),
+          project.searchText ?? ""
         ].join(" "),
         href: `/work/${project.slug}`
       })),
@@ -167,20 +169,12 @@ export default function QaSearch({ projects }: { projects: QaSearchProject[] }) 
             )}
           </div>
         ) : (
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/work"
-              className="inline-flex h-14 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#59616a] shadow-[0_1px_0_rgba(28,39,49,0.02)] transition hover:-translate-y-0.5 hover:text-[#25292d] hover:shadow-[0_8px_18px_rgba(28,39,49,0.09)] md:h-[60px] md:px-7 md:text-[16px]"
-            >
-              내 work 메뉴 바로가기
-            </Link>
-            <Link
-              href="/"
-              className="inline-flex h-14 items-center rounded-full bg-[#2f3439] px-6 text-[15px] font-medium text-white shadow-[0_1px_0_rgba(28,39,49,0.04)] transition hover:-translate-y-0.5 hover:bg-[#25292d] hover:shadow-[0_8px_18px_rgba(28,39,49,0.13)] md:h-[60px] md:px-7 md:text-[16px]"
-            >
-              포트폴리오 메인 바로가기
-            </Link>
-          </div>
+          <Link
+            href="/work"
+            className="inline-flex h-14 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#59616a] shadow-[0_1px_0_rgba(28,39,49,0.02)] transition hover:-translate-y-0.5 hover:text-[#25292d] hover:shadow-[0_8px_18px_rgba(28,39,49,0.09)] md:h-[60px] md:px-7 md:text-[16px]"
+          >
+            내 work 메뉴 바로가기
+          </Link>
         )}
       </div>
     </>

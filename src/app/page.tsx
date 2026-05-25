@@ -1,6 +1,7 @@
 import AgentIntro from "@/components/agent/AgentIntro";
 import SelectedWork from "@/components/SelectedWork";
 import { projects, publicProjects } from "@/data/projects";
+import { getProjectSearchText } from "@/lib/projectSearchText";
 
 export default function HomePage() {
   const agentProjects = publicProjects(projects).map((project) => ({
@@ -16,16 +17,7 @@ export default function HomePage() {
     resultItems: project.resultItems,
     featured: project.featured,
     order: project.order,
-    description: [
-      ...(project.caseNotes ?? []).flatMap((note) => [
-        note.issueTitle ?? "",
-        note.problem ?? "",
-        note.approach,
-        note.result ?? ""
-      ]),
-      ...(project.resultItems ?? []),
-      ...project.highlights
-    ].join(" ")
+    searchText: getProjectSearchText(project)
   }));
 
   return (

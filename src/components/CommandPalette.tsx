@@ -11,6 +11,7 @@ export type CommandPaletteProject = {
   year: string;
   role: string;
   stack: string[];
+  searchText?: string;
   status?: "published" | "draft" | "private";
 };
 
@@ -93,7 +94,7 @@ export default function CommandPalette({
         id: `work-${p.slug}`,
         title: p.title,
         subtitle: `${p.year} · ${p.role}`,
-        keywords: p.stack.join(" "),
+        keywords: [p.stack.join(" "), p.searchText ?? ""].join(" "),
         group: "Work" as const,
         run: () => router.push(`/work/${p.slug}`)
       })),

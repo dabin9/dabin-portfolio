@@ -1,3 +1,5 @@
+import { plainText } from "@/lib/plainText";
+
 export type QaSearchProject = {
   slug: string;
   title: string;
@@ -8,6 +10,7 @@ export type QaSearchProject = {
   stack: string[];
   tags?: string[];
   highlights: string[];
+  searchText?: string;
   order?: number;
 };
 
@@ -48,7 +51,8 @@ export function rankQaProjects(
           project.company ?? "",
           project.stack.join(" "),
           (project.tags ?? []).join(" "),
-          project.highlights.join(" ")
+          project.highlights.join(" "),
+          project.searchText ?? ""
         ].join(" ")
       );
       const haystackTokens = haystack.split(" ").filter(Boolean);
@@ -137,7 +141,7 @@ function uniqueTerms(terms: string[]): string[] {
 }
 
 function normalize(value: string): string {
-  return value
+  return plainText(value)
     .toLowerCase()
     .replace(/[^\p{L}\p{N}.]+/gu, " ")
     .replace(/\s+/g, " ")

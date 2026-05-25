@@ -132,7 +132,7 @@ function ContactCard() {
         연락처
       </h3>
       <p className="mt-3 text-[14px] leading-7 text-inkMuted md:text-[15px]">
-        확인 가능한 연락 채널입니다. 별도 Contact 페이지로 이동하지 않고 이 화면에서 바로 열 수 있어요.
+        확인 가능한 연락 채널입니다.
       </p>
       <div className="mt-5 divide-y divide-line">
         {links.map((link) => (

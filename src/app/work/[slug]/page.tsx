@@ -75,7 +75,8 @@ export default async function ProjectPage({
           <div className="md:col-span-6 flex flex-col">
 
             <h1
-              className="mt-4 font-display text-[3rem] leading-tight text-ink"
+              className="mt-4 break-words font-display text-[2.35rem] leading-tight text-ink sm:text-[3rem]"
+              style={{ wordBreak: "normal", overflowWrap: "anywhere" }}
             >
               {project.title}
             </h1>
@@ -241,27 +242,17 @@ export default async function ProjectPage({
       {/* 👇 [수정 2] 하단 nav 렌더링부: 조건부 렌더링 및 빈 공간 추가 */}
       {(prev || next) && (
         <nav className="border-t border-line">
-          <div className="wrap py-8 flex items-center justify-between gap-6">
+          <div className="wrap grid gap-3 py-8 md:grid-cols-2">
             {prev ? (
-              <Link href={`/work/${prev.slug}`} className="group min-w-0 flex-1" data-cursor="link">
-                <p className="font-mono text-[12px] uppercase text-muted">Previous</p>
-                <p className="mt-1 text-[15px] group-hover:text-brand truncate">
-                  ← {prev.title}
-                </p>
-              </Link>
+              <AdjacentProjectLink project={prev} direction="previous" />
             ) : (
-              <div className="flex-1" />
+              <div className="hidden md:block" />
             )}
 
             {next ? (
-              <Link href={`/work/${next.slug}`} className="group min-w-0 flex-1 text-right" data-cursor="link">
-                <p className="font-mono text-[12px] uppercase text-muted">Next</p>
-                <p className="mt-1 text-[15px] group-hover:text-brand truncate">
-                  {next.title} →
-                </p>
-              </Link>
+              <AdjacentProjectLink project={next} direction="next" />
             ) : (
-              <div className="flex-1" />
+              <div className="hidden md:block" />
             )}
           </div>
         </nav>
@@ -302,9 +293,70 @@ function getProjectMediaItems(project: Project): ProjectMediaItem[] {
 function SectionLabel({ title }: { title: string }) {
   return (
     <div className="md:col-span-3">
-      <p className="font-mono text-[12px] uppercase text-muted">{title}</p>
+      <p className="font-mono text-[12px] font-semibold uppercase text-ink">{title}</p>
     </div>
   );
+}
+
+function AdjacentProjectLink({
+  project,
+  direction
+}: {
+  project: Project;
+  direction: "previous" | "next";
+}) {
+  const isNext = direction === "next";
+
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className={
+        "group grid min-w-0 grid-cols-[84px_minmax(0,1fr)] items-center gap-4 rounded-lg border border-line bg-surface p-3 transition hover:-translate-y-0.5 hover:border-ink hover:bg-bg md:p-4 " +
+        (isNext ? "md:grid-cols-[minmax(0,1fr)_96px] md:text-right" : "md:grid-cols-[96px_minmax(0,1fr)]")
+      }
+      data-cursor="link"
+    >
+      {isNext ? null : <AdjacentProjectThumb project={project} />}
+      <span className="min-w-0">
+        <span className="font-mono text-[12px] uppercase text-muted">
+          {isNext ? "Next" : "Previous"}
+        </span>
+        <span className="mt-1 block line-clamp-2 text-[14px] leading-6 text-ink transition group-hover:text-brand md:text-[15px]">
+          {isNext ? `${project.title} →` : `← ${project.title}`}
+        </span>
+      </span>
+      {isNext ? <AdjacentProjectThumb project={project} /> : null}
+    </Link>
+  );
+}
+
+function AdjacentProjectThumb({ project }: { project: Project }) {
+  const thumb = getAdjacentThumbnail(project);
+
+  return (
+    <span className="relative block aspect-[4/3] overflow-hidden rounded-md border border-line bg-bg">
+      {thumb ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={thumb}
+          alt={project.title}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.04]"
+        />
+      ) : (
+        <span className="flex h-full w-full items-center justify-center px-2 text-center font-mono text-[12px] uppercase text-muted">
+          {project.altText || project.title.slice(0, 6)}
+        </span>
+      )}
+    </span>
+  );
+}
+
+function getAdjacentThumbnail(project: Project): string {
+  if (project.thumbnail) return project.thumbnail;
+
+  const media = getProjectMediaItems(project).find((item) => item.type !== "video");
+  return media?.url ?? "";
 }
 
 function MetaItem({ label, value }: { label: string; value: string }) {

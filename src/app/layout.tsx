@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "./globals.css";
 import { site } from "@/data/site";
 import { projects, publicProjects } from "@/data/projects";
+import { getProjectSearchText } from "@/lib/projectSearchText";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientShell from "@/components/ClientShell";
@@ -51,12 +52,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const commandProjects = publicProjects(projects).map(
-    ({ slug, title, year, role, stack }) => ({
-      slug,
-      title,
-      year,
-      role,
-      stack
+    (project) => ({
+      slug: project.slug,
+      title: project.title,
+      year: project.year,
+      role: project.role,
+      stack: project.stack,
+      searchText: getProjectSearchText(project)
     })
   );
 
@@ -70,8 +72,10 @@ export default function RootLayout({
               (function() {
                 try {
                   var t = localStorage.getItem('theme');
-                  if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  if (t === 'dark') {
                     document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch(e){}
               })();

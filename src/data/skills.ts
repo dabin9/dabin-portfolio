@@ -5,19 +5,19 @@
 export const skillGroups = [
   {
     title: "Core",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript"]
+    items: ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"]
   },
   {
-    title: "Frontend",
-    items: ["React", "Responsive UI", "Interaction"]
+    title: "Frameworks",
+    items: ["React", "Swiper.js", "GSAP", "three.js"]
   },
   {
-    title: "CMS Integration",
-    items: ["PHP", "GnuBoard", "Admin Data Binding"]
+    title: "Styling",
+    items: ["SCSS", "Tailwind CSS", "styled-components", "CSS Modules"]
   },
   {
     title: "Tools",
-    items: ["Git", "Figma", "Notion", "Vercel"]
+    items: ["Git / GitHub", "Figma", "Photoshop", "Codex", "Gemini"]
   }
 ] as const;
 

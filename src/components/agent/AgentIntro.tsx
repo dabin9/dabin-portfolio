@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { agentRecommendedKeywords } from "@/data/agentDictionary";
 import {
   resolveAgentQuery,
@@ -16,21 +17,33 @@ type AgentIntroProps = {
   projects: AgentProject[];
 };
 
+const introItem = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0 }
+};
+
 export default function AgentIntro({ projects }: AgentIntroProps) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<AgentResolvedResult | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const focusSearch = () => {
+  const focusSearch = useCallback(() => {
     window.requestAnimationFrame(() => inputRef.current?.focus());
-  };
+  }, []);
 
-  const resetSearch = () => {
+  const resetSearch = useCallback(() => {
     setQuery("");
     setResult(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
     focusSearch();
-  };
+  }, [focusSearch]);
+
+  useEffect(() => {
+    const resetFromHeader = () => resetSearch();
+
+    window.addEventListener("agent:reset", resetFromHeader);
+    return () => window.removeEventListener("agent:reset", resetFromHeader);
+  }, [resetSearch]);
 
   const runSearch = (nextQuery = query) => {
     const resolved = resolveAgentQuery(projects, nextQuery);
@@ -56,54 +69,71 @@ export default function AgentIntro({ projects }: AgentIntroProps) {
   };
 
   return (
-    <section className="border-b border-line bg-surface">
-      <div className="wrap flex min-h-[calc(100svh-57px)] items-center py-16 md:py-24">
-        <div className="mx-auto w-full max-w-[860px]">
-          <div className="text-center">
-            <p className="font-mono text-[12px] uppercase text-muted md:text-[13px]">
+    <section className="overflow-x-hidden border-b border-[#dce2e8] bg-[#f3f7fb] text-[#2b2f33]">
+      <div className="wrap flex min-h-[calc(100svh-57px)] items-center py-14 md:py-24">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          transition={{ staggerChildren: 0.07 }}
+          className="mx-auto w-full min-w-0 max-w-[960px]"
+        >
+          <motion.div
+            variants={introItem}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="mb-7 text-left sm:pl-5 md:pl-6"
+          >
+            <p className="font-mono text-[13px] uppercase leading-6 tracking-[0.18em] text-[#66717c]">
               DABIN AGENT
             </p>
-            <h1 className="mx-auto mt-4 max-w-[13ch] text-[38px] font-medium leading-[1.12] text-ink md:text-[58px]">
-              박다빈의 작업 기록에서 무엇을 찾아드릴까요?
+            <h1 className="mt-2 whitespace-nowrap text-[14px] font-medium leading-[1.12] text-[#25292d] min-[430px]:text-[20px] sm:text-[30px] md:text-[40px] lg:text-[44px]">
+              반갑습니다. 오늘도 같이 발견해볼까요?
             </h1>
-            <p className="mx-auto mt-5 max-w-[58ch] text-[15px] leading-7 text-inkMuted md:text-[16px]">
-              포트폴리오 데이터 안에서 소개, 기술 스택, 연락처, 프로젝트 기록을 찾아드립니다.
-            </p>
-          </div>
+          </motion.div>
 
-          <div className="mt-8 md:mt-10">
+          <motion.div
+            variants={introItem}
+            transition={{ duration: 0.38, ease: "easeOut" }}
+          >
             <AgentSearchBox
               query={query}
               inputRef={inputRef}
               onQueryChange={setQuery}
               onSearch={() => runSearch()}
             />
-          </div>
+          </motion.div>
 
           {!result ? (
-            <div className="mt-6 space-y-5">
+            <motion.div
+              variants={introItem}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="mt-7 space-y-7"
+            >
               <RecommendedKeywords
                 keywords={agentRecommendedKeywords}
                 onSelect={selectKeyword}
+                tone="hero"
               />
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-col items-center gap-5">
                 <Link
                   href="/work"
                   data-cursor="link"
-                  className="inline-flex h-12 items-center rounded-full bg-bg px-5 text-[14px] font-medium text-inkMuted shadow-[0_1px_0_rgb(var(--ink)/0.04)] transition hover:-translate-y-0.5 hover:text-ink hover:shadow-[0_8px_18px_rgb(var(--ink)/0.09)] md:h-14 md:px-6 md:text-[15px]"
+                  className="inline-flex h-14 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#59616a] shadow-[0_1px_0_rgba(28,39,49,0.02)] transition hover:-translate-y-0.5 hover:text-[#25292d] hover:shadow-[0_8px_18px_rgba(28,39,49,0.09)] md:h-[60px] md:px-7 md:text-[16px]"
                 >
-                  내 Work 메뉴 바로가기
+                  내 work 메뉴 바로가기
                 </Link>
-                <button
-                  type="button"
-                  onClick={resetSearch}
+                <a
+                  href="#work"
                   data-cursor="link"
-                  className="inline-flex h-12 items-center rounded-full bg-ink px-5 text-[14px] font-medium text-bg shadow-[0_1px_0_rgb(var(--ink)/0.04)] transition hover:-translate-y-0.5 hover:bg-brand hover:text-brandInk hover:shadow-[0_8px_18px_rgb(var(--ink)/0.13)] md:h-14 md:px-6 md:text-[15px]"
+                  className="group inline-flex flex-col items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#6f7b86] transition hover:text-[#25292d]"
+                  aria-label="Scroll down to selected works"
                 >
-                  포트폴리오 메인 바로가기
-                </button>
+                  <span>Scroll down</span>
+                  <span className="relative h-8 w-px overflow-hidden bg-[#c7d1dc]">
+                    <span className="absolute left-0 top-0 block h-3 w-px animate-[scrollDown_1.45s_ease-in-out_infinite] bg-[#25292d]" />
+                  </span>
+                </a>
               </div>
-            </div>
+            </motion.div>
           ) : (
             <AgentResult
               result={result}
@@ -112,7 +142,7 @@ export default function AgentIntro({ projects }: AgentIntroProps) {
               onSelectKeyword={selectKeyword}
             />
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

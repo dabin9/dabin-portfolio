@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { readQaRun } from "@/lib/qaRun";
+import { plainText } from "@/lib/plainText";
 import {
   rankQaProjects,
   type QaSearchProject,
@@ -240,7 +241,7 @@ function MatchedProjects({
                   </span>
                 </div>
                 <p className="mt-3 line-clamp-2 text-[13px] leading-6 text-[#5d6670]">
-                  {project.summary}
+                  {plainText(project.summary)}
                 </p>
                 {project.stack.length > 0 ? (
                   <div className="mt-3 flex flex-wrap gap-1.5">

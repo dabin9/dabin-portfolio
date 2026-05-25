@@ -32,7 +32,7 @@ export default function ThemeToggle() {
       aria-label={dark ? "라이트 모드로 전환" : "다크 모드로 전환"}
       onClick={toggle}
       data-cursor="link"
-      className="group relative inline-flex items-center gap-1.5 border border-line hover:border-ink px-2.5 py-1.5 transition-colors"
+      className="group relative inline-flex items-center gap-1.5 border border-line px-2 py-1.5 transition-colors hover:border-ink sm:px-2.5"
     >
       <span
         aria-hidden
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
           />
         </motion.span>
       </span>
-      <span className="text-[11px] font-mono tracking-[0.15em] uppercase text-inkMuted group-hover:text-ink">
+      <span className="hidden text-[11px] font-mono tracking-[0.15em] uppercase text-inkMuted group-hover:text-ink min-[380px]:inline">
         {dark ? "Dark" : "Light"}
       </span>
     </button>
