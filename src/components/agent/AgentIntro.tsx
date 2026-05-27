@@ -22,6 +22,10 @@ const introItem = {
   show: { opacity: 1, y: 0 }
 };
 
+const heroTitle = "반갑습니다. 오늘도 같이 발견해볼까요?";
+const heroDescription =
+  "반응형 UI, JavaScript 인터랙션, CMS 데이터 연동을 바탕으로 유지보수 가능한 프론트엔드를 만듭니다.";
+
 export default function AgentIntro({ projects }: AgentIntroProps) {
   const [query, setQuery] = useState("");
   const [result, setResult] = useState<AgentResolvedResult | null>(null);
@@ -80,14 +84,17 @@ export default function AgentIntro({ projects }: AgentIntroProps) {
           <motion.div
             variants={introItem}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="mb-7 text-left sm:pl-5 md:pl-6"
+            className="mb-6 text-left sm:mb-7 sm:pl-5 md:pl-6"
           >
             <p className="font-mono text-[13px] uppercase leading-6 tracking-[0.18em] text-[#66717c]">
               DABIN AGENT
             </p>
-            <h1 className="mt-2 whitespace-nowrap text-[14px] font-medium leading-[1.12] text-[#25292d] min-[430px]:text-[20px] sm:text-[30px] md:text-[40px] lg:text-[44px]">
-              반갑습니다. 오늘도 같이 발견해볼까요?
+            <h1 className="mt-2 max-w-full whitespace-nowrap text-[clamp(13px,4.1vw,44px)] font-medium leading-[1.13] text-[#25292d]">
+              {heroTitle}
             </h1>
+            <p className="mt-4 max-w-[780px] text-[15px] font-medium leading-[1.65] text-[#53606b] [text-wrap:pretty] sm:text-[17px] md:mt-5 md:text-[19px]">
+              {heroDescription}
+            </p>
           </motion.div>
 
           <motion.div

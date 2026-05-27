@@ -6,7 +6,7 @@ export default function SelectedWork() {
   const featured = publicProjects(projects).filter((p) => p.featured);
 
   return (
-    <section id="work" className="bg-bg border-b border-line">
+    <section id="work" className="bg-bg">
       <div className="wrap py-20 md:py-28">
         <div className="grid md:grid-cols-12 gap-8 md:gap-14 border-b border-line pb-8">
           <div className="md:col-span-3">

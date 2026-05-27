@@ -6,8 +6,6 @@ import { env } from "@/lib/env";
 
 const archiveLinks = [
   { label: "Selected Works", href: "#work" },
-  env.resume ? { label: "Resume", href: env.resume, external: true } : null,
-  { label: "Notion Archive", href: env.notion || "/blog", external: Boolean(env.notion) },
   { label: "GitHub", href: env.github, external: true }
 ].filter(Boolean) as { label: string; href: string; external?: boolean }[];
 

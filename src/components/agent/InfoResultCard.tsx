@@ -101,22 +101,6 @@ function ContactCard() {
           href: env.github,
           external: true
         }
-      : null,
-    env.notion
-      ? {
-          label: "Notion",
-          value: env.notion,
-          href: env.notion,
-          external: true
-        }
-      : null,
-    env.resume
-      ? {
-          label: "Resume",
-          value: env.resume,
-          href: env.resume,
-          external: true
-        }
       : null
   ].filter(Boolean) as {
     label: string;

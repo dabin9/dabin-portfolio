@@ -1,4 +1,5 @@
 import AgentIntro from "@/components/agent/AgentIntro";
+import ContactSection from "@/components/ContactSection";
 import SelectedWork from "@/components/SelectedWork";
 import { projects, publicProjects } from "@/data/projects";
 import { getProjectSearchText } from "@/lib/projectSearchText";
@@ -24,6 +25,7 @@ export default function HomePage() {
     <>
       <AgentIntro projects={agentProjects} />
       <SelectedWork />
+      <ContactSection />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ElementType, HTMLAttributes, ReactNode } from "react";
+import { createElement, type ElementType, type HTMLAttributes, type ReactNode } from "react";
 
 type Props = HTMLAttributes<HTMLDivElement> & {
   as?: ElementType;
@@ -16,12 +16,12 @@ export default function Container({
   children,
   ...rest
 }: Props) {
-  return (
-    <Tag
-      className={clsx("mx-auto w-full max-w-[1280px] px-6 md:px-10", className)}
-      {...rest}
-    >
-      {children}
-    </Tag>
+  return createElement(
+    Tag,
+    {
+      className: clsx("mx-auto w-full max-w-[1280px] px-6 md:px-10", className),
+      ...rest
+    },
+    children
   );
 }

@@ -2,8 +2,7 @@ import { env } from "@/lib/env";
 
 export default function Footer() {
   const externalLinks = [
-    env.github && { label: "GitHub", href: env.github },
-    env.notion && { label: "Notion", href: env.notion }
+    env.github && { label: "GitHub", href: env.github }
   ].filter(Boolean) as { label: string; href: string }[];
 
   return (
