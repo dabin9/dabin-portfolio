@@ -11,12 +11,15 @@ export default function ContributionMeter({ value }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const triggered = useRef(false);
   const frame = useRef<number | null>(null);
-  const [animated, setAnimated] = useState(false);
-  const [displayValue, setDisplayValue] = useState(0);
+  const [displayValue, setDisplayValue] = useState(target);
+  const [barWidth, setBarWidth] = useState(target);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    triggered.current = false;
+    if (frame.current != null) cancelAnimationFrame(frame.current);
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -24,15 +27,18 @@ export default function ContributionMeter({ value }: Props) {
 
     if (prefersReducedMotion) {
       triggered.current = true;
-      setAnimated(true);
       setDisplayValue(target);
+      setBarWidth(target);
       return;
     }
+
+    setDisplayValue(0);
+    setBarWidth(0);
 
     const startAnimation = () => {
       if (triggered.current) return;
       triggered.current = true;
-      setAnimated(true);
+      setBarWidth(target);
 
       const duration = 700;
       const start = performance.now();
@@ -67,15 +73,27 @@ export default function ContributionMeter({ value }: Props) {
   }, [target]);
 
   return (
-    <div ref={ref} className="mt-5">
+    <div
+      ref={ref}
+      className="mt-5"
+      role="meter"
+      aria-label={`기여도 ${target}%`}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={target}
+      aria-valuetext={`${target}%`}
+    >
       <div className="flex items-baseline justify-between text-[12px]">
         <span className="text-muted">기여도</span>
-        <span className="text-ink font-mono tabular-nums">{displayValue}%</span>
+        <span className="text-ink font-mono tabular-nums" aria-hidden="true">
+          {displayValue}%
+        </span>
       </div>
       <div className="mt-2 h-1 w-full bg-surface overflow-hidden">
         <div
           className="h-full bg-ink transition-[width] duration-700 ease-out"
-          style={{ width: animated ? `${target}%` : "0%" }}
+          style={{ width: `${barWidth}%` }}
+          aria-hidden="true"
         />
       </div>
     </div>
