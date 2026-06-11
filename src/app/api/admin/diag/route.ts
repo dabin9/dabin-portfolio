@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { isLoggedIn } from "@/lib/auth";
+import { getRequestIp } from "@/lib/requestIp";
+import { recordSecurityEvent } from "@/lib/visitLog";
 
 /**
  * 환경 진단 엔드포인트.
@@ -7,8 +9,16 @@ import { isLoggedIn } from "@/lib/auth";
  *
  * 비밀번호/토큰 값 자체는 노출하지 않고 boolean 과 prefix 만 보여줌.
  */
-export async function GET() {
+export async function GET(req: Request) {
   if (!(await isLoggedIn())) {
+    await recordSecurityEvent({
+      type: "unauthorized_api",
+      ip: getRequestIp(req.headers),
+      path: new URL(req.url).pathname,
+      method: "GET",
+      userAgent: req.headers.get("user-agent") || "",
+      detail: "diag without admin session"
+    });
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 

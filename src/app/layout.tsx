@@ -9,6 +9,7 @@ import { getProjectSearchText } from "@/lib/projectSearchText";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientShell from "@/components/ClientShell";
+import VisitTracker from "@/components/VisitTracker";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -88,6 +89,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <VisitTracker />
         </ClientShell>
       </body>
     </html>

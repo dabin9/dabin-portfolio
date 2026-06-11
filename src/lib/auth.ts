@@ -12,7 +12,8 @@ import crypto from "node:crypto";
 import { cookies, headers } from "next/headers";
 import { isLocalDevAdminBypassHost } from "./adminAccess";
 
-const COOKIE = "dabin_admin";
+export const ADMIN_COOKIE = "dabin_admin";
+export const ADMIN_IP_COOKIE = "dabin_admin_ip";
 const MAX_AGE = 60 * 60 * 24 * 14; // 14일
 
 function tokenFor(password: string) {
@@ -34,7 +35,7 @@ export async function isLoggedIn(): Promise<boolean> {
 
   const expected = process.env.ADMIN_PASSWORD;
   if (!expected) return false;
-  const c = (await cookies()).get(COOKIE)?.value;
+  const c = (await cookies()).get(ADMIN_COOKIE)?.value;
   if (!c) return false;
   try {
     return crypto.timingSafeEqual(
@@ -46,21 +47,33 @@ export async function isLoggedIn(): Promise<boolean> {
   }
 }
 
-export async function login(password: string): Promise<boolean> {
+export async function login(password: string, adminIp?: string): Promise<boolean> {
   if (await isLocalDevAdminBypass()) return true;
 
   const expected = process.env.ADMIN_PASSWORD;
   if (!expected || password !== expected) return false;
-  (await cookies()).set(COOKIE, tokenFor(expected), {
+  const cookieStore = await cookies();
+  cookieStore.set(ADMIN_COOKIE, tokenFor(expected), {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
     path: "/",
     maxAge: MAX_AGE
   });
+  if (adminIp) {
+    cookieStore.set(ADMIN_IP_COOKIE, adminIp, {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      maxAge: MAX_AGE
+    });
+  }
   return true;
 }
 
 export async function logout(): Promise<void> {
-  (await cookies()).delete(COOKIE);
+  const cookieStore = await cookies();
+  cookieStore.delete(ADMIN_COOKIE);
+  cookieStore.delete(ADMIN_IP_COOKIE);
 }

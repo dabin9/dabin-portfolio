@@ -1,12 +1,22 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { isLoggedIn } from "@/lib/auth";
+import { getRequestIp } from "@/lib/requestIp";
+import { recordSecurityEvent } from "@/lib/visitLog";
 import { upsertProject } from "@/lib/storage";
 import { formatStorageError, projectFromForm } from "@/lib/adminProjectForm";
 import type { ProjectBlock } from "@/data/projects";
 
 export async function POST(req: Request) {
   if (!(await isLoggedIn())) {
+    await recordSecurityEvent({
+      type: "unauthorized_api",
+      ip: getRequestIp(req.headers),
+      path: new URL(req.url).pathname,
+      method: "POST",
+      userAgent: req.headers.get("user-agent") || "",
+      detail: "project save without admin session"
+    });
     return NextResponse.json({ error: "로그인이 필요해요." }, { status: 401 });
   }
 

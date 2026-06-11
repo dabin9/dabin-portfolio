@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { login } from "@/lib/auth";
+import { getRequestIp } from "@/lib/requestIp";
+import { recordSecurityEvent } from "@/lib/visitLog";
 
 export async function POST(req: Request) {
   const ct = req.headers.get("content-type") || "";
@@ -16,14 +18,31 @@ export async function POST(req: Request) {
     next = body.next || next;
   }
 
-  const ok = await login(password);
+  const ip = getRequestIp(req.headers);
+  const ok = await login(password, ip);
   const url = new URL(req.url);
   if (!ok) {
+    await recordSecurityEvent({
+      type: "login_failed",
+      ip,
+      path: "/admin",
+      method: "POST",
+      userAgent: req.headers.get("user-agent") || "",
+      detail: "invalid password"
+    });
     url.pathname = "/admin";
     url.searchParams.set("error", "invalid");
     url.searchParams.set("next", next);
     return NextResponse.redirect(url, 303);
   }
+  await recordSecurityEvent({
+    type: "login_success",
+    ip,
+    path: "/admin",
+    method: "POST",
+    userAgent: req.headers.get("user-agent") || "",
+    detail: "admin login"
+  });
   url.pathname = next;
   url.search = "";
   return NextResponse.redirect(url, 303);

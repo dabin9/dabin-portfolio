@@ -36,6 +36,9 @@ yarn-error.log*
 /public/uploads/*
 !/public/uploads/.gitkeep
 
+# 로컬 방문 로그 (prod 는 private Vercel Blob)
+/.analytics/
+
 # vercel
 .vercel
 

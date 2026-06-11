@@ -57,6 +57,19 @@ body {
   overflow-wrap: anywhere;
 }
 
+body.copy-protected,
+body.copy-protected *:not(input):not(textarea):not(select):not([contenteditable="true"]):not([contenteditable=""]):not([data-copy-allow]) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body.copy-protected img,
+body.copy-protected video {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 h1, h2, h3, h4, p, li, a, button, label, span, figcaption {
   word-break: keep-all;
 }

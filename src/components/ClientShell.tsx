@@ -5,6 +5,7 @@ import CommandPalette, { type CommandPaletteProject } from "./CommandPalette";
 import ScrollProgress from "./ScrollProgress";
 import ConsoleSignature from "./ConsoleSignature";
 import GsapScrollEffects from "./GsapScrollEffects";
+import CopyProtectionGuard from "./CopyProtectionGuard";
 
 export default function ClientShell({
   children,
@@ -15,6 +16,7 @@ export default function ClientShell({
 }) {
   return (
     <>
+      <CopyProtectionGuard />
       <ConsoleSignature />
       <ScrollProgress />
       <GsapScrollEffects />

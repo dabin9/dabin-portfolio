@@ -1,6 +1,8 @@
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextResponse } from "next/server";
 import { isLoggedIn } from "@/lib/auth";
+import { getRequestIp } from "@/lib/requestIp";
+import { recordSecurityEvent } from "@/lib/visitLog";
 
 /**
  * Vercel Blob 클라이언트 직접 업로드용 토큰 발급.
@@ -14,6 +16,14 @@ import { isLoggedIn } from "@/lib/auth";
  */
 export async function POST(req: Request): Promise<NextResponse> {
   if (!(await isLoggedIn())) {
+    await recordSecurityEvent({
+      type: "unauthorized_api",
+      ip: getRequestIp(req.headers),
+      path: new URL(req.url).pathname,
+      method: "POST",
+      userAgent: req.headers.get("user-agent") || "",
+      detail: "blob token without admin session"
+    });
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
   if (!process.env.BLOB_READ_WRITE_TOKEN) {
