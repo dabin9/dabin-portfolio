@@ -5,19 +5,27 @@
 export const skillGroups = [
   {
     title: "Core",
-    items: ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"]
+    items: ["JavaScript", "TypeScript", "HTML5", "CSS3"]
   },
   {
-    title: "Frameworks",
-    items: ["React", "Swiper.js", "GSAP", "three.js"]
+    title: "Library",
+    items: ["React", "React Router", "Swiper.js", "GSAP"]
   },
   {
     title: "Styling",
-    items: ["SCSS", "Tailwind CSS", "styled-components", "CSS Modules"]
+    items: ["Tailwind", "styled-components", "SCSS"]
+  },
+  {
+    title: "State / Data",
+    items: ["상태 관리", "조건부·리스트 렌더링", "CMS 연동", "CRUD"]
   },
   {
     title: "Tools",
-    items: ["Git / GitHub", "Figma", "Photoshop", "Codex", "Gemini"]
+    items: ["Git", "Figma"]
+  },
+  {
+    title: "기타",
+    items: ["PHP / GnuBoard"]
   }
 ] as const;
 
