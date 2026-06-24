@@ -77,7 +77,7 @@ export async function recordVisit(input: {
     userAgent: sanitizeText(input.userAgent, 300)
   };
 
-  await writeLogEntry(VISIT_BLOB_PREFIX, VISIT_LOCAL_DIR, entry);
+  await writeLogEntryBestEffort("visit", VISIT_BLOB_PREFIX, VISIT_LOCAL_DIR, entry);
 }
 
 export async function getVisitLogSummary(): Promise<VisitLogSummary> {
@@ -121,7 +121,12 @@ export async function recordSecurityEvent(input: {
     detail: sanitizeText(input.detail || "", 300)
   };
 
-  await writeLogEntry(SECURITY_BLOB_PREFIX, SECURITY_LOCAL_DIR, entry);
+  await writeLogEntryBestEffort(
+    "security",
+    SECURITY_BLOB_PREFIX,
+    SECURITY_LOCAL_DIR,
+    entry
+  );
 }
 
 export async function getSecurityLogSummary(): Promise<SecurityLogSummary> {
@@ -241,6 +246,22 @@ async function writeLogEntry(
   const target = path.join(localDir, filename);
   await fs.mkdir(path.dirname(target), { recursive: true });
   await fs.writeFile(target, body + "\n", "utf8");
+}
+
+async function writeLogEntryBestEffort(
+  kind: "visit" | "security",
+  blobPrefix: string,
+  localDir: string,
+  entry: VisitLogEntry | SecurityLogEntry
+): Promise<void> {
+  try {
+    await writeLogEntry(blobPrefix, localDir, entry);
+  } catch (error) {
+    console.error(
+      `[analytics] ${kind} log write failed`,
+      error instanceof Error ? error.message : error
+    );
+  }
 }
 
 function useBlobStorage() {
