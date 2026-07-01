@@ -41,6 +41,13 @@ export default function ProjectResultCard({ projects }: ProjectResultCardProps) 
             {project.displaySummary}
           </p>
 
+          {project.matchReasons.length > 0 ? (
+            <p className="mt-4 inline-flex max-w-full flex-wrap items-center gap-2 rounded-md bg-surface px-3 py-2 text-[12px] leading-5 text-inkMuted">
+              <span className="font-mono uppercase text-muted">Matched</span>
+              <span>{project.matchReasons.join(" · ")} 기준으로 연결됐어요.</span>
+            </p>
+          ) : null}
+
           <div className="mt-5 flex flex-wrap gap-2">
             {[...project.stack, ...(project.tags ?? [])].slice(0, 9).map((item, index) => (
               <span

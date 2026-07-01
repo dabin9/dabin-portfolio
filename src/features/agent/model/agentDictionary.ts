@@ -1,8 +1,8 @@
 export type AgentIntentType = "info" | "project" | "action";
 
-export type AgentInfoIntent = "profile" | "skills" | "strengths" | "contact";
+export type AgentInfoIntent = "profile" | "skills" | "strengths" | "contact" | "careers";
 export type AgentProjectIntent = "featured" | "project_search";
-export type AgentActionIntent = "go_work" | "reset_home";
+export type AgentActionIntent = "go_work" | "go_blog" | "reset_home";
 
 type BaseAgentDictionaryEntry = {
   type: AgentIntentType;
@@ -58,6 +58,23 @@ export const agentDictionary: AgentDictionaryEntry[] = [
   },
   {
     type: "action",
+    intent: "go_blog",
+    keywords: [
+      "블로그",
+      "블로그 보기",
+      "글 보기",
+      "기록",
+      "회고",
+      "blog",
+      "posts",
+      "writing"
+    ],
+    title: "블로그",
+    label: "블로그로 이동",
+    path: "/blog"
+  },
+  {
+    type: "action",
     intent: "reset_home",
     keywords: [
       "메인",
@@ -77,13 +94,31 @@ export const agentDictionary: AgentDictionaryEntry[] = [
   },
   {
     type: "info",
+    intent: "careers",
+    keywords: [
+      "경력",
+      "커리어",
+      "이력",
+      "회사",
+      "재직",
+      "근무",
+      "코디웍스",
+      "호나",
+      "career",
+      "careers",
+      "experience",
+      "work history"
+    ],
+    title: "경력 요약"
+  },
+  {
+    type: "info",
     intent: "profile",
     keywords: [
       "누구",
       "소개",
       "이름",
       "직무",
-      "경력",
       "연차",
       "몇 년",
       "무슨 일",
@@ -136,8 +171,13 @@ export const agentDictionary: AgentDictionaryEntry[] = [
       "e-mail",
       "github",
       "깃허브",
+      "git",
+      "깃",
+      "티스토리",
+      "tistory",
       "contact",
-      "링크"
+      "링크",
+      "채널"
     ],
     title: "연락처"
   },
@@ -172,9 +212,32 @@ export const agentDictionary: AgentDictionaryEntry[] = [
       "gnuboard",
       "그누보드",
       "admin",
+      "어드민",
       "관리자",
+      "운영",
       "responsive",
       "반응형",
+      "mobile",
+      "모바일",
+      "interaction",
+      "인터랙션",
+      "animation",
+      "애니메이션",
+      "swiper",
+      "gsap",
+      "data",
+      "데이터",
+      "데이터 흐름",
+      "데이터 구조",
+      "crud",
+      "검색",
+      "필터",
+      "컴포넌트",
+      "공통 컴포넌트",
+      "재사용",
+      "유지보수",
+      "퍼블리싱",
+      "게시판",
       "automation",
       "자동화",
       "frontend",
@@ -192,16 +255,18 @@ export const agentRecommendedKeywords = [
   "기술 스택",
   "CMS 경험",
   "React 경험",
-  "JavaScript 프로젝트",
+  "어드민 경험",
+  "경력 요약",
   "연락처"
 ] as const;
 
 export const agentEmptySuggestions = [
+  "React 할 줄 알아?",
+  "CMS 경험 있어?",
+  "어드민 프로젝트",
+  "경력 요약",
   "기술 스택",
   "대표 프로젝트",
-  "CMS",
-  "React",
-  "JavaScript",
   "연락처"
 ] as const;
 
@@ -240,19 +305,24 @@ export const agentStrengths = [
 ] as const;
 
 export const agentSearchAliases = {
-  react: ["react", "리액", "리액트"],
+  react: ["react", "리액", "리액트", "react.js", "리엑트"],
   next: ["next", "nextjs", "next.js", "넥스트"],
-  cms: ["cms", "관리자", "어드민", "콘텐츠관리", "콘텐츠 관리", "gnuboard", "그누보드", "게시판"],
-  admin: ["admin", "운영", "관리자", "어드민"],
-  dashboard: ["dashboard", "대시보드", "대쉬보드"],
-  responsive: ["responsive", "반응형", "모바일"],
-  automation: ["automation", "자동화", "공통화", "반복 구축"],
-  frontend: ["frontend", "front end", "프론트", "프론트엔드", "ui"],
-  javascript: ["javascript", "js", "자바스크립트", "vanilla js", "vanilla"],
+  cms: ["cms", "관리자", "어드민", "콘텐츠관리", "콘텐츠 관리", "contents", "gnuboard", "그누보드", "게시판", "백오피스"],
+  admin: ["admin", "운영", "운영자", "관리자", "어드민", "백오피스", "관리 화면", "관리 페이지"],
+  dashboard: ["dashboard", "대시보드", "대쉬보드", "운영 대시보드", "관리 대시보드"],
+  responsive: ["responsive", "반응형", "모바일", "mobile", "tablet", "태블릿", "브레이크포인트"],
+  interaction: ["interaction", "인터랙션", "animation", "애니메이션", "모션", "동적", "움직임"],
+  data: ["data", "데이터", "데이터 흐름", "데이터 구조", "연동", "api", "axios", "crud", "필터", "검색", "페이지네이션"],
+  component: ["component", "components", "컴포넌트", "공통 컴포넌트", "재사용", "공통화", "구조화"],
+  maintenance: ["maintenance", "maintainable", "유지보수", "개선", "운영", "리팩토링"],
+  publishing: ["publishing", "퍼블리싱", "html", "css", "scss", "마크업", "웹퍼블리셔"],
+  automation: ["automation", "자동화", "공통화", "반복 구축", "템플릿화"],
+  frontend: ["frontend", "front end", "프론트", "프론트엔드", "ui", "화면", "웹"],
+  javascript: ["javascript", "js", "자바스크립트", "vanilla js", "vanilla", "바닐라"],
   typescript: ["typescript", "ts", "타입스크립트"],
   php: ["php", "php template", "템플릿"],
-  gnuboard: ["gnuboard", "그누보드", "그누보드5"],
+  gnuboard: ["gnuboard", "그누보드", "그누보드5", "게시판", "스킨", "테마"],
   router: ["router", "라우터", "라우팅"],
   gsap: ["gsap", "animation", "애니메이션"],
-  swiper: ["swiper", "slider", "슬라이더"]
+  swiper: ["swiper", "slider", "슬라이더", "캐러셀"]
 } as const;

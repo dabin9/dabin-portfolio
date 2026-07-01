@@ -24,7 +24,7 @@ const introItem = {
 
 const heroTitle = "반갑습니다. 오늘도 같이 발견해볼까요?";
 const heroDescription =
-  "반응형 UI, JavaScript 인터랙션, CMS 데이터 연동을 바탕으로 유지보수 가능한 프론트엔드를 만듭니다.";
+  "운영 대시보드와 CMS의 데이터 흐름을 꼼꼼히 설계하고, 오래 유지되는 UI 구조를 만드는 3년차 프론트엔드 개발자 박다빈입니다.";
 
 export default function AgentIntro({ projects }: AgentIntroProps) {
   const [query, setQuery] = useState("");
@@ -79,7 +79,7 @@ export default function AgentIntro({ projects }: AgentIntroProps) {
           initial="hidden"
           animate="show"
           transition={{ staggerChildren: 0.07 }}
-          className="mx-auto w-full min-w-0 max-w-[960px]"
+          className="mx-auto w-full min-w-0 max-w-[1080px]"
         >
           <motion.div
             variants={introItem}
@@ -92,7 +92,7 @@ export default function AgentIntro({ projects }: AgentIntroProps) {
             <h1 className="mt-2 max-w-full whitespace-nowrap text-[clamp(13px,4.1vw,44px)] font-medium leading-[1.13] text-[#25292d]">
               {heroTitle}
             </h1>
-            <p className="mt-4 max-w-[780px] text-[15px] font-medium leading-[1.65] text-[#53606b] [text-wrap:pretty] sm:text-[17px] md:mt-5 md:text-[19px]">
+            <p className="mt-4 max-w-[900px] text-[15px] font-medium leading-[1.65] text-[#53606b] [text-wrap:pretty] sm:text-[17px] md:mt-5 md:text-[19px]">
               {heroDescription}
             </p>
           </motion.div>

@@ -27,6 +27,7 @@ export type AgentProject = {
 export type RankedAgentProject = AgentProject & {
   score: number;
   displaySummary: string;
+  matchReasons: string[];
 };
 
 export type AgentResolvedResult =
@@ -75,10 +76,7 @@ export function resolveAgentQuery(
       intent: action.intent,
       title: action.title,
       query,
-      message:
-        action.intent === "go_work"
-          ? "등록된 프로젝트를 확인할 수 있는 Work 페이지로 이동할 수 있어요."
-          : "검색 상태를 초기화하고 DABIN AGENT 첫 화면으로 돌아갈게요.",
+      message: getActionMessage(action.intent),
       label: action.label,
       path: action.path
     };
@@ -134,31 +132,17 @@ export function rankAgentProjects(
 
   return list
     .map((project) => {
-      const haystack = expandAgentText(
-        [
-          project.slug,
-          project.title,
-          project.summary,
-          project.year,
-          project.role,
-          project.company ?? "",
-          project.stack.join(" "),
-          (project.tags ?? []).join(" "),
-          project.highlights.join(" "),
-          project.resultItems?.join(" ") ?? "",
-          project.description ?? "",
-          project.searchText ?? ""
-        ].join(" ")
-      );
+      const fields = getSearchableProjectFields(project);
+      const haystack = expandAgentText(fields.map((field) => field.value).join(" "));
       const haystackTokens = haystack.split(" ").filter(Boolean);
       let score = haystack.includes(normalizedQuery) ? 8 : 0;
+      const reasonScores = new Map<string, number>();
 
       for (const term of queryTerms) {
         if (term.length < 2) continue;
 
         if (haystack.includes(term)) {
           score += 3;
-          continue;
         }
 
         if (
@@ -170,6 +154,14 @@ export function rankAgentProjects(
         ) {
           score += 2;
         }
+
+        for (const field of fields) {
+          const fieldText = expandAgentText(field.value);
+          if (fieldText.includes(term)) {
+            score += field.weight;
+            reasonScores.set(field.label, (reasonScores.get(field.label) ?? 0) + field.weight);
+          }
+        }
       }
 
       if (project.featured && score > 0) score += 1;
@@ -177,7 +169,8 @@ export function rankAgentProjects(
       return {
         ...project,
         score,
-        displaySummary: getProjectDisplaySummary(project)
+        displaySummary: getProjectDisplaySummary(project),
+        matchReasons: getTopMatchReasons(reasonScores)
       };
     })
     .filter((project) => project.score > 0)
@@ -218,14 +211,22 @@ function getFeaturedProjects(projects: AgentProject[]): RankedAgentProject[] {
     .map((project, index) => ({
       ...project,
       score: 100 - index,
-      displaySummary: getProjectDisplaySummary(project)
+      displaySummary: getProjectDisplaySummary(project),
+      matchReasons: ["대표 프로젝트", "성과 요약"]
     }))
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+}
+
+function getActionMessage(intent: AgentActionIntent): string {
+  if (intent === "go_work") return "등록된 프로젝트를 확인할 수 있는 Work 페이지로 이동할 수 있어요.";
+  if (intent === "go_blog") return "작업 기록과 회고를 모아둔 Blog 페이지로 이동할 수 있어요.";
+  return "검색 상태를 초기화하고 DABIN AGENT 첫 화면으로 돌아갈게요.";
 }
 
 function getInfoMessage(intent: AgentInfoIntent): string {
   if (intent === "skills") return "박다빈의 주요 기술 스택입니다.";
   if (intent === "contact") return "확인 가능한 연락 채널입니다.";
+  if (intent === "careers") return "박다빈의 경력 흐름과 담당 업무를 요약했습니다.";
   if (intent === "strengths") return "포트폴리오 데이터에서 반복적으로 드러나는 주요 강점입니다.";
   return "박다빈의 포트폴리오 기본 정보입니다.";
 }
@@ -262,7 +263,9 @@ function expandAgentTerms(value: string): string[] {
   const normalized = normalizeAgentQuery(value);
   if (!normalized) return [];
 
-  const terms = normalized.split(" ").filter((token) => token.length >= 2);
+  const terms = normalized
+    .split(" ")
+    .filter((token) => token.length >= 2 && !agentQueryStopWords.has(token));
   const expanded = [...terms];
 
   for (const term of terms) {
@@ -285,6 +288,66 @@ function expandAgentTerms(value: string): string[] {
   }
 
   return uniqueTerms(expanded);
+}
+
+const agentQueryStopWords = new Set([
+  "있어",
+  "있나요",
+  "하나요",
+  "해봤어",
+  "해봤나요",
+  "할줄",
+  "할수",
+  "알아",
+  "가능",
+  "가능해",
+  "보여줘",
+  "궁금",
+  "관련",
+  "경험",
+  "프로젝트",
+  "작업",
+  "작업물",
+  "알려줘",
+  "해주세요",
+  "뭐야",
+  "무엇",
+  "어떤",
+  "있음",
+  "가능한",
+  "show",
+  "tell",
+  "about",
+  "can",
+  "you",
+  "have",
+  "has",
+  "with",
+  "work",
+  "project",
+  "experience"
+]);
+
+function getSearchableProjectFields(project: AgentProject) {
+  return [
+    { label: "프로젝트 제목", weight: 4, value: project.title },
+    { label: "기술 스택", weight: 5, value: project.stack.join(" ") },
+    { label: "프로젝트 태그", weight: 4, value: (project.tags ?? []).join(" ") },
+    { label: "역할·회사", weight: 3, value: [project.role, project.company ?? ""].join(" ") },
+    {
+      label: "성과 요약",
+      weight: 3,
+      value: [project.summary, project.highlights.join(" "), project.resultItems?.join(" ") ?? ""].join(" ")
+    },
+    { label: "상세 설명", weight: 1, value: [project.description ?? "", project.searchText ?? ""].join(" ") }
+  ];
+}
+
+function getTopMatchReasons(reasonScores: Map<string, number>): string[] {
+  return Array.from(reasonScores.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([label]) => label)
+    .slice(0, 3);
 }
 
 function uniqueTerms(terms: string[]): string[] {

@@ -28,7 +28,7 @@ export default function AgentSearchBox({
           type="search"
           value={query}
           onChange={(event) => onQueryChange(event.target.value)}
-          placeholder="JavaScript 프로젝트, 기술 스택, CMS 경험, 대표 작업"
+          placeholder="React 할 줄 알아?, CMS 경험, 어드민 프로젝트, 경력, 연락처"
           autoComplete="off"
           className="qa-search-input w-full bg-transparent text-[#2b2f33] outline-none placeholder:text-[#6d747c] focus:outline-none focus:ring-0 focus-visible:outline-none focus-visible:ring-0"
         />

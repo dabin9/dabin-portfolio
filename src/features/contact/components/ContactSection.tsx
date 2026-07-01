@@ -6,6 +6,8 @@ import ContactVisual3D from "@/features/contact/components/ContactVisual3D";
 const contactEmail = "devjenny19@gmail.com";
 const githubLabel = "github.com/dabin9";
 const githubUrl = "https://github.com/dabin9";
+const blogLabel = "binz2125.tistory.com";
+const blogUrl = "https://binz2125.tistory.com/";
 
 const contactGroup: Variants = {
   hidden: {},
@@ -69,7 +71,7 @@ export default function ContactSection() {
               >
                 프론트엔드/UI 개발 포지션 관련 문의는 이메일로 연락 주세요.
                 <br className="hidden sm:block" />
-                반응형 UI, JavaScript 인터랙션, CMS 데이터 연동을 바탕으로 유지보수 가능한 프론트엔드를 만듭니다.
+                운영 대시보드와 CMS의 데이터 흐름을 꼼꼼히 설계하고, 오래 유지되는 UI 구조를 만드는 3년차 프론트엔드 개발자 박다빈입니다.
               </motion.p>
             </div>
 
@@ -80,7 +82,7 @@ export default function ContactSection() {
 
           <motion.dl
             variants={contactGroup}
-            className="mt-9 grid gap-6 md:grid-cols-2"
+            className="mt-9 grid gap-6 md:grid-cols-3"
           >
             <ContactItem
               label="Email"
@@ -91,6 +93,12 @@ export default function ContactSection() {
               label="GitHub"
               value={githubLabel}
               href={githubUrl}
+              external
+            />
+            <ContactItem
+              label="Blog"
+              value={blogLabel}
+              href={blogUrl}
               external
             />
           </motion.dl>

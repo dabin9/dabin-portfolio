@@ -14,7 +14,7 @@ export const env = {
     fallback(process.env.NEXT_PUBLIC_CONTACT_EMAIL, "devjenny19@gmail.com")
   ),
   linkedin: fallback(process.env.NEXT_PUBLIC_LINKEDIN_URL),
-  blog: fallback(process.env.NEXT_PUBLIC_BLOG_URL)
+  blog: fallback(process.env.NEXT_PUBLIC_BLOG_URL, "https://binz2125.tistory.com/")
 } as const;
 
 export type SiteEnv = typeof env;
