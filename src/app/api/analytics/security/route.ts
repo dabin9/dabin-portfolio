@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { hasInternalAnalyticsToken } from "@/lib/internalAnalytics";
-import { recordSecurityEvent, type SecurityEventType } from "@/lib/visitLog";
+import { hasInternalAnalyticsToken } from "@/features/analytics/lib/internalAnalytics";
+import { recordSecurityEvent, type SecurityEventType } from "@/features/analytics/lib/visitLog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

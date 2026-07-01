@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { isLoggedIn } from "@/lib/auth";
-import { getRequestIp } from "@/lib/requestIp";
-import { recordSecurityEvent } from "@/lib/visitLog";
-import { upsertProject } from "@/lib/storage";
-import { formatStorageError, projectFromForm } from "@/lib/adminProjectForm";
-import type { ProjectBlock } from "@/data/projects";
+import { isLoggedIn } from "@/features/admin/lib/auth";
+import { getRequestIp } from "@/shared/lib/requestIp";
+import { recordSecurityEvent } from "@/features/analytics/lib/visitLog";
+import { upsertProject } from "@/entities/project/repository/projectRepository";
+import { formatStorageError, projectFromForm } from "@/features/admin-projects/lib/projectFormMapper";
+import type { ProjectBlock } from "@/entities/project";
 
 export async function POST(req: Request) {
   if (!(await isLoggedIn())) {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getNote, notes } from "@/data/notes";
+import { getNote, notes } from "@/features/blog/data/notes";
 
 type Params = { id: string };
 

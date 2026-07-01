@@ -1,8 +1,8 @@
-import AgentIntro from "@/components/agent/AgentIntro";
-import ContactSection from "@/components/ContactSection";
-import SelectedWork from "@/components/SelectedWork";
-import { projects, publicProjects } from "@/data/projects";
-import { getProjectSearchText } from "@/lib/projectSearchText";
+import AgentIntro from "@/features/agent/components/AgentIntro";
+import ContactSection from "@/features/contact/components/ContactSection";
+import SelectedWork from "@/features/projects/components/SelectedWork";
+import { projects, publicProjects } from "@/entities/project";
+import { getProjectSearchText } from "@/entities/project/model/searchText";
 
 export default function HomePage() {
   const agentProjects = publicProjects(projects).map((project) => ({

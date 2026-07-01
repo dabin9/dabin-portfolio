@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { isLoggedIn } from "@/lib/auth";
+import { isLoggedIn } from "@/features/admin/lib/auth";
 
 /**
  * Admin 환경 진단 페이지.
@@ -128,8 +128,11 @@ export default async function AdminDiagPage() {
         <Section title="작업물 저장 흐름">
           <p>1) 폼 submit → server action</p>
           <p>
-            2) <code className="font-mono text-ink">src/data/projects.json</code> 을 GitHub
-            Contents API 로 commit
+            2){" "}
+            <code className="font-mono text-ink">
+              src/entities/project/data/projects.json
+            </code>{" "}
+            을 GitHub Contents API 로 commit
           </p>
           <p>3) GitHub push → Vercel 자동 재배포 (~30초)</p>
         </Section>

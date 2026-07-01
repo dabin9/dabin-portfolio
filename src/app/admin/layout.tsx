@@ -1,5 +1,5 @@
 import { Suspense, type ReactNode } from "react";
-import AdminNavigationProgress from "@/components/admin/AdminNavigationProgress";
+import AdminNavigationProgress from "@/features/admin-projects/components/AdminNavigationProgress";
 
 export const metadata = {
   title: "Admin",

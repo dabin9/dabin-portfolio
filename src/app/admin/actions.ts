@@ -4,9 +4,9 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import {
   deleteProjectBySlug
-} from "@/lib/storage";
-import { requireAdmin } from "@/lib/adminProjects";
-import { formatStorageError } from "@/lib/adminProjectForm";
+} from "@/entities/project/repository/projectRepository";
+import { requireAdmin } from "@/features/admin-projects/lib/adminProjects";
+import { formatStorageError } from "@/features/admin-projects/lib/projectFormMapper";
 
 /* ---------- Project CRUD ---------- */
 

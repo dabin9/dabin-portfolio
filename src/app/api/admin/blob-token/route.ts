@@ -1,8 +1,8 @@
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextResponse } from "next/server";
-import { isLoggedIn } from "@/lib/auth";
-import { getRequestIp } from "@/lib/requestIp";
-import { recordSecurityEvent } from "@/lib/visitLog";
+import { isLoggedIn } from "@/features/admin/lib/auth";
+import { getRequestIp } from "@/shared/lib/requestIp";
+import { recordSecurityEvent } from "@/features/analytics/lib/visitLog";
 
 /**
  * Vercel Blob 클라이언트 직접 업로드용 토큰 발급.

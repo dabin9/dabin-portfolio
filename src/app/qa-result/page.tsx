@@ -1,5 +1,5 @@
-import { projects, publicProjects } from "@/data/projects";
-import QaResultClient from "./QaResultClient";
+import { projects, publicProjects } from "@/entities/project";
+import QaResultClient from "@/features/qa/components/QaResultClient";
 
 export const metadata = { title: "Q&A Result" };
 

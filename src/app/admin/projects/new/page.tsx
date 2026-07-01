@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { isLoggedIn } from "@/lib/auth";
-import { readProjectsFresh } from "@/lib/storage";
-import { allTags as collectTags } from "@/data/projects";
-import { getMediaOptions } from "@/lib/mediaOptions";
-import ProjectForm from "@/components/admin/ProjectForm";
+import { isLoggedIn } from "@/features/admin/lib/auth";
+import { readProjectsFresh } from "@/entities/project/repository/projectRepository";
+import { allTags as collectTags } from "@/entities/project";
+import { getMediaOptions } from "@/features/admin-projects/lib/mediaOptions";
+import ProjectForm from "@/features/admin-projects/components/ProjectForm";
 
 export default async function NewProjectPage({
   searchParams

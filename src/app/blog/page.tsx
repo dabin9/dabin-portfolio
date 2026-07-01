@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { notes } from "@/data/notes";
-import { site } from "@/data/site";
+import { notes } from "@/features/blog/data/notes";
+import { site } from "@/shared/config/site";
 
 export const metadata: Metadata = {
   title: "Notes",

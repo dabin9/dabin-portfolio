@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { isLoggedIn } from "@/lib/auth";
+import { isLoggedIn } from "@/features/admin/lib/auth";
 import {
   formatKstDateTime,
   formatSecurityEventType,
   getSecurityLogSummary,
   getVisitLogSummary
-} from "@/lib/visitLog";
+} from "@/features/analytics/lib/visitLog";
 
 export const dynamic = "force-dynamic";
 

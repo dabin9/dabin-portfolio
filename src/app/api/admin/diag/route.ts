@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { isLoggedIn } from "@/lib/auth";
-import { getRequestIp } from "@/lib/requestIp";
-import { recordSecurityEvent } from "@/lib/visitLog";
+import { isLoggedIn } from "@/features/admin/lib/auth";
+import { getRequestIp } from "@/shared/lib/requestIp";
+import { recordSecurityEvent } from "@/features/analytics/lib/visitLog";
 
 /**
  * 환경 진단 엔드포인트.

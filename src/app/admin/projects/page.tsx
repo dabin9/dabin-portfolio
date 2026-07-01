@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { deleteProjectAction } from "../actions";
-import { getAdminProjects } from "@/lib/adminProjects";
+import { getAdminProjects } from "@/features/admin-projects/lib/adminProjects";
 
 const STATUS_LABEL: Record<string, { label: string; cls: string }> = {
   published: { label: "발행", cls: "bg-emerald-50 text-emerald-700 border-emerald-200" },

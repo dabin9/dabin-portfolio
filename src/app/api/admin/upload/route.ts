@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import path from "node:path";
 import fs from "node:fs/promises";
 import { put } from "@vercel/blob";
-import { isLoggedIn } from "@/lib/auth";
-import { getRequestIp } from "@/lib/requestIp";
-import { recordSecurityEvent } from "@/lib/visitLog";
+import { isLoggedIn } from "@/features/admin/lib/auth";
+import { getRequestIp } from "@/shared/lib/requestIp";
+import { recordSecurityEvent } from "@/features/analytics/lib/visitLog";
 
 // Vercel serverless 함수의 본문 한도(~4.5MB)를 넘기지 않도록 보수적으로 잡는다.
 // 큰 이미지는 클라이언트가 @vercel/blob/client 로 직접 업로드하는 경로를 탄다.

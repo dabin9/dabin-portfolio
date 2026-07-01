@@ -1,8 +1,8 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import { ADMIN_COOKIE, ADMIN_IP_COOKIE } from "@/lib/auth";
-import { getRequestIp } from "@/lib/requestIp";
-import { recordVisit } from "@/lib/visitLog";
+import { ADMIN_COOKIE, ADMIN_IP_COOKIE } from "@/features/admin/lib/auth";
+import { getRequestIp } from "@/shared/lib/requestIp";
+import { recordVisit } from "@/features/analytics/lib/visitLog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

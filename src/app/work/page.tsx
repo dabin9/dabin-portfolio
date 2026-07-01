@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { projects, publicProjects, allTags } from "@/data/projects";
-import WorkCardMedia from "@/components/WorkCardMedia";
+import { projects, publicProjects, allTags } from "@/entities/project";
+import WorkCardMedia from "@/features/projects/components/WorkCardMedia";
 
 export const metadata = { title: "Work" };
 

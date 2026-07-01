@@ -3,13 +3,13 @@ import { Bricolage_Grotesque, Instrument_Serif, JetBrains_Mono } from "next/font
 import "swiper/css";
 import "swiper/css/pagination";
 import "./globals.css";
-import { site } from "@/data/site";
-import { projects, publicProjects } from "@/data/projects";
-import { getProjectSearchText } from "@/lib/projectSearchText";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ClientShell from "@/components/ClientShell";
-import VisitTracker from "@/components/VisitTracker";
+import { site } from "@/shared/config/site";
+import { projects, publicProjects } from "@/entities/project";
+import { getProjectSearchText } from "@/entities/project/model/searchText";
+import Header from "@/features/site-shell/components/Header";
+import Footer from "@/features/site-shell/components/Footer";
+import ClientShell from "@/features/site-shell/components/ClientShell";
+import VisitTracker from "@/features/analytics/components/VisitTracker";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],

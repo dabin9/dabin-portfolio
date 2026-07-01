@@ -1,10 +1,10 @@
 import { NextResponse, type NextFetchEvent, type NextRequest } from "next/server";
-import { isLocalDevAdminBypassHost } from "@/lib/adminAccess";
+import { isLocalDevAdminBypassHost } from "@/features/admin/lib/adminAccess";
 import {
   INTERNAL_ANALYTICS_HEADER,
   getInternalAnalyticsToken
-} from "@/lib/internalAnalytics";
-import { getRequestIp } from "@/lib/requestIp";
+} from "@/features/analytics/lib/internalAnalytics";
+import { getRequestIp } from "@/shared/lib/requestIp";
 
 /**
  * /admin 하위 경로 진입 전 쿠키만 가볍게 검사 (1차 게이트).

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { login } from "@/lib/auth";
-import { getRequestIp } from "@/lib/requestIp";
-import { recordSecurityEvent } from "@/lib/visitLog";
+import { login } from "@/features/admin/lib/auth";
+import { getRequestIp } from "@/shared/lib/requestIp";
+import { recordSecurityEvent } from "@/features/analytics/lib/visitLog";
 
 export async function POST(req: Request) {
   const ct = req.headers.get("content-type") || "";

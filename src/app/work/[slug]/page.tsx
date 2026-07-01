@@ -6,11 +6,11 @@ import {
   publicProjects,
   type Project,
   type ProjectMediaItem
-} from "@/data/projects";
-import BlockRenderer from "@/components/BlockRenderer";
-import BlockClientRenderer from "@/components/BlockClientRendererLazy";
-import ContributionMeter from "@/components/ContributionMeter";
-import ProjectMediaCarousel from "@/components/ProjectMediaCarousel";
+} from "@/entities/project";
+import BlockRenderer from "@/features/projects/components/BlockRenderer";
+import BlockClientRenderer from "@/features/projects/components/BlockClientRendererLazy";
+import ContributionMeter from "@/features/projects/components/ContributionMeter";
+import ProjectMediaCarousel from "@/features/projects/components/ProjectMediaCarousel";
 
 type Params = { slug: string };
 

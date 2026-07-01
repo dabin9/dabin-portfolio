@@ -1,7 +1,7 @@
-import { projects, publicProjects } from "@/data/projects";
-import { getProjectSearchText } from "@/lib/projectSearchText";
-import QaHeroCopy from "./QaHeroCopy";
-import QaSearch from "./QaSearch";
+import { projects, publicProjects } from "@/entities/project";
+import { getProjectSearchText } from "@/entities/project/model/searchText";
+import QaHeroCopy from "@/features/qa/components/QaHeroCopy";
+import QaSearch from "@/features/qa/components/QaSearch";
 
 export const metadata = { title: "Q&A" };
 
