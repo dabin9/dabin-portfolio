@@ -71,8 +71,8 @@ export default async function ProjectPage({
           Back to Works
         </Link>
 
-        <header className="mt-8 grid md:grid-cols-12 gap-8 md:gap-14 pb-12 border-b border-line items-start">
-          <div className="md:col-span-6 flex flex-col">
+        <header className="mt-8 grid min-w-0 md:grid-cols-12 gap-8 md:gap-14 pb-12 border-b border-line items-start">
+          <div className="min-w-0 md:col-span-6 flex flex-col">
 
             <h1
               className="mt-4 break-words font-display text-[2.35rem] leading-tight text-ink sm:text-[3rem]"
@@ -83,7 +83,7 @@ export default async function ProjectPage({
 
             <div className="mt-8 flex flex-col gap-4">
 
-              <div className="max-w-[760px]">
+              <div className="w-full max-w-[760px]">
               <p className="font-mono text-[12px] uppercase text-muted">
                 Project Summary
               </p>
@@ -94,7 +94,7 @@ export default async function ProjectPage({
               </div>
             </div>
           </div>
-          <div className="md:col-span-6">
+          <div className="min-w-0 md:col-span-6">
             <ProjectMediaCarousel
               items={mediaItems}
               poster={project.thumbnail}
@@ -127,7 +127,7 @@ export default async function ProjectPage({
         {project.bodyHtml || (project.bodyBlocks && project.bodyBlocks.length > 0) ? (
           <section className="mt-16 grid md:grid-cols-12 gap-8">
             <SectionLabel title="Archive Notes" />
-            <div className="md:col-span-9 max-w-[760px]">
+            <div className="min-w-0 md:col-span-9 max-w-[760px]">
               {project.bodyHtml ? (
                 <BlockRenderer html={project.bodyHtml} />
               ) : (
@@ -140,7 +140,7 @@ export default async function ProjectPage({
         {caseNotes.length > 0 ? (
           <section className="mt-14 grid md:grid-cols-12 gap-8">
             <SectionLabel title="Case Notes" />
-            <div className="md:col-span-9 space-y-5">
+            <div className="min-w-0 md:col-span-9 space-y-5">
               {caseNotes.map((note, idx) => (
                 <div
                   key={`${note}-${idx}`}
@@ -187,7 +187,7 @@ export default async function ProjectPage({
 
         {resultBullets.length > 0 ? (
           <section className="mt-14 grid md:grid-cols-12 gap-8">
-            <div className="md:col-start-4 md:col-span-9">
+            <div className="min-w-0 md:col-start-4 md:col-span-9">
               <div className="w-full bg-[#f0f0f0] p-[10px] font-mono text-[12px] font-bold uppercase text-[#000]">
                 성과
               </div>
@@ -216,7 +216,7 @@ export default async function ProjectPage({
 
         <section className="mt-16 grid md:grid-cols-12 gap-8 border-t border-line pt-8">
           <SectionLabel title="Links" />
-          <div className="md:col-span-9 flex flex-wrap gap-x-5 gap-y-3">
+          <div className="min-w-0 md:col-span-9 flex flex-wrap gap-x-5 gap-y-3">
             {project.links?.map((l) => (
               <a
                 key={l.label}

@@ -175,6 +175,32 @@ h1, h2, h3, h4, p, li, a, button, label, span, figcaption {
   background: rgb(var(--ink));
 }
 
+.project-media-lightbox-swiper {
+  padding-bottom: 28px;
+}
+
+.project-media-lightbox-swiper .swiper-pagination {
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-media-lightbox-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  margin: 0 !important;
+  border: 1px solid rgb(var(--ink));
+  background: rgb(var(--bg));
+  opacity: 0.85;
+}
+
+.project-media-lightbox-swiper .swiper-pagination-bullet-active {
+  background: rgb(var(--ink));
+  opacity: 1;
+}
+
 /* Rich content prose */
 .rich-content { word-break: keep-all; overflow-wrap: anywhere; }
 .rich-content p { margin: 1.1em 0; }
