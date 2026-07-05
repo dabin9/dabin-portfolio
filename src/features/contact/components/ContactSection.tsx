@@ -129,14 +129,23 @@ function PlaygroundListItem({ item }: { item: PlaygroundItem }) {
   const external = /^https?:\/\//i.test(item.link);
 
   return (
-    <motion.a
+    <motion.article
       variants={contactText}
-      href={item.link}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      data-cursor="label=OPEN"
-      className="group min-w-0 overflow-hidden rounded-lg border border-[#d8e0e7] bg-white/45 transition-colors hover:bg-white/70"
+      className="group relative min-w-0 overflow-hidden rounded-lg border border-[#d8e0e7] bg-white/45 transition-colors hover:bg-white/70"
     >
+      <a
+        href={item.link}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        data-cursor="label=OPEN"
+        aria-label={`${item.title} 사이트로 이동`}
+        className="absolute inset-0 z-10 hidden md:block"
+      >
+        <span className="sr-only">{item.title} 사이트로 이동</span>
+      </a>
+      <span className="pointer-events-none absolute right-4 top-4 z-10 hidden rounded-full border border-[#c8d3dd] bg-white/90 px-3 py-1.5 text-[12px] font-medium text-[#25292d] opacity-0 shadow-[0_8px_20px_rgba(28,39,49,0.12)] backdrop-blur transition duration-200 group-hover:opacity-100 md:inline-flex">
+        클릭하면 사이트로 이동합니다
+      </span>
       <div className="relative aspect-[16/9] overflow-hidden border-b border-[#e3e8ed] bg-white sm:aspect-[16/7]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -155,9 +164,18 @@ function PlaygroundListItem({ item }: { item: PlaygroundItem }) {
           <p className="mt-1 line-clamp-2 text-[13px] leading-6 text-[#66717c]">
             {item.description}
           </p>
+          <a
+            href={item.link}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            data-cursor="link"
+            className="relative z-20 mt-3 inline-flex h-9 items-center rounded-full bg-[#25292d] px-4 font-mono text-[11px] uppercase tracking-[0.08em] text-white md:hidden"
+          >
+            Go to Site
+          </a>
         </div>
       </div>
-    </motion.a>
+    </motion.article>
   );
 }
 
