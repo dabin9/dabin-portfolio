@@ -105,21 +105,14 @@ export default function ContactSection({
               variants={contactGroup}
               className="mt-12 border-t border-[#d8e0e7] pt-8"
             >
-              <motion.div
+              <motion.p
                 variants={contactText}
-                className="flex flex-wrap items-end justify-between gap-3"
+                className="font-mono text-[12px] uppercase text-[#66717c]"
               >
-                <div>
-                  <p className="font-mono text-[12px] uppercase text-[#66717c]">
-                    Playground
-                  </p>
-                  <h3 className="mt-2 font-display text-[26px] font-semibold leading-tight text-[#25292d] md:text-[34px]">
-                    작은 실험 목록
-                  </h3>
-                </div>
-              </motion.div>
+                Playground
+              </motion.p>
 
-              <div className="mt-5 divide-y divide-[#d8e0e7] border-y border-[#d8e0e7]">
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
                 {playgroundItems.map((item) => (
                   <PlaygroundListItem key={item.id} item={item} />
                 ))}
@@ -142,32 +135,47 @@ function PlaygroundListItem({ item }: { item: PlaygroundItem }) {
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       data-cursor="label=OPEN"
-      className="group grid gap-4 py-4 transition-colors hover:bg-white/35 sm:grid-cols-[112px_1fr_auto] sm:items-center"
+      className="group overflow-hidden rounded-lg border border-[#d8e0e7] bg-white/45 transition-colors hover:bg-white/70"
     >
       <div
-        className="relative overflow-hidden border border-[#d8e0e7] bg-white/45"
-        style={{ aspectRatio: "16/10" }}
+        className="relative overflow-hidden border-b border-[#e3e8ed] bg-white"
+        style={{ aspectRatio: "16/7" }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={item.thumbnail}
           alt=""
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          className="absolute inset-0 h-full w-full object-contain px-8 py-2 transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
-      <div className="min-w-0">
-        <h4 className="font-display text-[21px] font-semibold leading-tight text-[#25292d] group-hover:text-brand md:text-[24px]">
+      <div className="flex min-h-[62px] items-start gap-2 px-3 py-3">
+        <DocumentIcon />
+        <h4 className="min-w-0 text-[15px] font-medium leading-6 text-[#25292d] group-hover:text-brand md:text-[16px]">
           {item.title}
         </h4>
-        <p className="mt-2 line-clamp-2 text-[14px] leading-6 text-[#53606b]">
-          {item.description}
-        </p>
       </div>
-      <span className="font-mono text-[12px] uppercase text-[#66717c] group-hover:text-[#25292d]">
-        Open
-      </span>
     </motion.a>
+  );
+}
+
+function DocumentIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      className="mt-1 h-4 w-4 shrink-0 text-[#7c858d]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 2.5h5l3 3v8H4z" />
+      <path d="M9 2.5v3h3" />
+      <path d="M6.1 8.4h3.8" />
+      <path d="M6.1 10.7h3.8" />
+    </svg>
   );
 }
 
