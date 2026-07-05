@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import type { PlaygroundItem } from "@/entities/playground";
 import ContactVisual3D from "@/features/contact/components/ContactVisual3D";
 
 const contactEmail = "devjenny19@gmail.com";
@@ -34,7 +35,11 @@ const contactText: Variants = {
   }
 };
 
-export default function ContactSection() {
+export default function ContactSection({
+  playgroundItems = []
+}: {
+  playgroundItems?: PlaygroundItem[];
+}) {
   const reduce = useReducedMotion();
 
   return (
@@ -94,9 +99,75 @@ export default function ContactSection() {
               external
             />
           </motion.dl>
+
+          {playgroundItems.length > 0 ? (
+            <motion.div
+              variants={contactGroup}
+              className="mt-12 border-t border-[#d8e0e7] pt-8"
+            >
+              <motion.div
+                variants={contactText}
+                className="flex flex-wrap items-end justify-between gap-3"
+              >
+                <div>
+                  <p className="font-mono text-[12px] uppercase text-[#66717c]">
+                    Playground
+                  </p>
+                  <h3 className="mt-2 font-display text-[26px] font-semibold leading-tight text-[#25292d] md:text-[34px]">
+                    작은 실험 목록
+                  </h3>
+                </div>
+              </motion.div>
+
+              <div className="mt-5 divide-y divide-[#d8e0e7] border-y border-[#d8e0e7]">
+                {playgroundItems.map((item) => (
+                  <PlaygroundListItem key={item.id} item={item} />
+                ))}
+              </div>
+            </motion.div>
+          ) : null}
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function PlaygroundListItem({ item }: { item: PlaygroundItem }) {
+  const external = /^https?:\/\//i.test(item.link);
+
+  return (
+    <motion.a
+      variants={contactText}
+      href={item.link}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      data-cursor="label=OPEN"
+      className="group grid gap-4 py-4 transition-colors hover:bg-white/35 sm:grid-cols-[112px_1fr_auto] sm:items-center"
+    >
+      <div
+        className="relative overflow-hidden border border-[#d8e0e7] bg-white/45"
+        style={{ aspectRatio: "16/10" }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.thumbnail}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="min-w-0">
+        <h4 className="font-display text-[21px] font-semibold leading-tight text-[#25292d] group-hover:text-brand md:text-[24px]">
+          {item.title}
+        </h4>
+        <p className="mt-2 line-clamp-2 text-[14px] leading-6 text-[#53606b]">
+          {item.description}
+        </p>
+      </div>
+      <span className="font-mono text-[12px] uppercase text-[#66717c] group-hover:text-[#25292d]">
+        Open
+      </span>
+    </motion.a>
   );
 }
 

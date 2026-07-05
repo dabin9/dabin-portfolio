@@ -9,7 +9,6 @@ import ThemeToggle from "@/shared/ui/ThemeToggle";
 
 const nav = [
   { href: "/work", label: "Works", shortLabel: "Works" },
-  { href: "/#playground", label: "Playground", shortLabel: "Play" },
   { href: "/#contact", label: "Contact", shortLabel: "Contact" }
 ];
 
