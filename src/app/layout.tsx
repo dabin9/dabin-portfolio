@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./globals.css";
@@ -10,6 +11,8 @@ import Header from "@/features/site-shell/components/Header";
 import Footer from "@/features/site-shell/components/Footer";
 import ClientShell from "@/features/site-shell/components/ClientShell";
 import VisitTracker from "@/features/analytics/components/VisitTracker";
+
+const GA_TRACKING_ID = "G-YHJTVXKLC2";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -85,6 +88,22 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}');
+            `
+          }}
+        />
         <ClientShell commandProjects={commandProjects}>
           <Header />
           <main className="flex-1">{children}</main>
