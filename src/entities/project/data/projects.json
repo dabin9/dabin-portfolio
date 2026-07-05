@@ -92,7 +92,7 @@
       },
       {
         "issueTitle": "상담 업무 흐름을 어떻게 리포트까지 연결할 것인가",
-        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7580e28c-c489-4a86-8dec-8c3bf32f8db0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7580e28c-c489-4a86-8dec-8c3bf32f8db0\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">상담 업무 흐름을 어떻게 리포트까지 연결할 것인가</p></div></div></div></div>",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7580e28c-c489-4a86-8dec-8c3bf32f8db0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7580e28c-c489-4a86-8dec-8c3bf32f8db0\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>상담 업무 흐름을 어떻게 리포트까지 연결할 것인가</strong></p></div></div></div></div>",
         "problem": "세무 상담은 고객 등록에서 끝나지 않고 케이스 관리, 시나리오 비교, 리포트 작성까지 이어지는 연속적인 업무 흐름이 필요했습니다.",
         "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"578e8a09-f473-40f0-a81a-59ec8cddbe47\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"578e8a09-f473-40f0-a81a-59ec8cddbe47\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">세무 상담은 고객 등록에서 끝나지 않고 케이스 관리, 시나리오 비교, 리포트 작성까지 이어지는 연속적인 업무 흐름이 필요했습니다.</p></div></div></div></div>",
         "approach": "케이스 등록 → 시나리오 비교 → 추천안 확정 → 리포트 생성·확정 흐름으로 화면을 연결했습니다.\n시나리오 비교 화면에는 예상 세액, 과세표준, 세율, 리스크, 추천 여부 5개 핵심 정보를 제공했습니다.",
