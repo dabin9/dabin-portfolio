@@ -1,5 +1,13 @@
 [
   {
+    "id": "인형-뽑기-mr7q8l4w",
+    "title": "인형 뽑기",
+    "description": "TypeScript+Three.js+Cannon.js로 만든 3D 인형뽑기 웹 게임",
+    "thumbnail": "/playground/claw.gif",
+    "link": "https://davin-claw.vercel.app/",
+    "createdAt": "2026-07-05T11:47:47.072Z"
+  },
+  {
     "id": "사부작-mr7q7krl",
     "title": "사부작",
     "description": "TypeScript+Three.js+Cannon.js 로 만든 장작 태우기 웹 게임",
