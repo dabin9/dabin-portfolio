@@ -8,8 +8,9 @@ import Clock from "@/shared/ui/Clock";
 import ThemeToggle from "@/shared/ui/ThemeToggle";
 
 const nav = [
-  { href: "/work", label: "Works" },
-  { href: "/#contact", label: "Contact" }
+  { href: "/work", label: "Works", shortLabel: "Works" },
+  { href: "/#playground", label: "Playground", shortLabel: "Play" },
+  { href: "/#contact", label: "Contact", shortLabel: "Contact" }
 ];
 
 export default function Header() {
@@ -27,7 +28,7 @@ export default function Header() {
           {site.nameEn}
         </Link>
 
-        <nav className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center gap-2 text-[10px] min-[380px]:gap-3 min-[380px]:text-[11px] md:text-[13px]">
+        <nav className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 justify-center gap-2 text-[10px] min-[430px]:gap-3 min-[430px]:text-[11px] md:text-[13px]">
           {nav.map((n) => {
             const active = n.href === "/work" && pathname.startsWith("/work");
             const className = clsx(
@@ -42,7 +43,8 @@ export default function Header() {
                 data-cursor="link"
                 className={className}
               >
-                {n.label}
+                <span className="hidden min-[520px]:inline">{n.label}</span>
+                <span className="min-[520px]:hidden">{n.shortLabel}</span>
               </Link>
             );
           })}

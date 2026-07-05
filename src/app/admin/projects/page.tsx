@@ -55,6 +55,13 @@ export default async function AdminProjectsPage({
             진단
           </Link>
           <Link
+            href="/admin/playground"
+            className="text-[13px] text-inkMuted hover:text-ink underline underline-offset-4 decoration-ink/30"
+            title="Playground"
+          >
+            Playground
+          </Link>
+          <Link
             href="/admin/log"
             className="text-[13px] text-inkMuted hover:text-ink underline underline-offset-4 decoration-ink/30"
             title="방문 로그"

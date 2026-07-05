@@ -1,8 +1,10 @@
 import AgentIntro from "@/features/agent/components/AgentIntro";
 import ContactSection from "@/features/contact/components/ContactSection";
+import PlaygroundSection from "@/features/playground/components/PlaygroundSection";
 import SelectedWork from "@/features/projects/components/SelectedWork";
 import { projects, publicProjects } from "@/entities/project";
 import { getProjectSearchText } from "@/entities/project/model/searchText";
+import { playgroundItems, publicPlaygroundItems } from "@/entities/playground";
 
 export default function HomePage() {
   const agentProjects = publicProjects(projects).map((project) => ({
@@ -25,6 +27,7 @@ export default function HomePage() {
     <>
       <AgentIntro projects={agentProjects} />
       <SelectedWork />
+      <PlaygroundSection items={publicPlaygroundItems(playgroundItems)} />
       <ContactSection />
     </>
   );
