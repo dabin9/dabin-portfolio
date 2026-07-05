@@ -103,16 +103,16 @@ export default function ContactSection({
           {playgroundItems.length > 0 ? (
             <motion.div
               variants={contactGroup}
-              className="mt-12 border-t border-[#d8e0e7] pt-8"
+              className="mt-16 border-t border-[#d8e0e7] pt-10 md:mt-24 md:pt-12"
             >
               <motion.p
                 variants={contactText}
-                className="font-mono text-[12px] uppercase text-[#66717c]"
+                className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#66717c] sm:text-[12px]"
               >
                 Playground
               </motion.p>
 
-              <div className="mt-5 grid gap-4 md:grid-cols-2">
+              <div className="mt-6 grid gap-4 sm:gap-5 md:grid-cols-2">
                 {playgroundItems.map((item) => (
                   <PlaygroundListItem key={item.id} item={item} />
                 ))}
@@ -135,23 +135,20 @@ function PlaygroundListItem({ item }: { item: PlaygroundItem }) {
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
       data-cursor="label=OPEN"
-      className="group overflow-hidden rounded-lg border border-[#d8e0e7] bg-white/45 transition-colors hover:bg-white/70"
+      className="group min-w-0 overflow-hidden rounded-lg border border-[#d8e0e7] bg-white/45 transition-colors hover:bg-white/70"
     >
-      <div
-        className="relative overflow-hidden border-b border-[#e3e8ed] bg-white"
-        style={{ aspectRatio: "16/7" }}
-      >
+      <div className="relative aspect-[16/9] overflow-hidden border-b border-[#e3e8ed] bg-white sm:aspect-[16/7]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={item.thumbnail}
           alt=""
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-contain px-8 py-2 transition-transform duration-300 group-hover:scale-[1.02]"
+          className="absolute inset-0 h-full w-full object-contain px-4 py-3 transition-transform duration-300 group-hover:scale-[1.02] sm:px-8 sm:py-2"
         />
       </div>
-      <div className="flex min-h-[62px] items-start gap-2 px-3 py-3">
+      <div className="flex min-h-[64px] items-start gap-2.5 px-3.5 py-3.5 sm:min-h-[66px] sm:px-4">
         <DocumentIcon />
-        <h4 className="min-w-0 text-[15px] font-medium leading-6 text-[#25292d] group-hover:text-brand md:text-[16px]">
+        <h4 className="line-clamp-2 min-w-0 text-[15px] font-medium leading-[1.55] text-[#25292d] group-hover:text-brand md:text-[16px]">
           {item.title}
         </h4>
       </div>
