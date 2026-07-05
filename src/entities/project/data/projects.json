@@ -1,5 +1,135 @@
 [
   {
+    "slug": "7",
+    "title": "[TaxFlow Desk] — 세무사 전용 양도·상속·증여 상담 케이스 관리 SaaS",
+    "summary": "",
+    "year": "2026.07",
+    "role": "Frontend Developer / UX 설계",
+    "company": "Personal Project",
+    "thumbnail": "/media/tax1.webp",
+    "hoverImage": "/media/tax1.webp",
+    "mediaUrl": "/media/tax1.webp",
+    "mediaType": "image",
+    "mediaAlt": "/media/tax1.webp",
+    "mediaItems": [
+      {
+        "url": "/media/tax1.webp",
+        "type": "image",
+        "alt": "/media/tax1.webp"
+      },
+      {
+        "url": "/media/tax2.webp",
+        "type": "image",
+        "alt": "tax2"
+      },
+      {
+        "url": "/media/tax3.webp",
+        "type": "image",
+        "alt": "tax3"
+      },
+      {
+        "url": "/media/tax4.webp",
+        "type": "image",
+        "alt": "tax4"
+      },
+      {
+        "url": "/media/tax5.webp",
+        "type": "image",
+        "alt": "tax5"
+      },
+      {
+        "url": "/media/tax6.webp",
+        "type": "image",
+        "alt": "tax6"
+      },
+      {
+        "url": "/media/tax7.webp",
+        "type": "image",
+        "alt": "tax7"
+      },
+      {
+        "url": "/media/tax8.webp",
+        "type": "image",
+        "alt": "tax8"
+      },
+      {
+        "url": "/media/tax10.webp",
+        "type": "image",
+        "alt": "tax10"
+      }
+    ],
+    "stack": [
+      "Next.js 14 · React · TypeScript · Tailwind CSS · TanStack Query · Zustand · React Hook Form ·  Zod · Recharts · lucide-react"
+    ],
+    "tags": [
+      "SaaS Dashboard",
+      "TaxTech",
+      "Case Management",
+      "Role-based UX",
+      "Report Workflow"
+    ],
+    "contribution": 100,
+    "caseNotes": [
+      {
+        "issueTitle": "대규모 리스트 상태를 어떻게 안정적으로 관리할 것인가",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"4fbe28a9-6176-4c17-b708-7842ea94659f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"4fbe28a9-6176-4c17-b708-7842ea94659f\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>대규모 리스트 상태를 어떻게 안정적으로 관리할 것인가</strong></p></div></div></div></div>",
+        "problem": "목업 데이터 기준 고객 10,000명, 상담 케이스 12,000+건을 다루는 환경에서 검색·필터·정렬·페이지 상태가 흩어지면 탐색 흐름이 쉽게 끊겼습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"bd762b78-b945-441b-afad-e6193092f54b\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"bd762b78-b945-441b-afad-e6193092f54b\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">목업 데이터 기준 고객 <code>10,000명</code>, 상담 케이스 <code>12,000+건</code>을 다루는 환경에서 검색·필터·정렬·페이지 상태가 흩어지면 탐색 흐름이 쉽게 끊겼습니다.</p></div></div></div></div>",
+        "approach": "검색어, 필터, 정렬, 페이지네이션 4개 상태를 URL 쿼리스트링과 동기화했습니다.\nTanStack Query로 서버 상태를 관리하고, 리스트는 페이지네이션 기반으로 조회되도록 구성했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"332b154c-1b85-4660-8509-c26c4e7a0d30\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"332b154c-1b85-4660-8509-c26c4e7a0d30\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">검색어, 필터, 정렬, 페이지네이션 <code>4개 상태</code>를 URL 쿼리스트링과 동기화했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"c9965a56-8882-4119-955c-4dd8add7d962\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"c9965a56-8882-4119-955c-4dd8add7d962\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">TanStack Query로 서버 상태를 관리하고, 리스트는 페이지네이션 기반으로 조회되도록 구성했습니다.</p></div></div></div></div>",
+        "result": "새로고침, 뒤로가기, URL 공유 후에도 검색 조건이 유지되도록 개선했습니다.\n대시보드 상태 카드에서 특정 케이스 목록으로 바로 진입할 수 있어 탐색 동선을 줄였습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f302af14-2c18-448a-9c38-d7b390c397f2\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f302af14-2c18-448a-9c38-d7b390c397f2\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">새로고침, 뒤로가기, URL 공유 후에도 검색 조건이 유지되도록 개선했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"e976e1a4-c421-45f4-9129-97b856750956\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"e976e1a4-c421-45f4-9129-97b856750956\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">대시보드 상태 카드에서 특정 케이스 목록으로 바로 진입할 수 있어 탐색 동선을 줄였습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "역할별 권한을 어떻게 일관된 구조로 제어할 것인가",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0c873495-6b5e-40fb-81fe-a8d56e42530f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0c873495-6b5e-40fb-81fe-a8d56e42530f\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>역할별 권한을 어떻게 일관된 구조로 제어할 것인가</strong></p></div></div></div></div>",
+        "problem": "관리자, 세무사, 실무 직원 3개 역할마다 접근 가능한 메뉴와 액션이 달라 화면별 조건문이 늘어날 가능성이 있었습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"59a50a6f-6812-4cd8-bf9a-b20eb81fd60f\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"59a50a6f-6812-4cd8-bf9a-b20eb81fd60f\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">관리자, 세무사, 실무 직원 <code>3개 역할</code>마다 접근 가능한 메뉴와 액션이 달라 화면별 조건문이 늘어날 가능성이 있었습니다.</p></div></div></div></div>",
+        "approach": "12개 권한 항목을 permissions 구조로 분리하고, Zustand 인증 상태에서 can() 메서드로 권한을 확인하도록 설계했습니다.\n관리자 전용 화면 2개는 RoleGate로 접근을 제한하고, 삭제·리포트 확정 버튼도 권한에 따라 노출을 제어했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"91fc8236-fe03-457f-8234-681ddcc5639d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"91fc8236-fe03-457f-8234-681ddcc5639d\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><code>12개 권한 항목</code>을 permissions 구조로 분리하고, Zustand 인증 상태에서 <code>can()</code> 메서드로 권한을 확인하도록 설계했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"88851cbe-ba29-4251-a97f-494fbf762f37\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"88851cbe-ba29-4251-a97f-494fbf762f37\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">관리자 전용 화면 <code>2개</code>는 RoleGate로 접근을 제한하고, 삭제·리포트 확정 버튼도 권한에 따라 노출을 제어했습니다.</p></div></div></div></div>",
+        "result": "역할별 메뉴, 페이지 접근, 주요 액션 권한을 하나의 기준으로 관리할 수 있게 했습니다.\n권한 정책 변경 시 수정 범위를 줄여 유지보수성을 높였습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0aabc8d3-01f2-4c7f-9d39-d9669c402819\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0aabc8d3-01f2-4c7f-9d39-d9669c402819\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">역할별 메뉴, 페이지 접근, 주요 액션 권한을 하나의 기준으로 관리할 수 있게 했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1407cda0-84ec-4f05-8acf-6f41187bb7b9\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1407cda0-84ec-4f05-8acf-6f41187bb7b9\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">권한 정책 변경 시 수정 범위를 줄여 유지보수성을 높였습니다.</p></div></div></div></div>"
+      },
+      {
+        "issueTitle": "상담 업무 흐름을 어떻게 리포트까지 연결할 것인가",
+        "issueTitleHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"7580e28c-c489-4a86-8dec-8c3bf32f8db0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"7580e28c-c489-4a86-8dec-8c3bf32f8db0\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">상담 업무 흐름을 어떻게 리포트까지 연결할 것인가</p></div></div></div></div>",
+        "problem": "세무 상담은 고객 등록에서 끝나지 않고 케이스 관리, 시나리오 비교, 리포트 작성까지 이어지는 연속적인 업무 흐름이 필요했습니다.",
+        "problemHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"578e8a09-f473-40f0-a81a-59ec8cddbe47\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"578e8a09-f473-40f0-a81a-59ec8cddbe47\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">세무 상담은 고객 등록에서 끝나지 않고 케이스 관리, 시나리오 비교, 리포트 작성까지 이어지는 연속적인 업무 흐름이 필요했습니다.</p></div></div></div></div>",
+        "approach": "케이스 등록 → 시나리오 비교 → 추천안 확정 → 리포트 생성·확정 흐름으로 화면을 연결했습니다.\n시나리오 비교 화면에는 예상 세액, 과세표준, 세율, 리스크, 추천 여부 5개 핵심 정보를 제공했습니다.",
+        "approachHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"782462da-b1ca-4c30-8a26-ac9d565d4294\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"782462da-b1ca-4c30-8a26-ac9d565d4294\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\"><code>케이스 등록 → 시나리오 비교 → 추천안 확정 → 리포트 생성·확정</code> 흐름으로 화면을 연결했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"522c73a6-58b9-428b-97ab-cd6bd2d24c87\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"522c73a6-58b9-428b-97ab-cd6bd2d24c87\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">시나리오 비교 화면에는 예상 세액, 과세표준, 세율, 리스크, 추천 여부 <code>5개 핵심 정보</code>를 제공했습니다.</p></div></div></div></div>",
+        "result": "상담 데이터를 단순 조회용 정보가 아니라 고객 전달용 리포트로 전환할 수 있게 구성했습니다.\n리포트는 초안 저장과 확정 2단계 상태로 관리하고, 인쇄/PDF 흐름까지 연결했습니다.",
+        "resultHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"f286f7a8-33f1-462f-97a6-80d45d33fb50\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"f286f7a8-33f1-462f-97a6-80d45d33fb50\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">상담 데이터를 단순 조회용 정보가 아니라 고객 전달용 리포트로 전환할 수 있게 구성했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"78759288-943c-4a08-9381-572f6242f174\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"78759288-943c-4a08-9381-572f6242f174\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">리포트는 초안 저장과 확정 <code>2단계 상태</code>로 관리하고, 인쇄/PDF 흐름까지 연결했습니다.</p></div></div></div></div>"
+      }
+    ],
+    "resultItems": [
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"0243ccad-c865-4c77-b78c-4fc9b14d3171\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"0243ccad-c865-4c77-b78c-4fc9b14d3171\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">목업 데이터 기준 <strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">고객 10,000명, 케이스 12,000+건</span></u></strong>을 다루는 <strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">SaaS MVP</span></u></strong>를 구현했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a8ddf8d8-03f7-41b4-b566-9e3818d5bbfa\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a8ddf8d8-03f7-41b4-b566-9e3818d5bbfa\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">URL 상태 동기화, 서버 상태 관리, 페이지네이션</span></u></strong>을 적용해 <strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">대규모 리스트 UX</span></u></strong>를 개선했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"ca657c35-4a40-4f55-b257-d73eac462162\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"ca657c35-4a40-4f55-b257-d73eac462162\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">3개 역할, 12개 권한, 관리자 화면 2개</span></u></strong>를 기준으로 <strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">권한 구조</span></u></strong>를 설계했습니다.</p></div></div></div></div>",
+      "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"b1b2eace-3edf-46c5-9e26-116b5a190ba2\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"b1b2eace-3edf-46c5-9e26-116b5a190ba2\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\">케이스 관리부터 시나리오 비교, 리포트 생성, <strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">인쇄/PDF</span></u></strong>까지 이어지는 <strong><u><span data-style-type=\"textColor\" data-value=\"green\" data-editable=\"\">세무 상담 업무 플로우</span></u></strong>를 완성했습니다.</p></div></div></div></div>"
+    ],
+    "highlights": [
+      "검색어, 필터, 정렬, 페이지네이션 4개 상태를 URL 쿼리스트링과 동기화했습니다.\nTanStack Query로 서버 상태를 관리하고, 리스트는 페이지네이션 기반으로 조회되도록 구성했습니다.",
+      "12개 권한 항목을 permissions 구조로 분리하고, Zustand 인증 상태에서 can() 메서드로 권한을 확인하도록 설계했습니다.\n관리자 전용 화면 2개는 RoleGate로 접근을 제한하고, 삭제·리포트 확정 버튼도 권한에 따라 노출을 제어했습니다.",
+      "케이스 등록 → 시나리오 비교 → 추천안 확정 → 리포트 생성·확정 흐름으로 화면을 연결했습니다.\n시나리오 비교 화면에는 예상 세액, 과세표준, 세율, 리스크, 추천 여부 5개 핵심 정보를 제공했습니다.",
+      "목업 데이터 기준 고객 10,000명, 케이스 12,000+건을 다루는 SaaS MVP를 구현했습니다.",
+      "URL 상태 동기화, 서버 상태 관리, 페이지네이션을 적용해 대규모 리스트 UX를 개선했습니다.",
+      "3개 역할, 12개 권한, 관리자 화면 2개를 기준으로 권한 구조를 설계했습니다.",
+      "케이스 관리부터 시나리오 비교, 리포트 생성, 인쇄/PDF까지 이어지는 세무 상담 업무 플로우를 완성했습니다."
+    ],
+    "links": [
+      {
+        "label": "Company 사이트 보러가기",
+        "href": "https://tax-flow-desk.vercel.app/"
+      }
+    ],
+    "featured": true,
+    "ongoing": false,
+    "order": 0,
+    "status": "published",
+    "bodyBlocks": [],
+    "bodyHtml": "<div class=\"bn-block-group\" data-node-type=\"blockGroup\"><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"6afd6341-1033-4cd1-9f58-409918592ddd\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"6afd6341-1033-4cd1-9f58-409918592ddd\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>배경</strong><br>세무 상담 업무는 고객 정보, 상담 케이스, 자산 정보, 시나리오 비교, 메모, 리포트 작성까지 여러 단계가 분리되어 관리되는 경우가 많습니다. TaxFlow Desk는 세무사가 양도세·상속세·증여세 상담을 하나의 업무 흐름 안에서 관리할 수 있도록 만든 상담 케이스 관리 SaaS MVP입니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1aed7804-84ee-47bb-a7c9-4eaa00b9819a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1aed7804-84ee-47bb-a7c9-4eaa00b9819a\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"2079156a-6112-4763-964b-38ef8de8878d\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"2079156a-6112-4763-964b-38ef8de8878d\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>문제정의</strong><br>상담 건수가 많아질수록 고객 검색, 케이스 상태 확인, 담당자별 업무 파악, 리포트 생성 과정이 복잡해집니다. 특히 관리자, 세무사, 실무 직원이 접근할 수 있는 기능이 다르기 때문에 권한별 화면 제어와 업무 흐름 설계가 필요했습니다.</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"5f61c485-5a31-4e7c-a962-f0b5d5290999\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"5f61c485-5a31-4e7c-a962-f0b5d5290999\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"dd0cc7d2-086a-498b-aca3-1fabe57121f5\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"dd0cc7d2-086a-498b-aca3-1fabe57121f5\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><strong>주요업무</strong></p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"067de9ec-8ac3-4f65-8395-e3bf09b05ef0\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"067de9ec-8ac3-4f65-8395-e3bf09b05ef0\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">고객 관리, 케이스 관리, 시나리오 비교, 리포트 생성 화면 개발</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"30b8c496-9858-492b-a215-2e639261446a\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"30b8c496-9858-492b-a215-2e639261446a\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">역할 기반 권한 관리 구조 설계</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"8da4c064-86c8-4578-89d9-050801b79711\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"8da4c064-86c8-4578-89d9-050801b79711\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">대규모 목업 데이터 기반 검색·필터·정렬·페이지네이션 구현</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"a683ba19-84b8-4f60-951f-fa150069ab74\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"a683ba19-84b8-4f60-951f-fa150069ab74\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">URL 쿼리스트링 기반 리스트 상태 동기화</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"8e2d0792-131e-4844-8fc1-bb0909b1b439\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"8e2d0792-131e-4844-8fc1-bb0909b1b439\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">Next.js Route Handler를 활용한 Mock REST API 구조 구현</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"24ac97f5-e291-4e47-bf5f-aa0780cae9ee\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"24ac97f5-e291-4e47-bf5f-aa0780cae9ee\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">모바일 카드형 리스트, 하단 탭 바, 커맨드 팔레트 등 사용성 개선</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"fa36565b-1fd3-4441-889c-ad6a763714a9\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"fa36565b-1fd3-4441-889c-ad6a763714a9\"><div class=\"bn-block-content\" data-content-type=\"bulletListItem\"><p class=\"bn-inline-content\">역할별 온보딩 튜토리얼 구현</p></div></div></div><div class=\"bn-block-outer\" data-node-type=\"blockOuter\" data-id=\"1830031c-03af-4824-8933-7b1a55edcc25\"><div class=\"bn-block\" data-node-type=\"blockContainer\" data-id=\"1830031c-03af-4824-8933-7b1a55edcc25\"><div class=\"bn-block-content\" data-content-type=\"paragraph\"><p class=\"bn-inline-content\"><span class=\"ProseMirror-trailingBreak\" style=\"display: inline-block;\"></span></p></div></div></div></div>"
+  },
+  {
     "slug": "6",
     "title": "[한마음과학원] — React 아카이브 통합 검색 UI",
     "summary": "",
