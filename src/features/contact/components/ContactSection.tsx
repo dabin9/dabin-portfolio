@@ -58,7 +58,7 @@ export default function ContactSection({
           whileInView={reduce ? undefined : "show"}
           viewport={{ once: true, amount: 0.32, margin: "-80px" }}
           variants={contactGroup}
-          className="mx-auto max-w-[1040px]"
+          className="mx-auto"
         >
           <div className="grid gap-8 md:grid-cols-[1.25fr_0.75fr] md:items-center">
             <div>
@@ -146,11 +146,16 @@ function PlaygroundListItem({ item }: { item: PlaygroundItem }) {
           className="absolute inset-0 h-full w-full object-contain px-4 py-3 transition-transform duration-300 group-hover:scale-[1.02] sm:px-8 sm:py-2"
         />
       </div>
-      <div className="flex min-h-[64px] items-start gap-2.5 px-3.5 py-3.5 sm:min-h-[66px] sm:px-4">
+      <div className="flex min-h-[92px] items-start gap-2.5 px-3.5 py-3.5 sm:min-h-[96px] sm:px-4">
         <DocumentIcon />
-        <h4 className="line-clamp-2 min-w-0 text-[15px] font-medium leading-[1.55] text-[#25292d] group-hover:text-brand md:text-[16px]">
-          {item.title}
-        </h4>
+        <div className="min-w-0">
+          <h4 className="line-clamp-1 text-[15px] font-medium leading-[1.55] text-[#25292d] group-hover:text-brand md:text-[16px]">
+            {item.title}
+          </h4>
+          <p className="mt-1 line-clamp-2 text-[13px] leading-6 text-[#66717c]">
+            {item.description}
+          </p>
+        </div>
       </div>
     </motion.a>
   );
