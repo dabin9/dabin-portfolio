@@ -1,13 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { get, put } from "@vercel/blob";
+import { get, put, type ListBlobResultBlob } from "@vercel/blob";
 
 const VISIT_BLOB_PREFIX = "admin-logs/visits/";
 const SECURITY_BLOB_PREFIX = "admin-logs/security/";
 const VISIT_LOCAL_DIR = path.join(process.cwd(), ".analytics", "visits");
 const SECURITY_LOCAL_DIR = path.join(process.cwd(), ".analytics", "security");
-const MAX_ENTRIES = 2000;
+const MAX_ENTRIES = 10000;
 const MAX_SECURITY_ENTRIES = 1000;
+const BLOB_LIST_PAGE_SIZE = 1000;
 const KST_TIME_ZONE = "Asia/Seoul";
 
 export type VisitLogEntry = {
@@ -25,7 +26,9 @@ export type VisitLogSummary = {
   today: string;
   todayVisitors: number;
   todayViews: number;
+  totalVisitors: number;
   totalViews: number;
+  monthly: Array<{ month: string; visitors: number; views: number }>;
   daily: Array<{ date: string; visitors: number; views: number }>;
   referrers: Array<{ source: string; count: number; referrer: string }>;
   ips: Array<{ ip: string; count: number; lastSeen: string; paths: string[] }>;
@@ -90,7 +93,9 @@ export async function getVisitLogSummary(): Promise<VisitLogSummary> {
     today,
     todayVisitors,
     todayViews: todayEntries.length,
+    totalVisitors: new Set(entries.map((entry) => entry.ip)).size,
     totalViews: entries.length,
+    monthly: summarizeMonthly(entries),
     daily: summarizeDaily(entries),
     referrers: summarizeReferrers(todayEntries),
     ips: summarizeIps(todayEntries),
@@ -178,14 +183,26 @@ async function readBlobEntries<T>(
   limit: number
 ): Promise<T[]> {
   const { list } = await import("@vercel/blob");
-  const files = await list({ prefix, limit });
-  const blobs = files.blobs
+  const blobs: ListBlobResultBlob[] = [];
+  let cursor: string | undefined;
+
+  do {
+    const files = await list({
+      prefix,
+      limit: Math.min(BLOB_LIST_PAGE_SIZE, limit - blobs.length),
+      cursor
+    });
+    blobs.push(...files.blobs);
+    cursor = files.hasMore ? files.cursor : undefined;
+  } while (cursor && blobs.length < limit);
+
+  const latestBlobs = blobs
     .slice()
     .sort((a, b) => a.pathname.localeCompare(b.pathname))
     .slice(-limit);
 
   const rows: Array<T | null> = await Promise.all(
-    blobs.map(async (blob) => {
+    latestBlobs.map(async (blob) => {
       try {
         const file = await get(blob.pathname, { access: "private", useCache: false });
         if (!file?.stream) return null;
@@ -308,6 +325,21 @@ async function collectJsonFiles(dir: string): Promise<string[]> {
   return files.flat();
 }
 
+function summarizeMonthly(entries: VisitLogEntry[]) {
+  const map = new Map<string, { ips: Set<string>; views: number }>();
+  for (const entry of entries) {
+    const month = entry.date.slice(0, 7);
+    const row = map.get(month) ?? { ips: new Set<string>(), views: 0 };
+    row.ips.add(entry.ip);
+    row.views += 1;
+    map.set(month, row);
+  }
+
+  return [...map.entries()]
+    .map(([month, row]) => ({ month, visitors: row.ips.size, views: row.views }))
+    .sort((a, b) => b.month.localeCompare(a.month));
+}
+
 function summarizeDaily(entries: VisitLogEntry[]) {
   const map = new Map<string, { ips: Set<string>; views: number }>();
   for (const entry of entries) {
@@ -319,8 +351,7 @@ function summarizeDaily(entries: VisitLogEntry[]) {
 
   return [...map.entries()]
     .map(([date, row]) => ({ date, visitors: row.ips.size, views: row.views }))
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 30);
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 function summarizeReferrers(entries: VisitLogEntry[]) {

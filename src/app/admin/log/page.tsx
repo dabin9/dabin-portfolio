@@ -17,7 +17,7 @@ export default async function AdminLogPage() {
   const security = await getSecurityLogSummary();
 
   return (
-    <main className="wrap py-12 max-w-[1100px] mx-auto">
+    <main className="wrap py-12 max-w-[1200px] mx-auto">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <Link href="/admin/projects" className="text-[13px] text-inkMuted hover:text-ink">
@@ -40,9 +40,10 @@ export default async function AdminLogPage() {
         </div>
       </div>
 
-      <section className="mt-8 grid gap-3 sm:grid-cols-3">
+      <section className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Metric label="오늘 방문자" value={summary.todayVisitors} suffix="명" />
         <Metric label="오늘 방문 수" value={summary.todayViews} suffix="회" />
+        <Metric label="누적 방문자" value={summary.totalVisitors} suffix="명" />
         <Metric label="저장된 전체 로그" value={summary.totalViews} suffix="건" />
       </section>
 
@@ -53,7 +54,19 @@ export default async function AdminLogPage() {
       </section>
 
       <section className="mt-10 grid gap-8 lg:grid-cols-[1fr_1fr]">
-        <Panel title="일자별 방문자">
+        <Panel title="월별 방문자">
+          <Table
+            empty="아직 기록된 방문이 없습니다."
+            headers={["월", "방문자", "방문 수"]}
+            rows={summary.monthly.map((row) => [
+              row.month,
+              `${row.visitors}명`,
+              `${row.views}회`
+            ])}
+          />
+        </Panel>
+
+        <Panel title="일별 방문자">
           <Table
             empty="아직 기록된 방문이 없습니다."
             headers={["날짜", "방문자", "방문 수"]}
@@ -64,7 +77,9 @@ export default async function AdminLogPage() {
             ])}
           />
         </Panel>
+      </section>
 
+      <section className="mt-10 grid gap-8 lg:grid-cols-[1fr_1fr]">
         <Panel title="오늘 유입경로">
           <Table
             empty="오늘 유입 기록이 없습니다."
@@ -76,9 +91,7 @@ export default async function AdminLogPage() {
             ])}
           />
         </Panel>
-      </section>
 
-      <section className="mt-10">
         <Panel title="오늘 들어온 IP">
           <Table
             empty="오늘 IP 기록이 없습니다."
