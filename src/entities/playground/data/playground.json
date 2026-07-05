@@ -1,5 +1,13 @@
 [
   {
+    "id": "사부작-mr7q7krl",
+    "title": "사부작",
+    "description": "TypeScript+Three.js+Cannon.js 로 만든 장작 태우기 웹 게임",
+    "thumbnail": "/playground/sabuzak.webp",
+    "link": "https://sabuzak.vercel.app/",
+    "createdAt": "2026-07-05T11:46:59.937Z"
+  },
+  {
     "id": "모바일-로또-추첨-mr7nmipp",
     "title": "모바일 로또 추첨",
     "description": "모바일 사내 출석 관리 시스템 내 미니게임",
