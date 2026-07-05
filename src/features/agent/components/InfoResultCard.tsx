@@ -157,14 +157,6 @@ function ContactCard() {
           href: env.github,
           external: true
         }
-      : null,
-    env.blog
-      ? {
-          label: "Blog",
-          value: env.blog,
-          href: env.blog,
-          external: true
-        }
       : null
   ].filter(Boolean) as {
     label: string;

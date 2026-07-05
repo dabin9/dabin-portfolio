@@ -6,8 +6,6 @@ import ContactVisual3D from "@/features/contact/components/ContactVisual3D";
 const contactEmail = "devjenny19@gmail.com";
 const githubLabel = "github.com/dabin9";
 const githubUrl = "https://github.com/dabin9";
-const blogLabel = "binz2125.tistory.com";
-const blogUrl = "https://binz2125.tistory.com/";
 
 const contactGroup: Variants = {
   hidden: {},
@@ -82,7 +80,7 @@ export default function ContactSection() {
 
           <motion.dl
             variants={contactGroup}
-            className="mt-9 grid gap-6 md:grid-cols-3"
+            className="mt-9 grid gap-6 md:grid-cols-2"
           >
             <ContactItem
               label="Email"
@@ -93,12 +91,6 @@ export default function ContactSection() {
               label="GitHub"
               value={githubLabel}
               href={githubUrl}
-              external
-            />
-            <ContactItem
-              label="Blog"
-              value={blogLabel}
-              href={blogUrl}
               external
             />
           </motion.dl>

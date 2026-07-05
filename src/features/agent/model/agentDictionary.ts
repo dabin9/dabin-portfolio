@@ -173,8 +173,6 @@ export const agentDictionary: AgentDictionaryEntry[] = [
       "깃허브",
       "git",
       "깃",
-      "티스토리",
-      "tistory",
       "contact",
       "링크",
       "채널"

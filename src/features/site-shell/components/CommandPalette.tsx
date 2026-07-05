@@ -103,9 +103,6 @@ export default function CommandPalette({
         : null,
       env.linkedin
         ? { id: "ln", title: "LinkedIn", subtitle: env.linkedin, group: "Elsewhere" as const, run: () => window.open(env.linkedin, "_blank") }
-        : null,
-      env.blog
-        ? { id: "blog", title: "Blog", subtitle: env.blog, group: "Elsewhere" as const, run: () => window.open(env.blog, "_blank") }
         : null
     ].filter(Boolean) as Item[];
   }, [projects, router]);
