@@ -214,7 +214,7 @@
         "href": "https://hansi.org/"
       }
     ],
-    "featured": true,
+    "featured": false,
     "ongoing": false,
     "order": 2,
     "status": "private",
