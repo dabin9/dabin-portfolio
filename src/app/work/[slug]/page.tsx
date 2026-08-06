@@ -90,7 +90,7 @@ export default async function ProjectPage({
                 <dl
                   className={
                     "mt-6 grid gap-4 border-y border-line py-5 " +
-                    (hasDetailMeta ? "sm:grid-cols-4" : "sm:grid-cols-3")
+                    (hasDetailMeta ? "sm:grid-cols-2" : "sm:grid-cols-3")
                   }
                 >
                   <MetaItem label="Date" value={project.year || "-"} />
