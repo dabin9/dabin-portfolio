@@ -50,7 +50,6 @@ export default function Header() {
         </nav>
 
         <div className="relative z-10 flex min-w-0 flex-nowrap items-center justify-end gap-1.5 sm:gap-3">
-          <SearchTrigger />
           <span className="inline-flex">
             <ThemeToggle />
           </span>
@@ -60,22 +59,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  );
-}
-
-function SearchTrigger() {
-  return (
-    <button
-      type="button"
-      aria-label="검색 열기"
-      onClick={() => window.dispatchEvent(new Event("command-palette:open"))}
-      data-cursor="link"
-      className="group inline-flex items-center gap-1.5 border border-line px-1.5 py-1.5 transition-colors hover:border-ink sm:gap-2 sm:px-2.5"
-    >
-      <span className="font-mono text-[11px] text-muted">⌘K</span>
-      <span className="hidden font-mono text-[11px] uppercase tracking-[0.15em] text-inkMuted group-hover:text-ink sm:inline">
-        Search
-      </span>
-    </button>
   );
 }
