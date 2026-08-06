@@ -74,7 +74,7 @@ export default function ContactSection({
               >
                 프론트엔드/UI 개발 포지션 관련 문의는 이메일로 연락 주세요.
                 <br className="hidden sm:block" />
-                운영 대시보드와 CMS의 데이터 흐름을 꼼꼼히 설계하고, 오래 유지되는 UI 구조를 만드는 3년차 프론트엔드 개발자 박다빈입니다.
+                운영 대시보드와 CMS의 데이터 흐름을 꼼꼼히 설계하고, 오래 유지되는 구조를 만드는 4년차 프론트엔드 개발자 박다빈입니다.
               </motion.p>
             </div>
 

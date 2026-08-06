@@ -24,7 +24,7 @@ const introItem = {
 
 const heroTitle = "반갑습니다. 오늘도 같이 발견해볼까요?";
 const heroDescription =
-  "운영 대시보드와 CMS의 데이터 흐름을 꼼꼼히 설계하고, 오래 유지되는 UI 구조를 만드는 3년차 프론트엔드 개발자 박다빈입니다.";
+  "운영 대시보드와 CMS의 데이터 흐름을 꼼꼼히 설계하고, 오래 유지되는 구조를 만드는 4년차 프론트엔드 개발자 박다빈입니다.";
 
 export default function AgentIntro({ projects }: AgentIntroProps) {
   const [query, setQuery] = useState("");
