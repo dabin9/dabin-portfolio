@@ -92,7 +92,7 @@ export default function AgentIntro({ projects }: AgentIntroProps) {
             <h1 className="mt-2 max-w-full whitespace-nowrap text-[clamp(13px,4.1vw,44px)] font-medium leading-[1.13] text-[#25292d]">
               {heroTitle}
             </h1>
-            <p className="mt-4 max-w-[900px] text-[15px] font-medium leading-[1.65] text-[#53606b] [text-wrap:pretty] sm:text-[17px] md:mt-5 md:text-[19px]">
+            <p className="mt-4 text-[15px] font-medium leading-[1.65] text-[#53606b] [text-wrap:pretty] sm:text-[17px] md:mt-5 md:text-[19px]">
               {heroDescription}
             </p>
           </motion.div>
