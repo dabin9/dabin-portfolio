@@ -1,6 +1,7 @@
 import type {
   Project,
   ProjectCaseNote,
+  ProjectDetailMeta,
   ProjectLink,
   ProjectMediaItem,
   ProjectStatus
@@ -44,6 +45,7 @@ export function isProject(value: unknown): value is Project {
     isOptionalArray(value.caseNotes, isProjectCaseNote) &&
     isOptionalArray(value.resultItems, isString) &&
     isOptionalArray(value.links, isProjectLink) &&
+    isOptionalProjectDetailMeta(value.detailMeta) &&
     isOptionalBoolean(value.featured) &&
     isOptionalBoolean(value.ongoing) &&
     isOptionalNumber(value.order) &&
@@ -78,6 +80,21 @@ function isProjectCaseNote(value: unknown): value is ProjectCaseNote {
 
 function isProjectLink(value: unknown): value is ProjectLink {
   return isRecord(value) && isString(value.label) && isString(value.href);
+}
+
+function isProjectDetailMeta(value: unknown): value is ProjectDetailMeta {
+  return (
+    isRecord(value) &&
+    isOptionalString(value.serviceUrl) &&
+    isOptionalString(value.duration) &&
+    isOptionalBoolean(value.hideLinks)
+  );
+}
+
+function isOptionalProjectDetailMeta(
+  value: unknown
+): value is ProjectDetailMeta | undefined {
+  return value === undefined || isProjectDetailMeta(value);
 }
 
 function isOptionalProjectStatus(value: unknown): value is ProjectStatus | undefined {

@@ -11,6 +11,7 @@ export type {
   Project,
   ProjectBlock,
   ProjectCaseNote,
+  ProjectDetailMeta,
   ProjectLink,
   ProjectMediaItem,
   ProjectStatus

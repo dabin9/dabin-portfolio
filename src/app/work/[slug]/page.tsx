@@ -57,6 +57,8 @@ export default async function ProjectPage({
   const mediaItems = getProjectMediaItems(project);
   const caseNotes = getCaseNotes(project);
   const resultBullets = getResultBullets(project);
+  const detailMeta = project.detailMeta;
+  const hasDetailMeta = Boolean(detailMeta?.serviceUrl || detailMeta?.duration);
 
   return (
     <article className="bg-bg">
@@ -85,9 +87,20 @@ export default async function ProjectPage({
               <p className="font-mono text-[12px] uppercase text-muted">
                 Project Summary
               </p>
-                <dl className="mt-6 grid sm:grid-cols-3 gap-4 border-y border-line py-5">
+                <dl
+                  className={
+                    "mt-6 grid gap-4 border-y border-line py-5 " +
+                    (hasDetailMeta ? "sm:grid-cols-4" : "sm:grid-cols-3")
+                  }
+                >
                   <MetaItem label="Date" value={project.year || "-"} />
                   <MetaItem label="Company" value={project.company || "-"} />
+                  {detailMeta?.serviceUrl ? (
+                    <MetaLink href={detailMeta.serviceUrl} />
+                  ) : null}
+                  {detailMeta?.duration ? (
+                    <MetaItem label="제작 기간" value={detailMeta.duration} />
+                  ) : null}
                 </dl>
               </div>
             </div>
@@ -212,29 +225,43 @@ export default async function ProjectPage({
         ) : null}
         
 
-        <section className="mt-16 grid md:grid-cols-12 gap-8 border-t border-line pt-8">
-          <SectionLabel title="Links" />
-          <div className="min-w-0 md:col-span-9 flex flex-wrap gap-x-5 gap-y-3">
-            {project.links?.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target="_blank"
-                rel="noreferrer"
+        {detailMeta?.hideLinks ? (
+          <section className="mt-16 grid md:grid-cols-12 gap-8 border-t border-line pt-8">
+            <div className="min-w-0 md:col-start-4 md:col-span-9">
+              <Link
+                href="/work"
+                data-cursor="link"
                 className="font-mono text-[13px] uppercase underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
               >
-                {l.label} ↗
-              </a>
-            ))}
-            <Link
-              href="/work"
-              data-cursor="link"
-              className="font-mono text-[13px] uppercase underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
-            >
-              Back to Works
-            </Link>
-          </div>
-        </section>
+                Back to Works
+              </Link>
+            </div>
+          </section>
+        ) : (
+          <section className="mt-16 grid md:grid-cols-12 gap-8 border-t border-line pt-8">
+            <SectionLabel title="Links" />
+            <div className="min-w-0 md:col-span-9 flex flex-wrap gap-x-5 gap-y-3">
+              {project.links?.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono text-[13px] uppercase underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
+                >
+                  {l.label} ↗
+                </a>
+              ))}
+              <Link
+                href="/work"
+                data-cursor="link"
+                className="font-mono text-[13px] uppercase underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
+              >
+                Back to Works
+              </Link>
+            </div>
+          </section>
+        )}
       </div>
 
       {/* 👇 [수정 2] 하단 nav 렌더링부: 조건부 렌더링 및 빈 공간 추가 */}
@@ -362,6 +389,25 @@ function MetaItem({ label, value }: { label: string; value: string }) {
     <div>
       <dt className="font-mono text-[11px] uppercase text-muted">{label}</dt>
       <dd className="mt-1 text-[14px] leading-6 text-ink">{value}</dd>
+    </div>
+  );
+}
+
+function MetaLink({ href }: { href: string }) {
+  return (
+    <div>
+      <dt className="font-mono text-[11px] uppercase text-muted">서비스</dt>
+      <dd className="mt-1 text-[14px] leading-6 text-ink">
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          data-cursor="link"
+          className="underline underline-offset-[6px] decoration-lineStrong hover:decoration-ink"
+        >
+          서비스 체험하기 ↗
+        </a>
+      </dd>
     </div>
   );
 }

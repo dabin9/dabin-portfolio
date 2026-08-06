@@ -2,6 +2,13 @@ import type { MediaType } from "./media";
 
 export type ProjectLink = { label: string; href: string };
 
+/** 특정 프로젝트 상세 페이지에만 표시할 보조 정보 */
+export type ProjectDetailMeta = {
+  serviceUrl?: string;
+  duration?: string;
+  hideLinks?: boolean;
+};
+
 export type ProjectMediaItem = {
   url: string;
   type: MediaType;
@@ -59,6 +66,7 @@ export type Project = {
   /** Legacy: caseNotes/resultItems 없을 때 fallback 으로 사용 */
   highlights: string[];
   links?: ProjectLink[];
+  detailMeta?: ProjectDetailMeta;
   /** 홈 노출 여부 */
   featured?: boolean;
   /** 진행 중 표시 */

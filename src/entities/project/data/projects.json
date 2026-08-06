@@ -116,12 +116,12 @@
       "3개 역할, 12개 권한, 관리자 화면 2개를 기준으로 권한 구조를 설계했습니다.",
       "케이스 관리부터 시나리오 비교, 리포트 생성, 인쇄/PDF까지 이어지는 세무 상담 업무 플로우를 완성했습니다."
     ],
-    "links": [
-      {
-        "label": "Company 사이트 보러가기",
-        "href": "https://tax-flow-desk.vercel.app/"
-      }
-    ],
+    "links": [],
+    "detailMeta": {
+      "serviceUrl": "https://tax-flow-desk.vercel.app/",
+      "duration": "2일",
+      "hideLinks": true
+    },
     "featured": true,
     "ongoing": false,
     "order": 0,

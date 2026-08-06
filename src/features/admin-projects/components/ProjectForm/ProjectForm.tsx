@@ -234,6 +234,7 @@ export default function ProjectForm({
       <input type="hidden" name="mediaAlt" value={mediaAlt} />
       <input type="hidden" name="hoverImage" value={mediaUrl} />
       <input type="hidden" name="summary" value={project?.summary ?? ""} />
+      <input type="hidden" name="detailMeta" value={JSON.stringify(project?.detailMeta ?? {})} />
 
       <WorkIndexPreview
         project={preview}
@@ -486,4 +487,3 @@ export default function ProjectForm({
     </form>
   );
 }
-

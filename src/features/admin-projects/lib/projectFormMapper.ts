@@ -2,6 +2,7 @@ import type {
   Project,
   ProjectBlock,
   ProjectCaseNote,
+  ProjectDetailMeta,
   ProjectMediaItem,
   ProjectStatus
 } from "@/entities/project";
@@ -159,6 +160,33 @@ function parseMediaItems(formData: FormData): ProjectMediaItem[] {
   }
 }
 
+function parseDetailMeta(formData: FormData): ProjectDetailMeta | undefined {
+  const raw = String(formData.get("detailMeta") || "").trim();
+  if (!raw) return undefined;
+
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return undefined;
+    }
+
+    const value = parsed as Record<string, unknown>;
+    const serviceUrl =
+      typeof value.serviceUrl === "string" ? value.serviceUrl.trim() : "";
+    const duration = typeof value.duration === "string" ? value.duration.trim() : "";
+    const hideLinks = value.hideLinks === true;
+
+    if (!serviceUrl && !duration && !hideLinks) return undefined;
+    return {
+      serviceUrl: serviceUrl || undefined,
+      duration: duration || undefined,
+      hideLinks: hideLinks || undefined
+    };
+  } catch {
+    return undefined;
+  }
+}
+
 export function projectFromForm(
   formData: FormData,
   blocks: ProjectBlock[],
@@ -185,6 +213,7 @@ export function projectFromForm(
         ? [{ url: mediaUrl, type: mediaType, alt: mediaAlt || undefined }]
         : [];
   const primaryMedia = mediaItems[0];
+  const detailMeta = parseDetailMeta(formData);
   const statusRaw = String(formData.get("status") || "published");
   const status: ProjectStatus = ["published", "draft", "private"].includes(statusRaw)
     ? (statusRaw as ProjectStatus)
@@ -222,6 +251,7 @@ export function projectFromForm(
     resultItems,
     highlights,
     links: parseLinks(String(formData.get("links") || "")),
+    detailMeta,
     featured: formData.get("featured") === "on",
     ongoing: formData.get("ongoing") === "on",
     order: Number.isFinite(orderNum) ? orderNum : undefined,
