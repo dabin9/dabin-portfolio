@@ -1,11 +1,15 @@
 import AgentIntro from "@/features/agent/components/AgentIntro";
 import ContactSection from "@/features/contact/components/ContactSection";
 import SelectedWork from "@/features/projects/components/SelectedWork";
-import { projects, publicProjects } from "@/entities/project";
+import { publicProjects } from "@/entities/project";
+import { readProjectsFresh } from "@/entities/project/repository/projectRepository";
 import { getProjectSearchText } from "@/entities/project/model/searchText";
 import { playgroundItems, publicPlaygroundItems } from "@/entities/playground";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const { projects } = await readProjectsFresh();
   const agentProjects = publicProjects(projects).map((project) => ({
     slug: project.slug,
     title: project.title,
@@ -25,7 +29,7 @@ export default function HomePage() {
   return (
     <>
       <AgentIntro projects={agentProjects} />
-      <SelectedWork />
+      <SelectedWork projects={projects} />
       <ContactSection playgroundItems={publicPlaygroundItems(playgroundItems)} />
     </>
   );

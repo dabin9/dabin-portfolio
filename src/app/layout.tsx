@@ -5,7 +5,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./globals.css";
 import { site } from "@/shared/config/site";
-import { projects, publicProjects } from "@/entities/project";
+import { publicProjects } from "@/entities/project";
+import { readProjectsFresh } from "@/entities/project/repository/projectRepository";
 import { getProjectSearchText } from "@/entities/project/model/searchText";
 import Header from "@/features/site-shell/components/Header";
 import Footer from "@/features/site-shell/components/Footer";
@@ -50,11 +51,14 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export const dynamic = "force-dynamic";
+
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
+  const { projects } = await readProjectsFresh();
   const commandProjects = publicProjects(projects).map(
     (project) => ({
       slug: project.slug,

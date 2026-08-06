@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { projects, publicProjects, allTags } from "@/entities/project";
+import { publicProjects, allTags } from "@/entities/project";
+import { readProjectsFresh } from "@/entities/project/repository/projectRepository";
 import WorkCardMedia from "@/features/projects/components/WorkCardMedia";
 
 export const metadata = { title: "Work" };
@@ -10,6 +11,7 @@ export default async function WorkIndex({
   searchParams: Promise<{ tag?: string }>;
 }) {
   const sp = await searchParams;
+  const { projects } = await readProjectsFresh();
   const visible = publicProjects(projects);
   const tags = allTags(visible);
   const filtered = sp.tag

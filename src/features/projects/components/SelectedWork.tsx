@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { projects, publicProjects, type Project } from "@/entities/project";
+import { publicProjects, type Project } from "@/entities/project";
 import { plainText } from "@/shared/lib/plainText";
 import WorkCardMedia from "./WorkCardMedia";
 
-export default function SelectedWork() {
+export default function SelectedWork({ projects }: { projects: Project[] }) {
   const featured = publicProjects(projects).filter((p) => p.featured);
 
   return (

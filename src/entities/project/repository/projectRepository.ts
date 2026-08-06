@@ -26,18 +26,27 @@ export function readProjects(): Project[] {
   return bundledProjects;
 }
 
-/** admin 화면에서 호출 — 가장 최신 (prod: GitHub, dev: local) */
+/**
+ * 최신 프로젝트 목록을 읽는다 (prod: GitHub, dev: local).
+ *
+ * 공개 페이지에서도 이 함수를 사용한다. GitHub 설정이나 네트워크가 일시적으로
+ * unavailable인 경우에는 마지막으로 배포된 번들 데이터로 안전하게 표시한다.
+ */
 export async function readProjectsFresh(): Promise<{
   projects: Project[];
   sha?: string;
 }> {
   if (isVercel) {
-    const remote = await getJsonFile<Project[]>(REPO_PATH);
-    if (remote) {
-      return {
-        projects: parseProjects(remote.data, `GitHub ${REPO_PATH}`),
-        sha: remote.sha
-      };
+    try {
+      const remote = await getJsonFile<Project[]>(REPO_PATH);
+      if (remote) {
+        return {
+          projects: parseProjects(remote.data, `GitHub ${REPO_PATH}`),
+          sha: remote.sha
+        };
+      }
+    } catch {
+      // 읽기 실패가 공개 사이트 전체 장애로 이어지지 않도록 번들 데이터로 대체한다.
     }
     return { projects: bundledProjects };
   }

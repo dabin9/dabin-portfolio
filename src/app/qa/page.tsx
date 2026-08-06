@@ -1,11 +1,13 @@
-import { projects, publicProjects } from "@/entities/project";
+import { publicProjects } from "@/entities/project";
+import { readProjectsFresh } from "@/entities/project/repository/projectRepository";
 import { getProjectSearchText } from "@/entities/project/model/searchText";
 import QaHeroCopy from "@/features/qa/components/QaHeroCopy";
 import QaSearch from "@/features/qa/components/QaSearch";
 
 export const metadata = { title: "Q&A" };
 
-export default function QaPage() {
+export default async function QaPage() {
+  const { projects } = await readProjectsFresh();
   const searchProjects = publicProjects(projects).map(
     (project) => ({
       slug: project.slug,

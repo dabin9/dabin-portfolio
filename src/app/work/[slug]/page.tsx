@@ -2,11 +2,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
   getProject,
-  projects,
   publicProjects,
   type Project,
   type ProjectMediaItem
 } from "@/entities/project";
+import { readProjectsFresh } from "@/entities/project/repository/projectRepository";
 import BlockRenderer from "@/features/projects/components/BlockRenderer";
 import BlockClientRenderer from "@/features/projects/components/BlockClientRendererLazy";
 import ContributionMeter from "@/features/projects/components/ContributionMeter";
@@ -14,18 +14,15 @@ import ProjectMediaCarousel from "@/features/projects/components/ProjectMediaCar
 
 type Params = { slug: string };
 
-export function generateStaticParams(): Params[] {
-  return publicProjects(projects).map((p) => ({ slug: p.slug }));
-}
-
 export async function generateMetadata({
   params
 }: {
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
-  if (!project) return {};
+  const { projects } = await readProjectsFresh();
+  const project = getProject(slug, projects);
+  if (!project || (project.status ?? "published") !== "published") return {};
   return { title: project.title, description: project.summary };
 }
 
@@ -35,7 +32,8 @@ export default async function ProjectPage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const { projects } = await readProjectsFresh();
+  const project = getProject(slug, projects);
   if (!project) notFound();
   // 비공개/임시저장은 공개 페이지에서 404
   if ((project.status ?? "published") !== "published") notFound();
