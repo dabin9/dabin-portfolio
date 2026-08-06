@@ -581,7 +581,7 @@
       "하드코딩 의존도를 낮춰 유지보수성과 확장성을 개선했습니다."
     ],
     "links": [],
-    "featured": true,
+    "featured": false,
     "ongoing": false,
     "order": 2,
     "status": "private",
